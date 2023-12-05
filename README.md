@@ -1,4 +1,4 @@
-                                          Reward Management System (RMS)
+**Reward Management System (RMS)**
 
 Objective: Reward Management System is a role based NBR project to collect Reward information with proper clarity, prevent reward duplication and digital system of Reward giving procedures.
 
