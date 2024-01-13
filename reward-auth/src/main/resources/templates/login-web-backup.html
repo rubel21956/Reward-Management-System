@@ -1,0 +1,221 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>UMS | User Management System</title>
+    <!--<base href="/">-->
+    <base href=".">
+    <!-- Bootstrap Stylesheet -->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
+    <!-- <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-float-label.min.css}"> -->
+    <!-- Font Stylesheet -->
+    <!-- <link rel="stylesheet" type="text/css" th:href="@{/css/fonts.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome-4.7.0/css/font-awesome.min.css}"> -->
+    <!-- Dashboard Stylesheet -->
+    <!-- <link rel="stylesheet" type="text/css" th:href="@{/css/animation.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/materialdesignicons.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/floating-label.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/label.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/button.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/form-input.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/card.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/image.css}"> -->
+    <!-- Custom Stylesheet -->
+    <!-- <link rel="stylesheet" type="text/css" th:href="@{/css/keyboard.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/responsive.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/web.css}"> -->
+</head>
+<style>
+@font-face {
+    font-family: kite-display;
+    src: url("../static/fonts/kitedisplay/Kite-Display-Bold.ttf");
+}
+@font-face {
+    font-family: trebuchet-ms;
+    src: url("../static/fonts/trebuchet-ms/trebuc.ttf");
+}
+.login-form{
+    height: 100vh;
+}
+.form-container{
+    display: flex;
+    flex-direction: column;
+}
+.nopadding{
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.left-container img{
+    object-fit: cover;
+    width: 100%;
+    height: 100vh;
+}
+.form-header{
+    padding: 30px;
+    background: #15245E;
+}
+.header-logo{
+    width: 80px;
+    height: 80px;
+    display: inline;
+}
+.form-header p{
+    margin: 0 10px 0 10px;
+    font-size: 1.74rem;
+    font-family: trebuchet-ms !important;
+    font-weight: 800;
+    text-align: center;
+    color: #fff;
+    display: inline;
+}
+.short-description{
+    padding-bottom: 30px;
+    font-size: 1.06rem;
+    color: #141414;
+    letter-spacing: 0.3px;
+    line-height: 1.6rem;
+}
+.main-form{
+    font-family: trebuchet-ms;
+    padding: 30px 50px 0 50px;
+    position: relative;
+}
+
+.main-form:after{
+    content: "";
+    background-image: url("../images/customslogo.png");
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.04;
+    z-index: -1;
+}
+.short-description p{
+    text-align: center;
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+label{
+    font-size: 0.86rem;
+    color: #141414;
+    letter-spacing: 0.3px;
+}
+.form-group input{
+    height: 42px;
+    padding: 10px 10px;
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid #5B6288;
+    border-radius: 8px;
+}
+.no-account{
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+}
+.button{
+    padding: 10px 15px;
+    display: block;
+    width: 100%;
+    border-radius: 8px;
+    background: #15245E;
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+}
+a:hover{
+    color: #fff;
+    text-decoration: none;
+}
+.f-pass a:hover{
+color: black;
+text-decoration: underline;
+cursor: pointer;
+}
+</style>
+<body>
+<div class="container-fluid login-form">
+    <div class="row">
+        <div class="col-md-8 nopadding">
+            <div class="left-container">
+                <img src="../images/bg.png" alt="" srcset="">
+            </div>
+        </div>
+        <div class="col-md-4 nopadding">
+            <div class="form-container">
+                <div class="form-header d-flex justify-content-center align-items-center">
+                    <img class="header-logo" src="../images/bdlogo.png" alt="" srcset="">
+                    <p>Bangladesh Customs<br>User Management</p>
+                    <img class="header-logo" src="../images/customslogo.png" alt="" srcset="">
+                </div>
+                <div class="main-form">
+                    <div class="short-description">
+                        <p>User Management System is an online application<br>platform to request for AW user
+                            creation, deactivation,<br>reactivation and transfer.</p>
+                    </div>
+                    <form name="f" th:action="@{/login}" method="post">
+                        <div id="alertDiv" th:if="${param.error}"
+                             class="alert alert-danger alert-dismissible fade show">
+                                        <span class="lang" id="invalid-uid-pass" key="invalid-uid-pass"
+                                              th:utext="${lang} == 'bn'? 'ইউজার আইডি বা পাসওয়ার্ড ভুল হয়েছে' : 'Invalid User ID or Password.'"></span>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="form-group">
+                            <label for="userId">USER ID</label>
+                            <input type="text" id="username" name="username" required minlength="1" placeholder="User ID">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">PASSWORD</label>
+                            <input type="password" id="password" name="password" required tabindex="2" autocomplete="off" placeholder="Password">
+                        </div>
+                        <!--                            <div class="form-group">-->
+                        <!--                                <label for="captcha">CAPTCHA</label>-->
+                        <!--                                <input type="text" placeholder="Captcha">-->
+                        <!--                            </div>-->
+                        <!--                            <label for="captcha">CAPTCHA</label>-->
+                        <button type="submit" class="button mt-4">Log In</button>
+                    </form>
+                    <div class="d-flex justify-content-center align-items-center f-pass">
+                        <a class=" forgot" key="forget" tabindex="4" th:href="@{${forgot}}">Forgot Password?</a>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-start">
+                        <a class="mr-auto forgot button" key="request" tabindex="4" th:href="@{${request}}">
+                            Request for New AW User
+                        </a>
+                    </div>
+                    <!--                        <button class="button">-->
+                    <!--                            <a key="request" tabindex="4" th:href="@{${request}}"-->
+                    <!--                               Request for New AW User></a>-->
+                    <!--                            </button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<p-toast position="bottom-right"></p-toast>
+
+
+<!-- Jquery Script -->
+<script th:src="@{/js/jquery-2.2.4.min.js}" type="text/javascript"></script>
+<!-- Jquery Script UI -->
+<script th:src="@{/js/jquery-ui.min.js}" type="text/javascript"></script>
+<!-- Bootstrap Script -->
+<script th:src="@{/js/bootstrap.min.js}" type="text/javascript"></script>
+<!-- jquery.keyboard.min.js -->
+<script th:src="@{/js/jquery.keyboard.min.js}" type="text/javascript"></script>
+<!-- Custom Script -->
+<script th:src="@{/js/custom.js}" type="text/javascript"></script>
+</body>
+</html>

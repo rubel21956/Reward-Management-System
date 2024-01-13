@@ -1,0 +1,42 @@
+/* ------------ Button ------------ */
+.ib-btn {
+  height: 42px;
+  background: #27AE60;
+  font-size: 14px;
+  padding: 10px 15px;
+  border: 0px;
+}
+
+.ib-btn-border{
+  height: 32px;
+  width: 64px;
+  color: #27AE60;
+  background: transparent;
+  font-size: 13px;
+  padding: 5px;
+  border: 1px solid #27AE60;
+  border-radius: 32px;
+}
+
+.ib-input:focus {
+  box-shadow: none;
+  border: 2px solid #07612d;
+}
+
+.ib-btn:hover {
+  color: #fff;
+  background-color: #07612d;
+  border-color: #07612d;
+}
+
+.ib-btn.disabled,
+.ib-btn:disabled {
+  color: #fff;
+  background-color: #27AE60;
+  border-color: #27AE60;
+}
+
+.btn.disabled,
+.btn:disabled {
+  opacity: .25;
+}

@@ -1,0 +1,70 @@
+/* ------------ Card ------------ */
+.ib-card {
+  background: #f2f2f200;
+  border-radius: 4px;
+  border: 1px solid #E0E0E0;
+}
+
+.ib-card-header {
+  color: #333333;
+  background: #ffffff;
+  font-size: 13px;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 500;
+  padding: 10px 15px;
+  border-bottom: 1px solid #E0E0E0;
+
+}
+
+.ib-card-body {
+  background: #ffffff;
+  font-family: 'Fira Sans', sans-serif;
+  padding: 20px 15px;
+}
+
+.ib-card-body h3 {
+  color: #27AE60;
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 7px;
+}
+
+.ib-card-body h4 {
+  color: #27AE60;
+  font-size: 13px;
+  font-weight: 400;
+  margin-bottom: 2px;
+}
+
+.ib-card-body {
+  
+}
+
+.ib-card-body p {
+  color: #27AE60;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-bottom: 0px;
+}
+
+.ib-card-body h2 {
+  color: #27AE60;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.balance {
+  margin-top: 10px;
+}
+
+.available-balance {
+  color: rgba(105, 105, 105, .5) !important;
+  letter-spacing: 0px !important;
+}
+
+.bdt,
+.decimal-digit {
+  font-size: 12px;
+  font-weight: 400;
+}

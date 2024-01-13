@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'Kalpurush';
+  src: url('static/fonts/Kalpurush/Kalpurush.eot');
+  src: url('static/fonts/Kalpurush/Kalpurush.woff') format('woff'),
+       url('static/fonts/Kalpurush/Kalpurush.ttf') format('truetype'),
+       url('static/fonts/Kalpurush/Kalpurush.svg#Kalpurush') format('svg'),
+       url('static/fonts/Kalpurush/Kalpurush.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}

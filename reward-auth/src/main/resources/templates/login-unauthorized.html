@@ -1,0 +1,42 @@
+
+<!--<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">-->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            height: 100vh;
+        }
+        .unauth-box {
+            width: 400px;
+            height: 400px;
+            background-color: white;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            box-shadow: 0 0 0 rgba(0,0,0,.19), 0 0 5px 2px rgba(0,0,0,.23);
+            border-radius: 3px;
+            font-size: 20px;
+            font-weight: 500;
+            font-family: 'Roboto';
+            color: #444444;
+            padding: 40px;
+        }
+    </style>
+<body>
+    <div class="unauth-box">
+        <p>
+            It appears that you don't have permission to access this page.
+            Please make sure you are authorized to view this page.
+        </p>
+    </div>
+</body>
+</html>
