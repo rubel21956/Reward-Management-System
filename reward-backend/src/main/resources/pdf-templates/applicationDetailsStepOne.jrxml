@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.0.final using JasperReports Library version 6.5.0  -->
+<jasperReport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  bottomMargin="20"
+  columnWidth="572"
+  leftMargin="20" name="AssetList" orientation="Landscape" pageHeight="612" pageWidth="1008" rightMargin="20"
+  topMargin="20" uuid="556557ff-f2a6-4274-b5bf-66a777c7c33a" xmlns="http://jasperreports.sourceforge.net/jasperreports"
+  xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd">
+  <background>
+    <band splitType="Stretch"/>
+  </background>
+  <columnHeader>
+    <band height="62"/>
+  </columnHeader>
+  <detail>
+    <band height="51" splitType="Stretch">
+      <staticText>
+        <box>
+          <bottomPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <leftPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <rightPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <topPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+        </box>
+        <reportElement height="49" uuid="d9741ebe-2eb9-4a87-b93e-642a5b8573f5" width="85" x="265" y="-63"/>
+        <text><![CDATA[ঘটনার সংক্ষিপ্ত বিবরণ / পুরস্কার দাবীর কারণ]]></text>
+        <textElement textAlignment="Center" verticalAlignment="Middle">
+          <font isBold="true"/>
+        </textElement>
+      </staticText>
+      <staticText>
+        <box>
+          <bottomPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <leftPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <rightPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <topPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+        </box>
+        <reportElement height="49" uuid="93f9911f-a4ec-4056-b3b7-82ef46ff9805" width="327" x="351" y="-63"/>
+        <text><![CDATA[আবেদনে দাবিকৃত টাকার বিভাজন]]></text>
+        <textElement textAlignment="Center" verticalAlignment="Middle">
+          <font isBold="true"/>
+        </textElement>
+      </staticText>
+      <staticText>
+        <box>
+          <bottomPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <leftPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <rightPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <topPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+        </box>
+        <reportElement height="49" uuid="c014ff1c-f9e9-4b9b-ba3b-5a21c19a2beb" width="152" x="678" y="-63"/>
+        <text><![CDATA[বি / ই  নম্বর]]></text>
+        <textElement textAlignment="Center" verticalAlignment="Middle">
+          <font isBold="true"/>
+        </textElement>
+      </staticText>
+      <staticText>
+        <box>
+          <bottomPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <leftPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <rightPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <topPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+        </box>
+        <reportElement height="49" uuid="8356b1cd-c1ae-411c-a07a-708796ec093c" width="140" x="830" y="-63"/>
+        <text><![CDATA[মঞ্জুরী কমিটির সুপারিশ]]></text>
+        <textElement textAlignment="Center" verticalAlignment="Middle">
+          <font isBold="true"/>
+        </textElement>
+      </staticText>
+      <staticText>
+        <box>
+          <bottomPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <leftPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <rightPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <topPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+        </box>
+        <reportElement height="49" uuid="720d15d0-58f8-48c9-b95b-dd7f86e2e95e" width="58" x="1" y="-63"/>
+        <text><![CDATA[ক্রমিক]]></text>
+        <textElement textAlignment="Center" verticalAlignment="Middle">
+          <font isBold="true"/>
+        </textElement>
+      </staticText>
+      <staticText>
+        <box>
+          <bottomPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <leftPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <rightPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <topPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+        </box>
+        <reportElement height="49" uuid="4368a459-382a-4188-b40e-4327024e9c3a" width="74" x="191" y="-63"/>
+        <text><![CDATA[প্রতিষ্ঠানের নাম ও ঠিকানা]]></text>
+        <textElement textAlignment="Center" verticalAlignment="Middle">
+          <font isBold="true"/>
+        </textElement>
+      </staticText>
+      <staticText>
+        <box>
+          <bottomPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <leftPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <rightPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <topPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+        </box>
+        <reportElement height="49" uuid="9f1991bc-0a00-4672-bd79-0e1bd699d754" width="62" x="129" y="-63"/>
+        <text><![CDATA[জাতীয় রাজস্ব বোর্ডের নথি নং]]></text>
+        <textElement textAlignment="Center" verticalAlignment="Middle">
+          <font isBold="true"/>
+        </textElement>
+      </staticText>
+      <staticText>
+        <box>
+          <bottomPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <leftPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <rightPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <topPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+        </box>
+        <reportElement height="49" uuid="d35c2e10-9a2e-4074-9493-613102fb2c86" width="70" x="59" y="-63"/>
+        <text><![CDATA[কাস্টমস পুরস্কার নথি ক্রম]]></text>
+        <textElement textAlignment="Center" verticalAlignment="Middle">
+          <font isBold="true"/>
+        </textElement>
+      </staticText>
+      <staticText>
+        <box>
+          <bottomPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <leftPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <rightPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <topPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+        </box>
+        <reportElement height="14" uuid="febf85b5-ddf2-4a8d-b831-cc1a0a8779f1" width="85" x="265" y="-14"/>
+        <text><![CDATA[[৫]]]></text>
+        <textElement textAlignment="Center" verticalAlignment="Middle">
+          <font isBold="true"/>
+        </textElement>
+      </staticText>
+      <staticText>
+        <box>
+          <bottomPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <leftPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <rightPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <topPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+        </box>
+        <reportElement height="14" uuid="e5782b8c-9f38-4f1e-b585-55c8a6012d5f" width="160" x="351" y="-14"/>
+        <text><![CDATA[[৬]]]></text>
+        <textElement textAlignment="Center" verticalAlignment="Middle">
+          <font isBold="true"/>
+        </textElement>
+      </staticText>
+      <staticText>
+        <box>
+          <bottomPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <leftPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <rightPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <topPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+        </box>
+        <reportElement height="14" uuid="487660a4-68dc-4019-ab0f-97b6ecb642db" width="152" x="678" y="-14"/>
+        <text><![CDATA[[৮]]]></text>
+        <textElement textAlignment="Center" verticalAlignment="Middle">
+          <font isBold="true"/>
+        </textElement>
+      </staticText>
+      <staticText>
+        <box>
+          <bottomPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <leftPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <rightPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <topPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+        </box>
+        <reportElement height="14" uuid="f0ae8bd7-1f1e-45bf-b3ac-71f201398def" width="140" x="830" y="-14"/>
+        <text><![CDATA[[৯]]]></text>
+        <textElement textAlignment="Center" verticalAlignment="Middle">
+          <font isBold="true"/>
+        </textElement>
+      </staticText>
+      <staticText>
+        <box>
+          <bottomPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <leftPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <rightPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <topPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+        </box>
+        <reportElement height="14" uuid="f7c0375d-23f7-4865-85da-bb694edcdb0a" width="74" x="191" y="-14"/>
+        <text><![CDATA[[৪]]]></text>
+        <textElement textAlignment="Center" verticalAlignment="Middle">
+          <font isBold="true"/>
+        </textElement>
+      </staticText>
+      <staticText>
+        <box>
+          <bottomPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <leftPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <rightPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <topPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+        </box>
+        <reportElement height="14" uuid="6850af3b-b9cb-4f8c-88c0-7499e9fdee7b" width="62" x="129" y="-14"/>
+        <text><![CDATA[[৩]]]></text>
+        <textElement textAlignment="Center" verticalAlignment="Middle">
+          <font isBold="true"/>
+        </textElement>
+      </staticText>
+      <staticText>
+        <box>
+          <bottomPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <leftPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <rightPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <topPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+        </box>
+        <reportElement height="14" uuid="c311ee36-dace-4f6c-b6f8-2a7e0d094c36" width="70" x="59" y="-14"/>
+        <text><![CDATA[[২]]]></text>
+        <textElement textAlignment="Center" verticalAlignment="Middle">
+          <font isBold="true"/>
+        </textElement>
+      </staticText>
+      <staticText>
+        <box>
+          <bottomPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <leftPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <rightPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <topPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+        </box>
+        <reportElement height="14" uuid="18f13d52-009d-4385-8b23-2eb3180e5c44" width="58" x="1" y="-14"/>
+        <text><![CDATA[[১]]]></text>
+        <textElement textAlignment="Center" verticalAlignment="Middle">
+          <font isBold="true"/>
+        </textElement>
+      </staticText>
+      <staticText>
+        <box>
+          <bottomPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <leftPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <rightPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <topPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+        </box>
+        <reportElement height="14" uuid="d0f49f6e-8b4f-4227-a0b5-ba914dd03f6f" width="168" x="511" y="-14"/>
+        <text><![CDATA[[৭]]]></text>
+        <textElement textAlignment="Center" verticalAlignment="Middle">
+          <font isBold="true"/>
+        </textElement>
+      </staticText>
+      <textField>
+        <box>
+          <bottomPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <leftPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <rightPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <topPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+        </box>
+        <reportElement height="51" uuid="b29ed800-dc97-453b-818a-61109541a18d" width="58" x="1" y="0"/>
+        <textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <box>
+          <bottomPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <leftPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <rightPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <topPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+        </box>
+        <reportElement height="51" uuid="789e4d98-b2a7-4e09-9ca5-97c0ac19ced3" width="70" x="59" y="0"/>
+        <textFieldExpression><![CDATA[$P{customsRewardFileNumber}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <box>
+          <bottomPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <leftPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <rightPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <topPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+        </box>
+        <reportElement height="51" uuid="b1853bc6-5bb8-46e9-977b-c48bc008113a" width="62" x="129" y="0"/>
+        <textFieldExpression><![CDATA[$P{nbrRewardFileNumber}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <box>
+          <bottomPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <leftPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <rightPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <topPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+        </box>
+        <reportElement height="51" uuid="40657b23-c610-4592-b731-5cb9dc2c1c47" width="74" x="191" y="0"/>
+        <textFieldExpression><![CDATA[$P{applyingOfficeName}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <box>
+          <bottomPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <leftPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <rightPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <topPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+        </box>
+        <reportElement height="51" uuid="6bd54d57-b908-42ae-bc7e-59f9ebb29fac" width="85" x="265" y="0"/>
+        <textFieldExpression><![CDATA[$P{anomalyReason}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <box>
+          <bottomPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <leftPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <rightPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <topPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+        </box>
+        <reportElement height="51" uuid="02a4fd7c-d662-43e0-8a11-e5d299a794b9" width="167" x="511" y="0"/>
+        <textFieldExpression><![CDATA[$F{appliedRewardAmount}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <box>
+          <bottomPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <leftPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <rightPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <topPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+        </box>
+        <reportElement height="51" uuid="16b6c8a4-5f21-4795-b03e-15a91fac8853" width="160" x="351" y="0"/>
+        <textFieldExpression><![CDATA[$F{employeeName}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <box>
+          <bottomPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <leftPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <rightPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <topPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+        </box>
+        <reportElement height="51" uuid="40d8152b-795c-4ebf-8887-b43bcdf368ac" width="152" x="678" y="0"/>
+        <textFieldExpression><![CDATA[$P{billOfEntryNo}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <box>
+          <bottomPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <leftPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <rightPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+          <topPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>
+        </box>
+        <reportElement height="51" uuid="3cd5820f-831b-4ec9-b72b-0cacbb7411ef" width="140" x="830" y="0"/>
+      </textField>
+    </band>
+  </detail>
+  <field class="java.lang.String" name="employeeName"/>
+  <field class="java.lang.String" name="appliedRewardAmount"/>
+  <field class="java.lang.String" name="rewardedAmount"/>
+  <pageFooter>
+    <band height="12" splitType="Stretch">
+      <staticText>
+        <reportElement height="10" uuid="8d553fc5-b856-47a7-b505-2723103f8a89" width="356" x="1" y="2"/>
+        <text><![CDATA[রিওয়ার্ড ম্যানেজমেন্ট সিস্টেম, জাতীয় রাজস্ব বোর্ড।]]></text>
+        <textElement>
+          <font size="8"/>
+        </textElement>
+      </staticText>
+      <textField evaluationTime="Report">
+        <reportElement height="10" uuid="016d3b02-5bde-4bd1-8089-dece0d554066" width="112" x="526" y="2"/>
+        <textElement textAlignment="Left" verticalAlignment="Middle">
+          <font fontName="SansSerif" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA["of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement height="10" uuid="4cf35488-0199-47ae-97ae-457e61b5ab74" width="122" x="481" y="2"/>
+        <textElement textAlignment="Right" verticalAlignment="Middle">
+          <font fontName="SansSerif" size="8"/>
+        </textElement>
+        <textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+      </textField>
+    </band>
+  </pageFooter>
+  <parameter class="java.lang.String" name="customsRewardFileNumber"/>
+  <parameter class="java.lang.String" name="nbrRewardFileNumber"/>
+  <parameter class="java.lang.String" name="applyingOfficeName"/>
+  <parameter class="java.lang.String" name="anomalyReason"/>
+  <parameter class="java.lang.String" name="billOfEntryNo"/>
+  <parameter class="java.lang.String" name="suggestionStatus"/>
+  <parameter class="java.lang.String" name="totalRewardedAmount"/>
+  <property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+  <property name="net.sf.jasperreports.print.keep.full.text" value="true"/>
+  <property name="com.jaspersoft.studio.unit." value="pixel"/>
+  <property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+  <property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+  <property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+  <property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+  <property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+  <property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+  <property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+  <property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+  <queryString>
+    <![CDATA[]]>
+  </queryString>
+  <subDataset name="Dataset1" uuid="45d265e8-67d1-437e-8281-3432e4948885">
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+    <queryString>
+      <![CDATA[]]>
+    </queryString>
+  </subDataset>
+  <title>
+    <band height="31" splitType="Stretch">
+      <line>
+        <reportElement forecolor="#BABABA" height="1" uuid="dabaf12d-fbba-412d-8468-1f65e860ac0a" width="968" x="1"
+          y="30">
+          <property name="com.jaspersoft.studio.unit.height" value="px"/>
+          <property name="com.jaspersoft.studio.unit.y" value="px"/>
+        </reportElement>
+      </line>
+      <staticText>
+        <!--        <box>-->
+        <!--          <bottomPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>-->
+        <!--          <leftPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>-->
+        <!--          <rightPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>-->
+        <!--          <topPen lineColor="#000000" lineStyle="Solid" lineWidth="1.0"/>-->
+        <!--        </box>-->
+        <reportElement height="20" uuid="47d2600a-c245-45c6-84a6-24333e255a20" width="968" x="1" y="8"/>
+        <text>
+          <![CDATA[শুল্ক (পুরষ্কার মঞ্জুরি) বিধিমালা, ২০০৯ এর আওতায় ২০২২ সালে প্রাপ্ত পুরষ্কারের আবেদনের বিপরীতে মঞ্জুরির লক্ষে পুরষ্কারের অর্থ বিভাজনের সুপারিশ ]]></text>
+        <textElement textAlignment="Center">
+          <font fontName="SansSerif" isBold="true" size="14"/>
+        </textElement>
+      </staticText>
+    </band>
+  </title>
+</jasperReport>

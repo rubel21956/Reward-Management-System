@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.0.final using JasperReports Library version 6.5.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="AssetList" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="556557ff-f2a6-4274-b5bf-66a777c7c33a">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="net.sf.jasperreports.print.keep.full.text" value="true"/>
+	<subDataset name="Dataset1" uuid="45d265e8-67d1-437e-8281-3432e4948885">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<parameter name="customsRewardFileNumber" class="java.lang.String"/>
+	<parameter name="nbrRewardFileNumber" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="121" splitType="Stretch">
+			<staticText>
+				<reportElement x="110" y="101" width="330" height="20" uuid="47d2600a-c245-45c6-84a6-24333e255a20"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Applicant's AW User Profile]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="94" width="554" height="1" forecolor="#BABABA" uuid="ffd8f107-b071-4af6-82a7-1ab52bc328a1">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+			</line>
+			<staticText>
+				<reportElement x="110" y="64" width="330" height="20" uuid="f0060b89-439c-4e1c-a5aa-6717bc2e0aff"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dhaka-1000, Bangladesh]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="110" y="36" width="330" height="27" uuid="b385aba4-f8c5-4143-a1af-a1d0bc0e6071">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nbrRewardFileNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="10" width="330" height="22" uuid="4e8155c7-4ae3-4773-87f2-1c46f16a7709">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="SansSerif" size="16" isBold="true" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{customsRewardFileNumber}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="8"/>
+	</columnHeader>
+	<detail>
+		<band height="82" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="74af2230-2295-420f-a99d-94d23e42ef7e"/>
+				<graphicElement>
+					<pen lineColor="#BABABA"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="12" splitType="Stretch">
+			<textField>
+				<reportElement x="480" y="2" width="40" height="10" uuid="4cf35488-0199-47ae-97ae-457e61b5ab74"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="525" y="2" width="30" height="10" uuid="016d3b02-5bde-4bd1-8089-dece0d554066"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="2" width="356" height="10" uuid="8d553fc5-b856-47a7-b505-2723103f8a89"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[USER MANAGEMENT SYSTEM | NATIONAL BOARD OF REVENUE]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.0.final using JasperReports Library version 6.5.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reward_allocation" pageWidth="316" pageHeight="120" columnWidth="276" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="33ed3b77-5653-4af4-89eb-957998054c05">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="employeeName" class="java.lang.String"/>
+	<field name="appliedRewardAmount" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="-20" y="0" width="206" height="20" uuid="6fdcf496-5d29-43da-ba06-abf85e658add"/>
+				<box>
+					<topPen lineWidth="1.0" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineColor="#969292"/>
+					<bottomPen lineWidth="1.0" lineColor="#969292"/>
+					<rightPen lineWidth="1.0" lineColor="#969292"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employeeName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="186" y="0" width="110" height="20" uuid="701afd72-01f3-4958-a36f-4c2516f80719"/>
+				<box>
+					<topPen lineWidth="1.0" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineColor="#969292"/>
+					<bottomPen lineWidth="1.0" lineColor="#969292"/>
+					<rightPen lineWidth="1.0" lineColor="#969292"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{appliedRewardAmount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

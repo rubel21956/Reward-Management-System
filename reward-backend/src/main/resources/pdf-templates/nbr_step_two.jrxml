@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.5.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="AssetList" pageWidth="1020" pageHeight="595" orientation="Landscape" columnWidth="980" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="556557ff-f2a6-4274-b5bf-66a777c7c33a">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="net.sf.jasperreports.print.keep.full.text" value="true"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<subDataset name="Dataset1" uuid="45d265e8-67d1-437e-8281-3432e4948885">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<parameter name="applyingOfficeName" class="java.lang.String"/>
+	<parameter name="nbrRewardFileNumber" class="java.lang.String"/>
+	<parameter name="customsRewardFileNumber" class="java.lang.String"/>
+	<parameter name="anomalyReason" class="java.lang.String"/>
+	<parameter name="billOfEntryNo" class="java.lang.String"/>
+	<parameter name="rewardableAmount" class="java.lang.String"/>
+	<parameter name="suggestionStatus" class="java.lang.String"/>
+	<parameter name="accusedCompany" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="employeeName" class="java.lang.String"/>
+	<field name="appliedRewardAmount" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="27" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="7" width="979" height="20" uuid="8f2d7361-f22d-43c3-8bd0-f4d7548ae994"/>
+				<box>
+					<topPen lineWidth="1.0" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineColor="#969292"/>
+					<bottomPen lineWidth="1.0" lineColor="#969292"/>
+					<rightPen lineWidth="1.0" lineColor="#969292"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SolaimanLipi" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["শুল্ক (পুরষ্কার মঞ্জুরী) বিধিমালা, ২০০৯ এর আওতায় ২০২২ সালে প্রাপ্ত পুরষ্কারের আবেদনের বিপরীতে মঞ্জুরীর লক্ষে পুরষ্কারের অর্থ বিভাজনের সুপারিশ। ("+$P{applyingOfficeName}+"।)"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="55">
+			<staticText>
+				<reportElement mode="Opaque" x="70" y="0" width="99" height="40" forecolor="#000000" backcolor="#FFFFFF" uuid="06f18600-f91f-4487-8d64-b4c874895442">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2a8a3e21-e2a0-4a11-9ade-5160b6b9c889"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<pen lineWidth="1.5" lineColor="#969292"/>
+					<topPen lineWidth="1.5" lineStyle="Solid" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+					<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#969292"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SolaimanLipi" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[কাস্টমস পুরষ্কার নথি ক্রম]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="169" y="0" width="90" height="40" forecolor="#000000" backcolor="#FFFFFF" uuid="ceb0c651-dfb1-41fb-bde1-b56761a37bc3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4bf01a0f-db77-4abd-b889-4502b85d1e64"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<pen lineWidth="1.5" lineColor="#969292"/>
+					<topPen lineWidth="1.5" lineStyle="Solid" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+					<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#969292"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SolaimanLipi" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[জাতীয় রাজস্ব বোর্ডের নথি নং]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="259" y="0" width="80" height="40" forecolor="#000000" backcolor="#FFFFFF" uuid="9b840c90-b808-46f9-8c59-6a808885cd45">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7a8ec61b-dcb2-4148-857a-a384c07e6b06"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<pen lineWidth="1.5" lineColor="#969292"/>
+					<topPen lineWidth="1.5" lineStyle="Solid" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+					<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#969292"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SolaimanLipi" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[প্রতিষ্ঠানের নাম ও ঠিকানা]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="519" y="0" width="298" height="40" forecolor="#000000" backcolor="#FFFFFF" uuid="fd6677b2-cfa3-4bac-808d-b0170f238807">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9efe1662-d9b9-4144-999b-c069e46453fb"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<pen lineWidth="1.5" lineColor="#969292"/>
+					<topPen lineWidth="1.5" lineStyle="Solid" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+					<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#969292"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SolaimanLipi" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[আবেদনে দাবিকৃত টাকার বিভাজন]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="70" height="40" forecolor="#000000" backcolor="#FFFFFF" uuid="08efaa36-7393-471e-839c-33499eca2c51">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2a8a3e21-e2a0-4a11-9ade-5160b6b9c889"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<pen lineWidth="1.5" lineColor="#969292"/>
+					<topPen lineWidth="1.5" lineStyle="Solid" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+					<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#969292"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SolaimanLipi" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ক্রমিক]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="817" y="0" width="83" height="40" forecolor="#000000" backcolor="#FFFFFF" uuid="4436af35-7d75-46f9-9c8c-4d1b9fd718d6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ab44074b-13ec-4971-95af-23372afe9b64"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<pen lineWidth="1.5" lineColor="#969292"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+					<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#969292"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SolaimanLipi" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[বি / ই  নম্বর]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="340" y="0" width="178" height="40" forecolor="#000000" backcolor="#FFFFFF" uuid="7a6a6daa-eb27-4ae8-aff7-5b2140760286">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7a8ec61b-dcb2-4148-857a-a384c07e6b06"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<pen lineWidth="1.5" lineColor="#969292"/>
+					<topPen lineWidth="1.5" lineStyle="Solid" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+					<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#969292"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SolaimanLipi" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ঘটনার সংক্ষিপ্ত বিবরণ / পুরষ্কার দাবীর কারণ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="519" y="40" width="188" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="ed1f7d65-c0ef-4af2-84b4-9cec51693b34">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9efe1662-d9b9-4144-999b-c069e46453fb"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<pen lineWidth="1.5" lineColor="#969292"/>
+					<topPen lineWidth="1.5" lineStyle="Solid" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+					<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#969292"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SolaimanLipi" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[[৬]]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="817" y="40" width="83" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="c6151cf8-4998-4145-ab81-fdb876ea5e05">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ab44074b-13ec-4971-95af-23372afe9b64"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<pen lineWidth="1.5" lineColor="#969292"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+					<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#969292"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SolaimanLipi" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[[৮]]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="340" y="40" width="178" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="d90532bd-60cf-41bb-acc5-b75c3d264534">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7a8ec61b-dcb2-4148-857a-a384c07e6b06"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<pen lineWidth="1.5" lineColor="#969292"/>
+					<topPen lineWidth="1.5" lineStyle="Solid" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+					<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#969292"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SolaimanLipi" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[[৫]]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="259" y="40" width="80" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="3fe25575-03ce-4402-be39-ee6018a69585">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7a8ec61b-dcb2-4148-857a-a384c07e6b06"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<pen lineWidth="1.5" lineColor="#969292"/>
+					<topPen lineWidth="1.5" lineStyle="Solid" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+					<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#969292"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SolaimanLipi" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[[৪]]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="169" y="40" width="90" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="340ad36a-6f83-40e4-8980-fe196a455458">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4bf01a0f-db77-4abd-b889-4502b85d1e64"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<pen lineWidth="1.5" lineColor="#969292"/>
+					<topPen lineWidth="1.5" lineStyle="Solid" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+					<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#969292"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SolaimanLipi" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[[৩]]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="70" y="40" width="99" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="57d13908-ba16-4483-a1ba-a2e9982fc65e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2a8a3e21-e2a0-4a11-9ade-5160b6b9c889"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<pen lineWidth="1.5" lineColor="#969292"/>
+					<topPen lineWidth="1.5" lineStyle="Solid" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+					<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#969292"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SolaimanLipi" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[[২]]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="40" width="70" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="cdd72a1f-a700-4298-8231-d5d165ff8323">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2a8a3e21-e2a0-4a11-9ade-5160b6b9c889"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<pen lineWidth="1.5" lineColor="#969292"/>
+					<topPen lineWidth="1.5" lineStyle="Solid" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+					<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#969292"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SolaimanLipi" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[[১]]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="707" y="40" width="110" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="f9191625-251b-43ea-970a-c34736e05de0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9efe1662-d9b9-4144-999b-c069e46453fb"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<pen lineWidth="1.5" lineColor="#969292"/>
+					<topPen lineWidth="1.5" lineStyle="Solid" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+					<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#969292"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SolaimanLipi" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[[৭]]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="900" y="0" width="79" height="40" forecolor="#000000" backcolor="#FFFFFF" uuid="9ce72077-46e6-4838-be74-47d9abfebab9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ab44074b-13ec-4971-95af-23372afe9b64"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<pen lineWidth="1.5" lineColor="#969292"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+					<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#969292"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SolaimanLipi" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[মঞ্জুরী কমিটির সুপারিশ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="900" y="40" width="79" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="0e74f532-99b4-484c-a38a-91e7191afd7e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ab44074b-13ec-4971-95af-23372afe9b64"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2">
+					<pen lineWidth="1.5" lineColor="#969292"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+					<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#969292"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#969292"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SolaimanLipi" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[[৯]]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="519" y="0" width="188" height="20" uuid="1a42b39e-0bb3-4c9e-a663-6b550d04a594"/>
+				<box>
+					<topPen lineWidth="1.0" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineColor="#969292"/>
+					<bottomPen lineWidth="1.0" lineColor="#969292"/>
+					<rightPen lineWidth="1.0" lineColor="#969292"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employeeName}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="ContainerBottom" isPrintRepeatedValues="false" x="817" y="0" width="83" height="20" isPrintInFirstWholeBand="true" uuid="1d49d647-7af2-49ff-ae99-861a037c6b0a"/>
+				<box>
+					<topPen lineWidth="1.0" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineColor="#FFFFFF"/>
+					<bottomPen lineWidth="1.0" lineColor="#FFFFFF"/>
+					<rightPen lineWidth="1.0" lineColor="#FFFFFF"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{billOfEntryNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="707" y="0" width="110" height="20" uuid="ccd4da46-9d45-4e8b-a34b-62826b6bfe01"/>
+				<box>
+					<topPen lineWidth="1.0" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineColor="#969292"/>
+					<bottomPen lineWidth="1.0" lineColor="#969292"/>
+					<rightPen lineWidth="1.0" lineColor="#969292"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{appliedRewardAmount}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" isPrintRepeatedValues="false" x="0" y="0" width="70" height="20" isPrintInFirstWholeBand="true" uuid="535e5cd8-e271-4578-b701-426816bc46cb"/>
+				<box>
+					<topPen lineWidth="1.0" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineColor="#FFFFFF"/>
+					<bottomPen lineWidth="1.0" lineColor="#FFFFFF"/>
+					<rightPen lineWidth="1.0" lineColor="#FFFFFF"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="ContainerBottom" isPrintRepeatedValues="false" x="70" y="0" width="99" height="20" isPrintInFirstWholeBand="true" uuid="63450cc0-ce01-45bb-b42f-e2fec27d0523"/>
+				<box>
+					<topPen lineWidth="1.0" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineColor="#FFFFFF"/>
+					<bottomPen lineWidth="1.0" lineColor="#FFFFFF"/>
+					<rightPen lineWidth="1.0" lineColor="#FFFFFF"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{customsRewardFileNumber}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="ContainerBottom" isPrintRepeatedValues="false" x="169" y="0" width="90" height="20" isPrintInFirstWholeBand="true" uuid="d9a3430c-3757-4105-bdc1-0ffb36552367"/>
+				<box>
+					<topPen lineWidth="1.0" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineColor="#FFFFFF"/>
+					<bottomPen lineWidth="1.0" lineColor="#FFFFFF"/>
+					<rightPen lineWidth="1.0" lineColor="#FFFFFF"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nbrRewardFileNumber}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="ContainerBottom" isPrintRepeatedValues="false" x="259" y="0" width="80" height="20" isPrintInFirstWholeBand="true" uuid="50fc42c9-4e73-42eb-85c0-711cd2c35140"/>
+				<box>
+					<topPen lineWidth="1.0" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineColor="#FFFFFF"/>
+					<bottomPen lineWidth="1.0" lineColor="#FFFFFF"/>
+					<rightPen lineWidth="1.0" lineColor="#FFFFFF"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{accusedCompany}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement key="" stretchType="ElementGroupBottom" isPrintRepeatedValues="false" x="339" y="0" width="179" height="20" isPrintInFirstWholeBand="true" uuid="970ee533-0d24-4b83-a074-c937bd6e0b19"/>
+				<box>
+					<topPen lineWidth="1.0" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineColor="#FFFFFF"/>
+					<bottomPen lineWidth="1.0" lineColor="#FFFFFF"/>
+					<rightPen lineWidth="1.0" lineColor="#FFFFFF"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{anomalyReason}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="ContainerBottom" isPrintRepeatedValues="false" x="900" y="0" width="79" height="20" isPrintInFirstWholeBand="true" uuid="e22323dd-5277-415c-b1a1-440e2ae4cbb3"/>
+				<box>
+					<topPen lineWidth="1.0" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineColor="#FFFFFF"/>
+					<bottomPen lineWidth="1.0" lineColor="#FFFFFF"/>
+					<rightPen lineWidth="1.0" lineColor="#FFFFFF"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{suggestionStatus}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement stretchType="ContainerHeight" x="-1" y="0" width="1" height="21" forecolor="#969292" uuid="499bbc4a-86d8-482a-9eba-b3d3aa090864"/>
+			</line>
+			<line>
+				<reportElement stretchType="ContainerHeight" x="979" y="0" width="1" height="21" forecolor="#969292" uuid="490a4c57-99e4-44b6-93bf-bede1f07b4c0"/>
+			</line>
+			<line>
+				<reportElement stretchType="ContainerHeight" x="706" y="0" width="1" height="20" forecolor="#969292" uuid="0382e1a5-92db-4cf9-bc69-10c8a4668c46"/>
+			</line>
+			<line>
+				<reportElement stretchType="ContainerHeight" x="169" y="0" width="1" height="21" forecolor="#969292" uuid="1e649169-f204-4377-942f-3bcf2eddfcac"/>
+			</line>
+			<line>
+				<reportElement stretchType="ContainerHeight" x="70" y="0" width="1" height="21" forecolor="#969292" uuid="1a0a8ecd-03c3-49a4-b83f-3dfb78860b8b"/>
+			</line>
+			<line>
+				<reportElement stretchType="ContainerHeight" x="259" y="0" width="1" height="21" forecolor="#969292" uuid="5a782ee6-ba68-4c2b-93f3-03dd1f0a9f7a"/>
+			</line>
+			<line>
+				<reportElement stretchType="ContainerHeight" x="339" y="0" width="1" height="21" forecolor="#969292" uuid="575815fa-24e6-409b-a03d-f7cc64392579"/>
+			</line>
+			<line>
+				<reportElement stretchType="ContainerHeight" x="899" y="0" width="1" height="21" forecolor="#969292" uuid="c6887101-fde4-4ca5-887a-caac40754871"/>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="850" y="0" width="40" height="20" uuid="8fe4e714-8fa7-4554-bbf5-b78b0c0465ed"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SolaimanLipi" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["পৃষ্ঠা " + ($V{PAGE_NUMBER} == 1 ? "১" : $V{PAGE_NUMBER} == 2 ? "২" : $V{PAGE_NUMBER} == 3 ? "৩" :  $V{PAGE_NUMBER})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="0" width="356" height="20" uuid="040d2e79-ab41-4a1b-ade5-612a3d9de670"/>
+				<textElement markup="none">
+					<font fontName="SolaimanLipi" size="8"/>
+				</textElement>
+				<text><![CDATA[রিওয়ার্ড ম্যানেজমেন্ট সিস্টেম, জাতীয় রাজস্ব বোর্ড।]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="2" width="979" height="1" forecolor="#BABABA" uuid="8cb47ef0-6c79-43f8-8ace-d018cefe4614">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+			</line>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="701" y="3" width="149" height="20" uuid="a444ddc1-439f-40ac-941d-487d62dbd3ce"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="20">
+			<line>
+				<reportElement x="0" y="-1" width="979" height="1" forecolor="#BABABA" uuid="e5769e10-de0a-4f12-889e-eb911b738419">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement stretchType="ContainerHeight" x="979" y="0" width="1" height="20" forecolor="#969292" uuid="3482fe2c-ad07-4278-898e-50dc60059be3"/>
+			</line>
+			<line>
+				<reportElement x="0" y="19" width="979" height="1" forecolor="#BABABA" uuid="bfad9c38-353b-4347-b09a-482464f5f909">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement stretchType="ContainerHeight" x="-1" y="0" width="1" height="20" forecolor="#969292" uuid="45f67ccf-8a2a-4591-9ed5-60a369f0ad8b"/>
+			</line>
+			<staticText>
+				<reportElement x="519" y="0" width="188" height="19" uuid="c4f7f522-6641-42e5-b7f5-8a93093c6543"/>
+				<box>
+					<topPen lineWidth="1.0" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineColor="#969292"/>
+					<bottomPen lineWidth="1.0" lineColor="#969292"/>
+					<rightPen lineWidth="1.0" lineColor="#969292"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<text><![CDATA[সর্বমোট]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="707" y="0" width="110" height="19" uuid="784c3ced-2bb6-4247-9eb3-2b83a66e48fd"/>
+				<box>
+					<topPen lineWidth="1.0" lineColor="#969292"/>
+					<leftPen lineWidth="1.0" lineColor="#969292"/>
+					<bottomPen lineWidth="1.0" lineColor="#969292"/>
+					<rightPen lineWidth="1.0" lineColor="#969292"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="SolaimanLipi"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{rewardableAmount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

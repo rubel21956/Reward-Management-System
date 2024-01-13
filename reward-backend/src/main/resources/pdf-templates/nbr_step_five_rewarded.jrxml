@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.5.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="481" leftMargin="57" rightMargin="57" topMargin="57" bottomMargin="57" uuid="0979337a-3030-48e0-b047-0e35aec5d097">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#EEEFF0"/>
+		</conditionalStyle>
+	</style>
+	<style name="Table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+			<topPen lineWidth="1.0" lineColor="#000000"/>
+			<leftPen lineWidth="1.0" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0" lineColor="#000000"/>
+			<rightPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#CACED0">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#D8D8D8"/>
+		</conditionalStyle>
+	</style>
+	<style name="Table 1_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_CH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="TableData" uuid="630724b5-a42d-4d13-abbe-0eb767d8a763">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="employeeName" class="java.lang.String"/>
+		<field name="designation" class="java.lang.String"/>
+		<field name="rewardedAmount" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="nbrRewardFileNumber" class="java.lang.String"/>
+	<parameter name="officeName" class="java.lang.String"/>
+	<parameter name="officeAddress" class="java.lang.String"/>
+	<parameter name="applicationDate" class="java.lang.String"/>
+	<parameter name="referenceNo" class="java.lang.String"/>
+	<parameter name="billOfEntryNo" class="java.lang.String"/>
+	<parameter name="customsAwardSanctioningCommittee" class="java.lang.String"/>
+	<parameter name="appealOrderNo" class="java.lang.String"/>
+	<parameter name="anomalyCaptureDate" class="java.lang.String"/>
+	<parameter name="currentDate" class="java.lang.String"/>
+	<parameter name="rewardAmountEntities" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="totalRewardedAmount" class="java.lang.String"/>
+	<parameter name="fiscalYear" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<title>
+		<band height="610" splitType="Immediate">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="530" height="610" uuid="7aab3066-8f88-4626-9f95-7484afbc55a5"/>
+				<staticText>
+					<reportElement x="0" y="41" width="481" height="25" uuid="69f73ae7-c445-4a8d-8495-def809ac9e51"/>
+					<textElement textAlignment="Center">
+						<font fontName="SolaimanLipi" size="14"/>
+					</textElement>
+					<text><![CDATA[আগারগাঁও, ঢাকা।	]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="21" width="481" height="25" uuid="1153f632-00e2-48ec-b897-dffbb71b943c"/>
+					<textElement textAlignment="Center">
+						<font fontName="SolaimanLipi" size="14"/>
+					</textElement>
+					<text><![CDATA[জাতীয় রাজস্ব বোর্ড]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="0" width="481" height="25" uuid="0d75edf2-8da8-4d88-aa55-30b18ab5dd73"/>
+					<textElement textAlignment="Center">
+						<font fontName="SolaimanLipi" size="14"/>
+					</textElement>
+					<text><![CDATA[গণপ্রজাতন্ত্রী বাংলাদেশ সরকার]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="377" y="78" width="104" height="20" uuid="a19cf45f-6e8e-4f79-8a63-fbcb61414caf"/>
+					<textElement textAlignment="Right">
+						<font fontName="SolaimanLipi" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA["তারিখ: " + $P{applicationDate}+" খ্রি:"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="0" y="78" width="377" height="20" uuid="f3c0407a-3280-498c-ae95-affd5d331263"/>
+					<textElement textAlignment="Left">
+						<font fontName="SolaimanLipi" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA["নথি নং- " + $P{nbrRewardFileNumber}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="107" width="35" height="30" uuid="342ec615-e395-4e08-8b78-be4d11f8d8aa"/>
+					<textElement>
+						<font fontName="SolaimanLipi" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[বিষয়: ]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement positionType="Float" x="35" y="107" width="495" height="35" uuid="cd8211ac-ea0c-42d5-8a3f-8fc610662d3e"/>
+					<textElement textAlignment="Left" markup="styled">
+						<font fontName="SolaimanLipi" size="12" isBold="true"/>
+						<paragraph lineSpacing="1_1_2"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{fiscalYear}+"  অর্থবছরের  বাজেটে  ৩২১১- প্রশাসনিক  ব্যয়  খাতের  অধীনে  ৩২১১১০১- পুরস্কার  উপখাতের বরাদ্দ থেকে শুল্ক (পুরস্কার মঞ্জুরী) বিধিমালা, ২০০৯ এর আওতায় পুরস্কার মঞ্জুরী আদেশ।"]]></textFieldExpression>
+				</textField>
+				<frame>
+					<reportElement positionType="Float" x="0" y="154" width="481" height="60" uuid="f939fc27-a8d8-4b21-af49-497592ed2d04"/>
+					<textField isStretchWithOverflow="true">
+						<reportElement positionType="Float" x="35" y="43" width="446" height="20" uuid="89575281-74b4-4685-a48b-a9ba61b099bd"/>
+						<textElement textAlignment="Left" markup="html">
+							<font fontName="SolaimanLipi" size="12" isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA["(৩) শুল্ক পুরস্কার মঞ্জুরী কমিটির "+ $P{customsAwardSanctioningCommittee}+ " খ্রি: তারিখে অনুষ্ঠিত  সভার সুপারিশ।"]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true">
+						<reportElement positionType="Float" x="35" y="3" width="446" height="20" uuid="81ad19fd-4875-414f-aa52-26038862fbc3"/>
+						<textElement textAlignment="Left" markup="html">
+							<font fontName="SolaimanLipi" size="12" isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA["(১) "+$P{officeName}+" এর পত্র নথি নং-"+$P{referenceNo}+", তারিখ: "+$P{applicationDate}+" খ্রি;"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement positionType="Float" x="35" y="23" width="446" height="20" uuid="0aaa7bc0-93b1-4b17-b9d6-7c77133e16f2"/>
+						<textElement textAlignment="Left" markup="html">
+							<font fontName="SolaimanLipi" size="12" isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA["(২) বিল অফ এন্ট্রি নম্বর-"+$P{billOfEntryNo}+", তারিখ-"+$P{anomalyCaptureDate}+" খ্রি;"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement positionType="Float" x="0" y="3" width="35" height="20" uuid="a6c135b6-71c8-4920-a6cd-b64b86cbe471"/>
+						<textElement textAlignment="Left">
+							<font fontName="SolaimanLipi" size="12" isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA["সূত্র:"]]></textFieldExpression>
+					</textField>
+				</frame>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="228" width="490" height="60" uuid="3ab32371-d085-478e-ae1a-bd85c27e09ab"/>
+					<textElement textAlignment="Left">
+						<font fontName="SolaimanLipi" size="12" isBold="false"/>
+						<paragraph lineSpacing="1_1_2"/>
+					</textElement>
+					<text><![CDATA[          উপর্যুক্ত  বিষয়  ও  সূত্রের  প্রেক্ষিতে  শুল্ক-কর  ফাঁকি  রোধে ও কৃতিত্বপূর্ণ  অবসানের জন্য শুল্ক (পুরস্কার মঞ্জুরী) বিধিমালা, ২০০৯  অনুযায়ী  নিম্নবর্ণিত  কর্মকর্তা-কর্মচারীগণের  নামে  প্রদর্শিত  পরিমাণ  পুরস্কারের  অর্থ মঞ্জুরী আদেশ জ্ঞাপন করা হল:]]></text>
+				</staticText>
+				<componentElement>
+					<reportElement positionType="Float" x="0" y="299" width="481" height="40" isRemoveLineWhenBlank="true" uuid="32be68b3-89fe-473e-87ca-3ca7f2b39c40">
+						<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+						<property name="com.jaspersoft.studio.table.style.table_header" value="Table 1_TH"/>
+						<property name="com.jaspersoft.studio.table.style.column_header" value="Table 1_CH"/>
+						<property name="com.jaspersoft.studio.table.style.detail" value="Table 1_TD"/>
+						<property name="com.jaspersoft.studio.components.autoresize.proportional" value="true"/>
+						<property name="net.sf.jasperreports.export.headertoolbar.table.name" value=""/>
+					</reportElement>
+					<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+						<datasetRun subDataset="TableData" uuid="f8a08e9b-2ae2-4c34-a900-f8cc31dd1d93">
+							<dataSourceExpression><![CDATA[$P{rewardAmountEntities}]]></dataSourceExpression>
+						</datasetRun>
+						<jr:column width="105" uuid="92aa5676-e4ad-4bbf-8e23-9b899a14812f">
+							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+							<jr:columnHeader style="Table 1_CH" height="20" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="105" height="20" uuid="eace331a-f8c4-46b1-b201-c739e618a9c5"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="SolaimanLipi" size="12" isBold="true"/>
+									</textElement>
+									<text><![CDATA[ক্রমিক নং]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell style="Table 1_TD" height="20">
+								<textField>
+									<reportElement x="0" y="0" width="105" height="20" uuid="4e700d55-9e6d-45c0-bf93-cf1b9bf54771"/>
+									<box>
+										<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+										<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+										<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+										<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="SolaimanLipi" size="12"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$V{REPORT_COUNT} == 1 ? "১" :
+$V{REPORT_COUNT} == 2 ? "২" :
+$V{REPORT_COUNT} == 3 ? "৩" :
+$V{REPORT_COUNT} == 4 ? "৪" :
+$V{REPORT_COUNT} == 5 ? "৫" :
+$V{REPORT_COUNT} == 6 ? "৬" :
+$V{REPORT_COUNT} == 7 ? "৭" :
+$V{REPORT_COUNT} == 8 ? "৮" :
+$V{REPORT_COUNT} == 9 ? "৯" :
+$V{REPORT_COUNT} == 10 ? "১০" :
+$V{REPORT_COUNT} == 11 ? "১১" :
+$V{REPORT_COUNT} == 12 ? "১২" :
+$V{REPORT_COUNT} == 13 ? "১৩" :
+$V{REPORT_COUNT} == 14 ? "১৪" :
+$V{REPORT_COUNT} == 15 ? "১৫" :
+$V{REPORT_COUNT}.toString()]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="227" uuid="0e2abc8d-d61a-4af0-ace9-cd90b0b71007">
+							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+							<jr:columnHeader style="Table 1_CH" height="20" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="227" height="20" uuid="d664f7a7-244a-44fa-bf77-fb500f56f5e5"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="SolaimanLipi" size="12" isBold="true"/>
+									</textElement>
+									<text><![CDATA[কর্মকর্তা-কর্মচারীগণের নাম ও পদবী]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell style="Table 1_TD" height="20">
+								<textField isStretchWithOverflow="true">
+									<reportElement x="0" y="0" width="227" height="20" uuid="ddfcdd09-80e8-4294-8ee8-4fc5c7216035"/>
+									<box>
+										<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+										<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+										<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+										<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									</box>
+									<textElement textAlignment="Left" verticalAlignment="Middle">
+										<font fontName="SolaimanLipi" size="12"/>
+										<paragraph leftIndent="5"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{employeeName}+($F{designation}.isEmpty() ? "" : (", "+$F{designation}))]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="149" uuid="aae43257-6046-44b4-b240-c24486079cba">
+							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+							<jr:columnHeader style="Table 1_CH" height="20" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="149" height="20" uuid="21233909-c959-45de-88d7-df60ae27f715"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="SolaimanLipi" size="12" isBold="true"/>
+									</textElement>
+									<text><![CDATA[বিভাজনকৃত টাকার পরিমাণ]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell style="Table 1_TD" height="20">
+								<textField>
+									<reportElement x="0" y="0" width="149" height="20" uuid="fa93b498-2a4b-4e2a-86a5-365c928ecd21"/>
+									<box rightPadding="5"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="SolaimanLipi" size="12"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{rewardedAmount}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:table>
+				</componentElement>
+				<staticText>
+					<reportElement positionType="Float" x="0" y="340" width="105" height="20" uuid="a5660629-3413-4575-9cd5-7cc2162a0a09"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="105" y="340" width="227" height="20" uuid="0db60a1b-1d87-43bc-8f3c-400d751c1c29"/>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="SolaimanLipi" size="12" isBold="false"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<text><![CDATA[সর্বমোট= ]]></text>
+				</staticText>
+				<textField>
+					<reportElement positionType="Float" x="332" y="340" width="149" height="20" uuid="b570045f-a718-4746-9312-96170f19f0cc"/>
+					<box rightPadding="5">
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SolaimanLipi" size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{totalRewardedAmount}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement positionType="Float" x="0" y="379" width="481" height="20" uuid="64da775c-d7a8-45f3-8f69-82cbda7554e8"/>
+					<textElement textAlignment="Justified" verticalAlignment="Middle" markup="styled">
+						<font fontName="SolaimanLipi" size="12"/>
+						<paragraph lineSpacing="1_1_2" lineSpacingSize="1.0" spacingAfter="0"/>
+					</textElement>
+					<textFieldExpression><![CDATA["০২। এই  ব্যয়  "+$P{officeName}+"-এর " +$P{fiscalYear}+"  অর্থবছরের  বাজেটে ৩২১১-প্রশাসনিক  ব্যয়  খাতের  অধীনে ৩২১১১০১-পুরস্কার এর বরাদ্দ হতে মেটানো হবে। যদি বর্তমান অর্থবছরে বরাদ্দকৃত অর্থের সংকুলান না হয়, তবে পরবর্তীতে অর্থ বরাদ্দ পাওয়া সাপেক্ষে পূর্বের ব্যয় মেটানো যাবে। মঞ্জুরীপত্রে উল্লিখিত পুরস্কারের অর্থ ইতোপূর্বে প্রদান করা হয়নি- এ মর্মে নিশ্চিত হয়ে অর্থ পরিশোধের ব্যবস্থা গ্রহণ করতে হবে।"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement positionType="Float" x="0" y="417" width="481" height="30" uuid="a3129b4a-e2e5-4e47-ba4d-2850b406cbe8"/>
+					<textElement>
+						<font fontName="SolaimanLipi" size="12"/>
+						<paragraph lineSpacing="1_1_2"/>
+					</textElement>
+					<textFieldExpression><![CDATA["০৩। আলোচ্য  পুরস্কার  আবেদন  সংশ্লিষ্ট  ফৌজদারি  বা অন্য যে কোনো ধরণের মামলা চলমান থাকলে এ মঞ্জুরী আদেশের বিপরীতে পুরস্কার প্রদান স্থগিত থাকবে এবং তা পুরস্কার মঞ্জুরী কমিটির গোচরীভূত করতে হবে। পুরস্কার  প্রদানের  পরে ও  যদি  কোন  মামলার  উদ্ভব  হয়,  তবে  তা  সম্ভাব্য  দ্রুততম  সময়ে  উক্ত  কমিটির  গোচরীভূত করতে  হবে। একই উদঘাটনের বিপরীতে  অপর  কোন  দপ্তরের  অনুকূলে  ইতোমধ্যে  পুরস্কার  মঞ্জুর  করা  হয়ে থাকলে এ মঞ্জুরী আদেশের বিপরীত পুরস্কার প্রদান স্থগিত থাকবে এবং তা পুরস্কার মঞ্জুরী কমিটির গোচরীভূত করতে হবে।"]]></textFieldExpression>
+				</textField>
+				<frame>
+					<reportElement positionType="Float" x="0" y="468" width="481" height="129" uuid="b6cc1b37-bdc2-4c5e-9eea-6077a20de2de"/>
+					<staticText>
+						<reportElement positionType="Float" x="361" y="67" width="120" height="20" uuid="316ac1f2-d64c-4728-80ed-c93251fb2e27"/>
+						<textElement textAlignment="Center">
+							<font fontName="SolaimanLipi" size="12"/>
+						</textElement>
+						<text><![CDATA[[রাকিবুল হাসান]]]></text>
+					</staticText>
+					<staticText>
+						<reportElement positionType="Float" x="361" y="89" width="120" height="20" uuid="14aba4ee-7dc5-4c53-abf3-70465ca8311f"/>
+						<textElement textAlignment="Center">
+							<font fontName="SolaimanLipi" size="12"/>
+						</textElement>
+						<text><![CDATA[প্রথম সচিব]]></text>
+					</staticText>
+					<staticText>
+						<reportElement positionType="Float" x="361" y="109" width="120" height="20" uuid="673c43de-3599-416c-8671-782f5224a88c"/>
+						<textElement textAlignment="Center">
+							<font fontName="SolaimanLipi" size="12"/>
+						</textElement>
+						<text><![CDATA[জাতীয় রাজস্ব বোর্ড, ঢাকা।]]></text>
+					</staticText>
+					<staticText>
+						<reportElement positionType="Float" x="0" y="67" width="35" height="20" uuid="07061ac1-c877-4b5f-bcac-a9121c2b248c"/>
+						<textElement textAlignment="Left">
+							<font fontName="SolaimanLipi" size="12" isBold="true"/>
+						</textElement>
+						<text><![CDATA[প্রাপক:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement positionType="Float" x="36" y="67" width="100" height="20" uuid="8aaf21c5-e1aa-41d0-9c7e-965421681f4c"/>
+						<textElement textAlignment="Left">
+							<font fontName="SolaimanLipi" size="12" isBold="true"/>
+						</textElement>
+						<text><![CDATA[কমিশনার]]></text>
+					</staticText>
+					<textField>
+						<reportElement positionType="Float" x="36" y="87" width="264" height="20" uuid="514b36a0-9bdb-453a-9ec8-56ae7d7db103"/>
+						<textElement textAlignment="Left">
+							<font fontName="SolaimanLipi" size="12"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{officeName}+"।"]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true">
+						<reportElement positionType="Float" x="0" y="0" width="481" height="20" uuid="be890219-9b76-42ea-a5ba-b24d5c59d348"/>
+						<textElement textAlignment="Justified">
+							<font fontName="SolaimanLipi" size="12"/>
+							<paragraph lineSpacing="1_1_2" lineSpacingSize="1.0"/>
+						</textElement>
+						<textFieldExpression><![CDATA["০৪। এ মঞ্জুরীপত্র  অর্থ ও পরিকল্পনা  মন্ত্রণালয়ের আদেশ নং- এম, এফ, পি এফপিইসি-১/ডিপি-০৩/৮৪-৯২, তারিখ: ২০.০৩.১৯৮৪ খ্রি: মোতাবেক  জাতীয়  রাজস্ব  বোর্ডকে  প্রদত্ত ক্ষমতাবলে এবং শুল্ক (পুরস্কার) মঞ্জুরী কমিটির  প্রস্তাব অনুযায়ী যথাযথ কর্তৃপক্ষের অনুমোদন সাপেক্ষে জারি করা হলো।"]]></textFieldExpression>
+					</textField>
+				</frame>
+				<line>
+					<reportElement x="35" y="146" width="412" height="1" uuid="0578430d-e654-472e-9731-5888f62eea70"/>
+					<graphicElement>
+						<pen lineWidth="0.25"/>
+					</graphicElement>
+				</line>
+			</frame>
+		</band>
+	</title>
+	<pageFooter>
+		<band height="14" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="356" height="14" uuid="190d4302-868e-4f0a-a2ef-e951b096e0ee"/>
+				<textElement markup="none">
+					<font fontName="SolaimanLipi" size="10"/>
+				</textElement>
+				<text><![CDATA[রিওয়ার্ড ম্যানেজমেন্ট সিস্টেম, জাতীয় রাজস্ব বোর্ড।]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="441" y="0" width="40" height="14" uuid="27babac6-e1f9-4b4c-a240-7319c7a50289"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SolaimanLipi" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["পৃষ্ঠা " + ($V{PAGE_NUMBER} == 1 ? "১" : $V{PAGE_NUMBER} == 2 ? "২" : $V{PAGE_NUMBER} == 3 ? "৩" : $V{PAGE_NUMBER} == 4 ? "৪" : $V{PAGE_NUMBER} == 5 ? "৫" :  $V{PAGE_NUMBER})]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
