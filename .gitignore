@@ -1,0 +1,50 @@
+reward-database/
+HELP.md
+.gradle
+gradle/
+log/
+test/
+.idea/workspace.xml
+build/
+bin/
+log/
+gradle/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+.metadata
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+.idea/workspace.xml
+*~
+.~
+
+node_modules
+dist
+dist/*
+.vscode
+
