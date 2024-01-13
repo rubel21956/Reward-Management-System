@@ -1,0 +1,37 @@
+.form-container{
+    margin: 120px;
+}
+
+.form-section{
+    padding: 20px 20px 20px 20px;
+    background-color: #F4F4F4;
+    border-radius: 8px;
+}
+
+
+.form-control{
+    padding: 17px !important;
+}
+
+.file{
+    padding: 3px !important
+}
+
+.btn-primary{
+    border: none;
+    background-color: #800000 !important;
+}
+
+.required:after {
+    content: " *";
+    color: red;
+}
+
+.bg {
+    /* background: url(../../../../assets/images/bg.png) no-repeat center center fixed; */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: auto !important;
+}

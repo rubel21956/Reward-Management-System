@@ -1,0 +1,54 @@
+<div class="no-printme">
+    <div *ngIf="disableSidebar" class="sidebar-div"></div>
+</div>
+<div class="left-sidebar-pro no-printme">
+    <nav id="sidebar">
+        <!-- <div class="sidebar-header">
+            <a [routerLink]="[defaultLink]" href="javascript:void(0)">
+                <div class="top-menu-left d-none d-sm-block d-flex justify-content-center"
+                    style="background-color: #15245E; height: 70px; padding-top: 10px; margin-left: -21px;">
+                    <img alt="RMS image" class="img-fluid" src="../../../../assets/images/BDCustomsLogo.gif"
+                        style="width: 45px;">
+                    <span
+                        style="color: #fff; font-size: 24px; font-weight: 600; margin-left: 15px; position: absolute; margin-top: 12px;">{{
+                        'RMS' | translate}}</span>
+                </div>
+            </a>
+        </div> -->
+        <div class="left-custom-menu-adp-wrap comment-scrollbar">
+            <nav class="sidebar-nav left-sidebar-menu-pro">
+                <ul id="metismenu">
+                    <ng-container *ngFor="let item of menuJson; let i = index">
+                        <li *ngIf="resetRequired != 'Yes'" [routerLinkActiveOptions]="{exact: true}" id="{{item['topMenuId']}}"
+                            routerLinkActive="active">
+                            <ng-container *ngIf="item['leftMenuId'].length == 1">
+                                <a [routerLink]="[item['leftMenuId'][0]]" aria-expanded="false">
+                                    <!-- Commented by Arif -->
+                                    <!-- <i class="{{item['icon']}}"></i> -->
+                                    <span class="mini-click-non">{{item['topMenuId'] | translate}}</span>
+                                </a>
+                            </ng-container>
+                            <ng-container *ngIf="item['leftMenuId'].length > 1">
+                                <a aria-expanded="true" class="has-arrow" href="#" routerLinkActive="active">
+                                    <i class="pi pi-list"></i>
+                                    <span class="mini-click-non">{{item['topMenuId'] | translate}}</span>
+                                </a>
+                                <ul class="submenu-angle" id="{{i}}">
+                                    <li *ngFor="let leftmenu of item['leftMenuId']" [routerLinkActiveOptions]="{exact: true}"
+                                        class="submenu" routerLinkActive="active">
+                                        <a [routerLink]="[leftmenu]" id="{{leftmenu}}" routerLinkActive="active">
+                                            <i class="pi pi-circle-off"
+                                               style="font-size: 12px; margin-right: 8px; color: #333;"></i>
+                                            <span class="mini-sub-pro" style="color: #333;">{{leftmenu |
+                                                translate}}</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </ng-container>
+                        </li>
+                    </ng-container>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+</div>

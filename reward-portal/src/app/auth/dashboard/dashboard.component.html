@@ -1,0 +1,300 @@
+<loading-image [is-loading]="isLoading"></loading-image>
+
+<!-- <div *ngIf="this.umsRole === 'OfficeAdmin' || this.umsRole === 'SystemAdmin'">
+    <div class="container-fluid" style="margin-top: 60px;">
+        <div class="row">
+            <div class="col-md-6" style="padding-top: 35px">
+                <div class="chart" style="border: 1px solid rgba(21,36,94,0.10)">
+                    <h4 style="font-weight: bolder; padding-left: 10px">AW User Statistics</h4>
+                    <apx-chart
+                        [series]="chartOptions.series"
+                        [chart]="chartOptions.chart"
+                        [plotOptions]="chartOptions.plotOptions"
+                        [labels]="chartOptions.labels"
+                        [legend]="chartOptions.legend"
+                        [colors]="chartOptions.options.colors"
+                    ></apx-chart>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <p-dropdown [showClear]="true" [(ngModel)]="requestType" [options]="requestTypeList" (ngModelChange)="selectRequestType()"
+                            id="requestType" optionLabel="name" optionValue="oid" dataKey=this.requestList.oid
+                            placeholder="Select Request Type">
+                </p-dropdown>
+                <div id="chart1" style="margin-top: -0.1px; border: 1px solid rgba(21,36,94,0.10)">
+                    <h4 style="font-weight: bolder; padding-left: 10px">AW User statistics in a week</h4>
+                    <br>
+                    <apx-chart
+                            [series]="chartOptions1.series"
+                            [chart]="chartOptions1.chart"
+                            [dataLabels]="chartOptions1.dataLabels"
+                            [plotOptions]="chartOptions1.plotOptions"
+                            [responsive]="chartOptions1.responsive"
+                            [xaxis]="chartOptions1.xaxis"
+                            [legend]="chartOptions1.legend"
+                            [fill]="chartOptions1.fill"
+                            [colors]="chartOptions1.fill.colors"
+                    ></apx-chart>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="chart2" style="border: 1px solid rgba(21,36,94,0.10)">
+                    <h4 style="font-weight: bolder; padding-left: 10px">User Request Statistics in last seven days</h4>
+                    <br>
+                    <apx-chart
+                        [series]="chartOptions2.series"
+                        [chart]="chartOptions2.chart"
+                        [xaxis]="chartOptions2.xaxis"
+                        [stroke]="chartOptions2.stroke"
+                        [tooltip]="chartOptions2.tooltip"
+                        [dataLabels]="chartOptions2.dataLabels"
+                        [legend]="chartOptions2.legend"
+                        [markers]="chartOptions2.markers"
+                        [grid]="chartOptions2.grid"
+                        [yaxis]="chartOptions2.yaxis"
+                        [title]="chartOptions2.title"
+                        [colors]="chartOptions2.options.colors"
+                    ></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<!--<div *ngIf="this.umsRole === 'SystemAdmin'">
+    <div class="container-fluid" style="margin-top: 60px;">
+        <div class="row">
+            <div class="col-md-6" style="padding-top: 35px">
+                <div class="chart" style="border: 1px solid #15245E">
+                    <h4 style="font-weight: bolder; padding-left: 10px">AW User Statistics</h4>
+                    <apx-chart
+                            [series]="chartOptions.series"
+                            [chart]="chartOptions.chart"
+                            [plotOptions]="chartOptions.plotOptions"
+                            [labels]="chartOptions.labels"
+                            [legend]="chartOptions.legend"
+                            [colors]="chartOptions.options.colors"
+                    ></apx-chart>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id="chart1" style="border: 1px solid #15245E">
+                    <h4 style="font-weight: bolder; padding-left: 10px">AW User Statistics in a week</h4>
+                    <br>
+                    <apx-chart
+                            [series]="chartOptions1.series"
+                            [chart]="chartOptions1.chart"
+                            [dataLabels]="chartOptions1.dataLabels"
+                            [plotOptions]="chartOptions1.plotOptions"
+                            [responsive]="chartOptions1.responsive"
+                            [xaxis]="chartOptions1.xaxis"
+                            [legend]="chartOptions1.legend"
+                            [fill]="chartOptions1.fill"
+                            [colors]="chartOptions1.fill.colors"
+                    ></apx-chart>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="chart2" style="border: 1px solid #15245E">
+                    <h4 style="font-weight: bolder; padding-left: 10px">User Statistics in last One Month</h4>
+                    <br>
+                    <apx-chart
+                            [series]="chartOptions2.series"
+                            [chart]="chartOptions2.chart"
+                            [xaxis]="chartOptions2.xaxis"
+                            [stroke]="chartOptions2.stroke"
+                            [tooltip]="chartOptions2.tooltip"
+                            [dataLabels]="chartOptions2.dataLabels"
+                            [legend]="chartOptions2.legend"
+                            [markers]="chartOptions2.markers"
+                            [grid]="chartOptions2.grid"
+                            [yaxis]="chartOptions2.yaxis"
+                            [title]="chartOptions2.title"
+                            [colors]="chartOptions2.options.colors"
+                    ></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<div class="container-fluid mt-8">
+    <!-- <div class="row"> 
+        <div class="col-md-12 col-sm-12">
+            <div class="card col-md-12 col-sm-12 mt-3 dashboardHeader ">
+                <div class="card-body p-1 ml-4 m-0">
+                    <h4>অর্থবছর ২০২২-২০২৩</h4>
+                </div>                
+              </div>
+        </div>             
+    </div> -->
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class=" card col-md-12 col-sm-12">
+                <div class="d-flex justify-content-between card-body text-center m-0">
+                    
+                    <div class=" m-0 p-0 transitionEffect">
+                        <div class="card card-background mr-2">
+                            <div class="card-body">
+                                <strong style="font-size: 18pt;">আবেদন সংখ্যা</strong>
+                            </div>                        
+                        </div>
+                        <div class="card mr-2">
+                            <div class="card-body">
+                                <strong>{{totalApplications}} টি</strong>
+                            </div>                        
+                        </div>
+                        <div class="card mr-2">
+                            <div class="card-body">
+                                <strong>৳{{(totalApplicationsPrice == undefined ? 0 : totalApplicationsPrice).toLocaleString('en-IN')}}</strong>
+                            </div>                        
+                        </div>
+                    </div>
+                   
+
+                    <div class=" m-0 p-0 transitionEffect">
+                        <div class="card card-background mr-2">
+                            <div class="card-body">
+                                <strong style="font-size: 18pt;">মঞ্জুরীর জন্য সুপারিশকৃত</strong>
+                            </div>                        
+                        </div>
+                        <div class="card mr-2">
+                            <div class="card-body">
+                                <strong>{{totalAccepted}} টি</strong>
+                            </div>                        
+                        </div>
+                        <div class="card mr-2">
+                            <div class="card-body">
+                                <strong>৳{{(totalAcceptedPrice == undefined ? 0 : totalAcceptedPrice).toLocaleString('en-IN')}}</strong>
+                            </div>                        
+                        </div>
+                    </div>
+
+
+                    <div class=" m-0 p-0 transitionEffect">
+                        <div class="card card-background mr-2">
+                            <div class="card-body">
+                                <strong style="font-size: 18pt;">বিবেচনাযোগ্য নয়</strong>
+                            </div>                        
+                        </div>
+                        <div class="card mr-2">
+                            <div class="card-body">
+                                <strong>{{totalDiscarded}} টি</strong>
+                            </div>                        
+                        </div>
+                        <div class="card mr-2">
+                            <div class="card-body">
+                                <strong>৳{{(totalDiscardedPrice == undefined ? 0 : totalDiscardedPrice).toLocaleString('en-IN')}}</strong>
+                            </div>                        
+                        </div>
+                    </div>
+
+
+                    <div class=" m-0 p-0 transitionEffect">
+                        <div class="card card-background">
+                            <div class="card-body">
+                                <strong style="font-size: 18pt;">কার্যক্রম চলমান</strong>
+                            </div>                        
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <strong>{{totalReceived}} টি</strong>
+                            </div>                        
+                        </div>
+                        <div class="card">
+                            <div class="card-body">                                
+                                <strong>৳{{(totalReceivedPrice == undefined ? 0 : totalReceivedPrice).toLocaleString('en-IN')}}</strong>
+                            </div>                        
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 m-0 p-0 transitionEffect">
+                        <div class="card card-background">
+                            <div class="card-body">
+                                <strong style="font-size: 18pt;">ফেরতকৃত</strong>
+                            </div>                        
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <strong>{{totalReturned}} টি</strong>
+                            </div>                        
+                        </div>
+                        <div class="card">
+                            <div class="card-body">                                
+                                <strong>৳{{(totalReturnedPrice == undefined ? 0 : totalReturnedPrice).toLocaleString('en-IN')}}</strong>
+                            </div>                        
+                        </div>
+                    </div>
+
+                                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 d-flex justify-content-evenly mt-2">
+        <div id="chart" class="position-relative">
+            <apx-chart id="ap"
+              [series]="chartOptions.series"
+              [chart]="chartOptions.chart"
+              [labels]="chartOptions.labels"
+              [responsive]="chartOptions.responsive"
+              [colors]="chartOptions.colors"
+              [title]="chartOptions.title"
+              [dataLabels]="chartOptions.dataLabels"
+              
+            ></apx-chart>
+            <!-- <div class="position-absolute col-md-5 p-1 h-100 d-flex flex-column bg-white" style="top: 0px; right: 0;">
+                <div class="mb-4 mt-5 d-flex">
+                    <div class="rounded-circle" style="width: 15px; height: 15px; background-color: #0000FF;" ></div>
+                    <div class="ml-2">কার্যক্রম চলমান</div>
+                </div>
+                <div class="mb-4 d-flex">
+                    <div class="rounded-circle" style="width: 15px; height: 15px; background-color: #228B22;" ></div>
+                    <div class="ml-2 p-0 m-0">মঞ্জুরীর জন্য সুপারিশকৃত</div>
+                </div>
+                <div class="mb-4 d-flex">
+                    <div class="rounded-circle" style="width: 15px; height: 15px; background-color: #b60000;" ></div>
+                    <div class="ml-2">বিবেচনাযোগ্য নয়</div>
+                </div>
+                <div class="d-flex">
+                    <div class="rounded-circle" style="width: 15px; height: 15px; background-color: #581845;" ></div>
+                    <div class="ml-2">ফেরতকৃত</div>
+                </div>
+                </div> -->
+          </div>
+          <div id="chart" class="position-relative">
+            <apx-chart id="apex2" 
+              [series]="chartOptionsDonut.series"
+              [chart]="chartOptionsDonut.chart"
+              [labels]="chartOptionsDonut.labels"
+              [responsive]="chartOptionsDonut.responsive"  
+              [colors]="chartOptions.colors"
+              [title]="chartOptionsDonut.title"            
+            ></apx-chart>
+                <!-- <div class="position-absolute col-md-5 p-1 h-100 d-flex flex-column bg-white" style="top: 0px; right: 0;">
+                <div class="mb-4 mt-5 d-flex">
+                    <div class="rounded-circle" style="width: 15px; height: 15px; background-color: #0000FF;" ></div>
+                    <div class="ml-2">কার্যক্রম চলমান</div>
+                </div>
+                <div class="mb-4 d-flex">
+                    <div class="rounded-circle" style="width: 15px; height: 15px; background-color: #228B22;" ></div>
+                    <div class="ml-2 p-0 m-0">মঞ্জুরীর জন্য সুপারিশকৃত</div>
+                </div>
+                <div class="mb-4 d-flex">
+                    <div class="rounded-circle" style="width: 15px; height: 15px; background-color: #b60000;" ></div>
+                    <div class="ml-2">বিবেচনাযোগ্য নয়</div>
+                </div>
+                <div class="d-flex">
+                    <div class="rounded-circle" style="width: 15px; height: 15px; background-color: #581845;" ></div>
+                    <div class="ml-2">ফেরতকৃত</div>
+                </div>
+                </div> -->
+          </div>
+    </div>
+  
+</div>

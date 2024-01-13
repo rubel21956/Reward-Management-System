@@ -1,0 +1,6 @@
+.sidebar-collapsed {
+    width: 60px;
+}
+.top-menu-left d-none d-sm-block d-flex justify-content-center{
+    height: 73px !important;
+}

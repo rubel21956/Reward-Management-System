@@ -1,0 +1,13 @@
+.page-header{
+    width: calc(100% - 30px);
+    height: 67px;
+    margin: 108px 15px 0 15px;
+    padding: 5px;
+    background-color: #D9D9D9;
+    border-radius: 8px;
+}
+
+.btn-primary{
+    border: none;
+    background-color: #800000 !important;
+}

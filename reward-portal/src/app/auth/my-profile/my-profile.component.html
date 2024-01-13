@@ -1,0 +1,147 @@
+<div class="print-me">
+    <div class="page-header d-flex align-items-center">
+        <h4 class="ml-3">ব্যক্তিগত তথ্য </h4>
+    </div>
+</div>
+
+<div class="bg">
+    <div class="form-container">
+        <div class="row pt-4 d-flex justify-content-center">
+            <div class="col-md-6 col-sm-6">
+                <section id="specification">
+                    <table cellpadding="0" cellspacing="0" class="view-table">
+                        <colgroup>
+                            <col class="name">
+                            <col class="value">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <td class="heading-row" colspan="4">
+                                    <h5>{{this.profileInfo?.name}} এর প্রোফাইল</h5>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="name"> {{ 'নাম' }}</td>
+                                <td class="value customFont" style="font-family: 'Times New Roman', Times, serif;">{{ this.profileInfo?.name }}</td>
+                            </tr>
+                            <tr>
+                                <td class="name"> {{ 'ইউজার আইডি' }}</td>
+                                <td class="value customFont" style="font-family: 'Times New Roman', Times, serif;">{{ this.profileInfo?.loginOid}}</td>
+                            </tr>
+                            <tr>
+                                <td class="name"> {{ 'প্রতিষ্ঠানের নাম ও ঠিকানা' }}</td>
+<!--                                <td class="value">{{ this.profileInfo?.userId }} {{ this.profileInfo?.userId }}</td>-->
+                            </tr>
+                            <tr>
+                                <td class="name"> {{ 'জন্ম তারিখ' }}</td>
+                                <td class="value customFont">{{ this.profileInfo?.dob | date: 'dd-MM-yyyy' }}</td>
+                            </tr>
+                            <tr>
+                                <td class="name"> {{ 'জাতীয় পরিচয় পত্রের নম্বর' }}</td>
+                                <td class="value">{{ this.profileInfo?.nidNumber }}</td>
+                            </tr>
+                            <tr>
+                                <td class="name"> {{ 'যোগদান তারিখ' }}</td>
+                                <td class="value">{{ this.profileInfo?.joinDate | date: 'dd-MM-yyyy' }}</td>
+                            </tr>
+                            <tr>
+                                <td class="name"> {{ 'মোবাইল নম্বর' }}</td>
+                                <td class="value">{{ this.profileInfo?.mobileNo }}</td>
+                            </tr>
+                            <tr>
+                                <td class="name"> {{ 'ই-মেইল' }}</td>
+                                <td class="value" style="font-family: 'Times New Roman', Times, serif;">{{ this.profileInfo?.email }}</td>
+                            </tr>
+                            <tr>
+                                <td class="name"> {{ 'অবস্থা' }}</td>
+                                <td class="value">{{ this.profileInfo?.awUserStatus }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+<!--            <div class="col-md-4 col-sm-4 d-flex justify-content-center">-->
+<!--                <img [src]="downloadedFilePath1" alt="user" class="rounded-circle pi-img" height="150"-->
+<!--                     width="150">-->
+<!--            </div>-->
+<!--        </div>-->
+    </div>
+</div>
+
+<!--<div class="container-fluid">-->
+<!--    <div class="row">-->
+<!--        <div *ngIf="!isLoading" class="col-md-12">-->
+<!--            <div *ngIf="translate.currentLang != 'bn'" class="page-title">{{'Profile'}}-->
+<!--                of {{profileInfo?.name}}</div>-->
+<!--            <div *ngIf="translate.currentLang == 'bn'" class="page-title">-->
+<!--                <span>{{profileInfo?.name}}</span> {{'of'}} {{'Profile'}} </div>-->
+
+<!--            <ul class="nav nav-tabs" id="profileTab" role="tablist">-->
+<!--                <li class="nav-item">-->
+<!--                    <a aria-controls="personal-information" aria-selected="true" class="nav-link active"-->
+<!--                       data-toggle="tab" href="#personal-information" id="personal-information-tab"-->
+<!--                       role="tab">{{'ব্যক্তিগত তথ্য '}}</a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--            <div class="row">-->
+<!--                <div class="col-md-4 d-flex justify-content-center">-->
+<!--                    <div class="tab-content profile" id="profileTabContent">-->
+<!--                        <div aria-labelledby="personal-information-tab" class="tab-pane fade show active"-->
+<!--                             id="personal-information"-->
+<!--                             role="tabpanel">-->
+<!--                            <img [src]="downloadedFilePath1" alt="user" class="rounded-circle pi-img" height="180"-->
+<!--                                 width="180">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-md-6" style="padding-top: 3em; padding-left: 3em">-->
+<!--                    <div class="pi-title" style="font-size: 24px">-->
+<!--                        <b>{{'নাম: '}}</b>-->
+<!--                        {{profileInfo?.name}}-->
+<!--                    </div>-->
+<!--                    <div class="pi-title"style="font-size: 24px">-->
+<!--                        <b>{{'Office: '}}</b>-->
+<!--                        {{profileInfo?.currentOffice}}-->
+<!--                    </div>-->
+<!--                    <div class="pi-title"style="font-size: 24px">-->
+<!--                        <b>{{'Section: '}}</b>-->
+<!--                        {{profileInfo?.currentSection}}-->
+<!--                    </div>-->
+<!--                    <div class="pi-title"style="font-size: 24px">-->
+<!--                        <b>{{'User ID: '}}</b>-->
+<!--                        {{this.userId}}-->
+<!--                    </div>-->
+<!--                    <div class="pi-title"style="font-size: 24px">-->
+<!--                        <b>{{'Designation: '}}</b>-->
+<!--                        {{profileInfo?.designation}}-->
+<!--                    </div>-->
+<!--                    <div class="pi-title"style="font-size: 24px">-->
+<!--                        <b>{{'Contact No.: '}}</b>-->
+<!--                        {{profileInfo?.mobileNo}}-->
+<!--                    </div>-->
+<!--                    <div class="pi-title"style="font-size: 24px">-->
+<!--                        <b>{{'NID No.: '}}</b>-->
+<!--                        {{profileInfo?.nidNumber}}-->
+<!--                    </div>-->
+<!--                    <div class="pi-title"style="font-size: 24px">-->
+<!--                        <b>{{'Email: '}}</b>-->
+<!--                        {{profileInfo?.email}}-->
+<!--                    </div>-->
+<!--                    <div class="pi-title"style="font-size: 24px">-->
+<!--                        <b>{{'Address: '}}</b>-->
+<!--                        {{profileInfo?.permanentAddress}}-->
+<!--                    </div>-->
+<!--                    <div class="pi-title"style="font-size: 24px">-->
+<!--                        <b>{{'Status: '}}</b>-->
+<!--                        {{profileInfo?.awUserStatus}}-->
+<!--                    </div>-->
+
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<p-toast></p-toast>

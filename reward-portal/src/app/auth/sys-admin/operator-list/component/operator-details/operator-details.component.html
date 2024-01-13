@@ -1,0 +1,189 @@
+<div class="bg">
+    <div class="form-container">
+        <form [formGroup]="operatorDetailsGroup" autocomplete="off">
+            <div class="form-section">
+                <h3>ডাটা এন্ট্রি অপারেটর এর বিবরণ</h3>
+                <hr>
+                <div class="row mb-3">
+                    <label class="col-md-4 col-sm-4 col-form-label col-form-label-sm required"
+                           for="name" style="text-align: center;">নাম</label>
+                    <div class="col-md-8 col-sm-8">
+                        <input class="form-control form-control-sm customFont" formControlName="name"
+                               id="name"
+                               placeholder="নাম"
+                               type="text">
+                        <span *ngIf="(f.name.touched || submitted) && (f.name.errors?.required)"
+                              class="text-danger" style="font-size: 12px">নাম আবশ্যক
+                        </span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-md-4 col-sm-4 col-form-label col-form-label-sm required"
+                           for="officeCode" style="text-align: center;">কর্মস্থল (দপ্তর এর নাম)</label>
+                    <div class="col-md-8 col-sm-8">
+                        <p-dropdown [options]="applyingOffice"
+                                    [showClear]="true"
+                                    formControlName="officeCode"
+                                    id="officeCode" optionLabel="bnname"
+                                    optionValue="oid"
+                                    placeholder="কর্মস্থল (দপ্তর এর নাম)">
+                        </p-dropdown>
+                        <span *ngIf="(f.officeCode.touched || submitted) && (f.officeCode.errors?.required)"
+                              class="text-danger" style="font-size: 12px">দপ্তরের নাম আবশ্যক
+                        </span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-md-4 col-sm-4 col-form-label col-form-label-sm required"
+                           for="dob" style="text-align: center;">জন্ম তারিখ</label>
+                    <div class="col-md-8 col-sm-8">
+                        <p-calendar [maxDate]="maxDate"
+                                    [minDate]="minDate" [monthNavigator]="true"
+                                    [showIcon]="true" [yearNavigator]="true" dateFormat="dd.mm.yy"
+                                    formControlName="dob"
+                                    id="dob"
+                                    placeholder="{{'জন্ম তারিখ'}}"
+                                    yearRange="1900:2050">
+                        </p-calendar>
+                        <span *ngIf="(f.dob.touched || submitted) && (f.dob.errors?.required)"
+                              class="text-danger" style="font-size: 12px">জন্ম তারিখ আবশ্যক
+                        </span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-md-4 col-sm-4 col-form-label col-form-label-sm required"
+                           for="nidNumber" style="text-align: center;">জাতীয় পরিচয় পত্রের নম্বর (ইংরেজি)</label>
+                    <div class="col-md-8 col-sm-8">
+                        <input class="form-control form-control-sm" formControlName="nidNumber"
+                               id="nidNumber" minlength="10" pInputText placeholder="জাতীয় পরিচয় পত্রের  নম্বর"
+                               type="number">
+                        <span *ngIf="(f.nidNumber.touched || submitted) && (f.nidNumber.errors?.required)"
+                            class="text-danger" style="font-size: 12px">জাতীয় পরিচয় পত্রের নম্বর আবশ্যক
+                        </span>
+                        <span *ngIf="(f.nidNumber.touched || submitted) && (f.nidNumber.invalid && f.nidNumber.dirty)"
+                            class="text-danger" style="font-size: 12px">
+                                জাতীয় পরিচয় পত্রের নম্বর ১০ বা ১৩ বা ১৭ সংখ্যার হতে হবে
+                            </span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-md-4 col-sm-4 col-form-label col-form-label-sm required"
+                           for="joiningDate" style="text-align: center;">যোগদান তারিখ</label>
+                    <div class="col-md-8 col-sm-8">
+                        <p-calendar
+                                [monthNavigator]="true"
+                                [showIcon]="true" [yearNavigator]="true" dateFormat="dd.mm.yy"
+                                formControlName="joiningDate"
+                                id="joiningDate"
+                                placeholder="{{'যোগদান তারিখ'}}"
+                                yearRange="1900:2050">
+                        </p-calendar>
+                        <span *ngIf="(f.joiningDate.touched || submitted) && (f.joiningDate.errors?.required)"
+                              class="text-danger" style="font-size: 12px">যোগদান তারিখ আবশ্যক
+                        </span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-md-4 col-sm-4 col-form-label col-form-label-sm required"
+                           for="userId" style="text-align: center;">ইউজার আইডি</label>
+                    <div class="col-md-8 col-sm-8">
+                        <input (change)="checkUserId()" class="customFont form-control form-control-sm" formControlName="userId"
+                               id="userId" pInputText placeholder="ইউজার আইডি" [readOnly]="userIdCheck"
+                               type="text">
+                        <span *ngIf="(f.userId.touched || submitted) && (f.userId.errors?.required)"
+                              class="text-danger" style="font-size: 12px">ইউজার আইডি আবশ্যক
+                        </span>
+                        <span *ngIf="(f.userId.touched || submitted) && (this.uidCheck == true)"
+                              class="text-danger" style="font-size: 12px">ইউজার আইডি ইতোমধ্যেই আছে
+                        </span>
+                    </div>
+                </div>
+
+                <div class="row mb-3">                    
+                           <label class="col-md-4 col-sm-4 col-form-label col-form-label-sm required" style="text-align: center;" for="password">{{'পাসওয়ার্ড'}}</label>
+                    <div class="col-md-8 col-sm-8">                       
+                        <input class="customFont form-control form-control-sm" formControlName="password"
+                        id="password" pInputText placeholder="পাসওয়ার্ড" [readOnly]="userIdCheck"
+                        type="text">
+                              
+                        <!-- <span *ngIf="(f.userId.touched || submitted) && (f.userId.errors?.required)"
+                              class="text-danger" style="font-size: 12px">ইউজার আইডি আবশ্যক
+                        </span>
+                        <span *ngIf="(f.userId.touched || submitted) && (this.uidCheck == true)"
+                              class="text-danger" style="font-size: 12px">ইউজার আইডি ইতোমধ্যেই আছে
+                        </span> -->
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-md-4 col-sm-4 col-form-label col-form-label-sm required"
+                           for="designation" style="text-align: center;">পদবী</label>
+                    <div class="col-md-8 col-sm-8">
+                        <input class="form-control form-control-sm customFont" 
+                               id="designation" formControlName="designation" pInputText placeholder="পদবী" 
+                               type="text">                       
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-md-4 col-sm-4 col-form-label col-form-label-sm required"
+                           for="email" style="text-align: center;">ই-মেইল</label>
+                    <div class="col-md-8 col-sm-8">
+                        <input class="form-control form-control-sm customFont" 
+                               id="email" formControlName="email" pInputText placeholder="ই-মেইল" 
+                               type="text">                       
+                    </div>
+                </div>
+                
+                <div class="row mb-3">
+                    <label class="col-md-4 col-sm-4 col-form-label col-form-label-sm required"
+                           for="contactNumber" style="text-align: center;">মোবাইল নম্বর</label>
+                    <div class="col-md-8 col-sm-8">
+                        <div class="p-inputgroup">
+                            <span class="p-inputgroup-addon">+880</span>
+                            <input class="form-control form-control-sm" formControlName="contactNumber"
+                                   id="contactNumber" maxlength="11" pInputText placeholder="মোবাইল নাম্বার"
+                                   type="number">
+                        </div>
+                        <span *ngIf="(f.contactNumber.touched || submitted) && (f.contactNumber.errors?.required)"
+                              class="text-danger" style="font-size: 12px">মোবাইল নাম্বার আবশ্যক
+                        </span>
+<!--                        <span *ngIf="(f.contactNumber.touched || submitted) && ((f.contactNumber.errors?.pattern) || (f.mobileNo.errors?.maxlength) || (f.contactNumber.errors?.minlength))"-->
+<!--                              class="text-danger" style="font-size: 12px">-->
+<!--                            একটি বৈধ ১১ সংখ্যার মোবাইল নম্বর লিখুন-->
+<!--                        </span>-->
+                    </div>
+
+                </div>
+                <div class="row mb-3">
+                    <label class="col-md-4 col-sm-4 col-form-label col-form-label-sm required"
+                           for="status" style="text-align: center;">অবস্থা</label>
+                    <div class="col-md-8 col-sm-8">
+                        <p-dropdown [options]="statusList" [showClear]="true"
+                                    formControlName="status"
+                                    id="status" optionLabel="bnname"
+                                    optionValue="value"
+                                    placeholder="অবস্থা">
+                        </p-dropdown>
+                        <span *ngIf="(f.status.touched || submitted) && (f.status.errors?.required)"
+                              class="text-danger" style="font-size: 12px">অবস্থা আবশ্যক
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="py-4 mb-5 d-flex justify-content-end">
+                    <div>
+                        <button (click)="prevToOperatorList()" class="btn btn-primary mr-3">পূর্ববর্তী</button>
+                        <button (click)="resetOperatorDetails()" class="btn btn-primary mr-3">রিসেট</button>
+                        <button (click)="submitOperatorDetails()"
+                                *ngIf="this.oid === null" class="btn btn-primary">জমা দিন</button>
+                        <button (click)="updateOperatorDetails()"
+                                *ngIf="this.oid !== null" class="btn btn-primary">হালনাগাদ করুন</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <p-toast position="bottom-right"></p-toast>
+</div>

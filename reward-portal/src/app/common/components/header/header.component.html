@@ -1,0 +1,66 @@
+<loading-image [is-loading]="isLoading"></loading-image>
+<div *ngIf="disableHeader" class="header-div"></div>
+<div class="all-content-wrapper">
+    <div class="container-fluid no-printme">
+        <div class="row">
+            <div class="col-md-12 col-sm-12" style="padding-bottom: 20px; margin-left: -130px;  z-index: 999;">
+                <div class="header-top-area d-flex justify-content-between align-items-center">
+                    <div class="top-menu-left d-flex justify-content-center align-items-center"
+                         style="padding-bottom: 10px;">
+                        <span>
+                            <img src="assets/images/BDCustomsLogo.png" class="header-logo">
+                        </span>
+                        <span class="welcome-user-info">
+                            <h1 style="margin-top: 8px; font-family: 'Inherit'; font-style: normal; font-weight: bold; font-size: 36px;
+                            line-height: 48px; display: flex; align-items: center; color: #800000;">বাংলাদেশ কাস্টমস রিওয়ার্ড ম্যানেজমেন্ট</h1>
+                         </span>
+                    </div>
+                    <div class="header-top-menu">
+                        <div class="top-menu-right; text-center">
+                            <ul class="list-inline">
+                        <li class="list-inline-item dropdown">
+                            <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle"
+                                data-toggle="dropdown" href="" id="dropdownMenuButton">
+                                <img [src]="downloadedFilePath1" alt=""
+                                        class="rounded-circle p-0 m-o"
+                                        height="32" width="32">
+                                        <h5 style="color: #800000; padding: 0;" class="customFont p-o m-0">{{userName | uppercase}}</h5>
+                                        <h6 style="color: #800000; padding: 0;" class="customFont p-o m-0">{{designation}}</h6>
+                                        <h6 style="color: #800000; padding: 0; font-size: medium;" class="p-o m-0">{{currentOfficeName}}</h6>
+                            </a>
+                            <div class="dropdown-menu megamenu bg-light"
+                                    style="width: 280px; height: 260px; padding: 15px; margin-top: 8px; bottom: 0px;">
+                                <div class="text-center" style="height: 90px;">
+                                    <img [src]="downloadedFilePath1" alt="" class="rounded-circle"
+                                            height="64" width="32">
+                                    <h5 class="customFont">{{userName | uppercase}}</h5>
+                                    <p style="color: #800000; font-size: medium;">{{currentOfficeName}}</p>
+                                </div>
+                                <li style="margin-bottom: 5px; margin-top: 5px">
+                                    <button [routerLink]="['/my-profile']"
+                                            class="p-button-outlined p-button-info btn-block" icon="pi pi-user"
+                                            id="myProfile" label="{{'আমার প্রোফাইল'}}" pButton pRipple
+                                            type="button"></button>
+                                </li>
+                                <li style="margin-bottom: 5px;">
+                                    <button [routerLink]="['/change-password']"
+                                            class="p-button-outlined p-button-info btn-block" icon="pi pi-key"
+                                            id="changePassword" label="{{'পাসওয়ার্ড পরিবর্তন'}}" pButton pRipple
+                                            type="button"></button>
+                                </li>
+                                <li style="margin-bottom: 5px;">
+                                    <button (click)="onLogoutClick()" class="p-button-outlined p-button-info btn-block"
+                                            icon="pi pi-sign-out" id="logOut" label="{{'লগ আউট'}}" pButton
+                                            pRipple
+                                            type="button"></button>
+                                </li>
+                            </div>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

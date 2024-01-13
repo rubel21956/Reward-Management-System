@@ -1,0 +1,94 @@
+<loading-image [is-loading]="isLoading"></loading-image>
+<div class="page-header d-flex align-items-center">
+    <h4 class="ml-3">{{currentOfficeName}} এর {{applicationStatusForArchive}} আবেদনের তালিকা</h4>
+</div>
+
+<div class="bg">
+    <div [formGroup]="applicationCustomsListGroup" autocomplete="off" class="row pt-5 mx-1">
+        <div class="col-md-8 col-sm-8 d-flex"> 
+            <div class="col-md-6 col-sm-6">
+                <p-dropdown (ngModelChange)="searchApplicationCustomsList()" [options]="applicationStatus" [showClear]="true"
+                            formControlName="applicationStatus" id="applicationStatus"
+                            optionLabel="name"
+                            optionValue="value" placeholder="আবেদনের অবস্থা" #v>
+                </p-dropdown>
+            </div>         
+            <div class="col-md-6 col-sm-6">
+                <p-dropdown (ngModelChange)="searchApplicationCustomsList()" [options]="applicationDate" [showClear]="true"
+                            formControlName="applicationDate" id="applicationDate"
+                            optionLabel="name"
+                            optionValue="value" placeholder="বছর">
+                </p-dropdown>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <!-- <button (click)="rejectedApplication()" class="btn btn-primary">বিবেচনাযোগ্য নয়</button> -->
+            </div>  
+        </div>
+        <div class="col-md-2 col-sm-2">
+            <button (click)="searchApplicationCustomsList()" class="btn btn-primary">খোঁজ করুন</button>
+        </div>        
+    </div>
+    <div class="row pt-5 mx-3">
+        <p-table [value]="sessionList" responsiveLayout="scroll" styleClass="p-datatable-striped">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="background-color: #800000; color: white; text-align: center;">ক্রমিক নং</th>
+                    <!-- <th style="background-color: #800000; color: white; text-align: center;">দপ্তরের নাম</th> -->
+                    <th style="background-color: #800000; color: white; text-align: center;">কাস্টমস পুরস্কার নথিক্রম
+                    </th>
+                    <!-- <th style="background-color: #800000; color: white; text-align: center;">প্রতিষ্ঠানের নাম</th> -->
+                    <th style="background-color: #800000; color: white; text-align: center;">আবেদনের তারিখ</th>
+                    <th style="background-color: #800000; color: white; text-align: center;">সর্বশেষ সম্পাদনের তারিখ</th>
+                    <th style="background-color: #800000; color: white; text-align: center;">আবেদনের অবস্থা</th>
+                    <th style="background-color: #800000; color: white; text-align: center;">প্রক্রিয়া</th>
+                </tr>
+            </ng-template>
+            <ng-template let-i="rowIndex" let-session pTemplate="body">
+                <tr>
+                    <td class="text-truncate text-center" data-toggle="tooltip" title="{{i+1}}">{{i + 1}}</td>
+                    <!-- <td style="text-align: center;">{{session.applicationCustomsStepOneDto['officeName']}}</td> -->
+                    <td style="text-align: center;">{{session.applicationCustomsStepOneDto['customsRewardFileNumber']}}
+                    </td>
+                    <!-- <td style="text-align: center; font-size: 18px">{{session.applicationCustomsStepOneDto['officeHeadsName']}}</td> -->
+                    <td style="text-align: center;">{{session.applicationCustomsStepOneDto['anomalyCaptureDate']| date:'dd.MM.YYYY'}}</td>
+                    <td style="text-align: center;">
+                    <table>
+                        <tr>{{session.applicationCustomsStepOneDto['updatedOn']| date:'dd.MM.YYYY'}}</tr>
+                        <tr>{{session.applicationCustomsStepOneDto['updatedOn']| date:'h:mm'}}</tr>
+                    </table>
+                    </td>
+                    <td style="text-align: center;">{{session.applicationCustomsStepOneDto['applicationStatusBn']}}</td>
+                    <td style="text-align: center;">
+                        <button (click)="editDetails(i)"
+                                *ngIf="session.applicationCustomsStepOneDto['applicationStatus'] == 'Draft' ||
+                                       session.applicationCustomsStepOneDto['applicationStatus'] == 'Returned'"
+                                class="p-button-rounded p-button-text"
+                                icon="pi pi-pencil"
+                                pButton
+                                pRipple pTooltip="সম্পাদনা" style="color: white;" title="সম্পাদনা করুন"
+                                type="button">
+                        </button>
+                        <button (click)="viewDetails(i)"
+                                *ngIf="session.applicationCustomsStepOneDto['applicationStatus'] == 'Submitted'||
+                                       session.applicationCustomsStepOneDto['applicationStatus'] == 'Rejected' ||
+                                       session.applicationCustomsStepOneDto['applicationStatus'] == 'Accepted'  ||
+                                       session.applicationCustomsStepOneDto['applicationStatus'] == 'Sattlement'"
+                                class="p-button-rounded p-button-text"
+                                icon="pi pi-eye"
+                                pButton
+                                pRipple pTooltip="সম্পাদনা" style="color: white;" title="সম্পাদনা করুন"
+                                type="button">
+                        </button>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template let-columns pTemplate="emptymessage">
+                <tr>
+                    <td [attr.colspan]="6" style="text-align: center;">
+                        {{ 'কোনো তথ্য খুঁজে পাওয়া যায় নি' }}
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>

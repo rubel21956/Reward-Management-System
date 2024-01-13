@@ -1,0 +1,626 @@
+<loading-image [is-loading]="isLoading"></loading-image>
+<div class="no-printme">
+    <div class="page-header d-flex align-items-center">
+        <h4 class="ml-3" style="color: #800000;">পুরস্কার মঞ্জুরির জন্য আবেদন পত্র</h4>
+    </div>
+</div>
+
+<div class="step-container form-container" *ngIf="temp?.applicationStatus === 'Submitted' ||
+    temp?.applicationStatus === 'Rejected' ||
+    temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'">
+        <div class="form-section">
+            <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="false"></p-steps>
+        </div>
+    </div>
+
+    <div class="step-container form-container" *ngIf="temp?.applicationStatus === 'Draft'">
+        <div class="form-section">
+            <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="true"></p-steps>
+        </div>
+    </div>
+
+    <div class="step-container form-container" *ngIf="pageStatus === 1">
+        <div class="form-section">
+            <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="true"></p-steps>
+        </div>
+    </div>
+
+
+<div class="bg">
+    <div class="form-container print-me">
+        <form [formGroup]="applicationCustomsStepTwoGroup" autocomplete="off">
+            <div class="form-section">
+                <div class="form-section-2">
+                    <h6 style="text-align:center; line-height: 0.5;">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</h6>
+                    <h6 style="text-align:center; line-height: 0.5;">{{this.temp1?.officeName}}</h6>
+                    <h6 style="text-align:center; line-height: 0.5;">{{this.temp1?.officeAddress}}|</h6>
+                    
+                    <div class="row mb-1">
+                        <div class="col-md-4 col-sm-8">
+                            <p>
+                                নথি নং : {{this.temp1?.referenceNo}}
+                            </p>
+                        </div>
+                        <div class="col-md-8 col-sm-4">
+                            <div class="row">
+                                <div class="col-md-8">
+                                </div>
+                                <div class="col-md-4">
+                                    <p-calendar [disabled]="temp?.applicationStatus === 'Submitted' ||
+                                    temp?.applicationStatus === 'Rejected' ||
+                                    temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'"
+                                                
+                                                [minDate]="minDate" [monthNavigator]="true"
+                                                [showIcon]="true" [yearNavigator]="true"
+                                                dateFormat="dd.mm.yy"
+                                                formControlName="applicationDate"
+                                                id="applicationDate"
+                                                placeholder="{{ 'তারিখ' }}"
+                                                yearRange="1900:2050"
+                                                lang="en-IN">
+                                    </p-calendar>
+                                    <span *ngIf="(f.applicationDate.touched || submitted) && (f.applicationDate.errors?.required)"
+                                          class="text-danger" style="font-size: 12px">
+                                      তারিখ আবশ্যক
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-1">
+                        <div class="col-md-6">
+                            <p>
+                                প্রেরক : কমিশনার অব কাস্টমস
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <p >
+                                প্রাপক : সদস্য (শুল্ক ও ভ্যাট প্রশাসন)
+                            </p>
+                            <p >
+                                <!-- &nbsp; &nbsp; &nbsp; &nbsp;  জাতীয় রাজস্ব বোর্ড -->
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   ও
+                            </p>
+                            <p >
+                                <!-- &nbsp; &nbsp; &nbsp; &nbsp;  রাজস্ব ভবন, আগারগাঁও, ঢাকা | -->
+                                &nbsp; &nbsp; &nbsp; &nbsp; সভাপতি, পুরস্কার মঞ্জুরী কমিটি।
+                            </p>
+                            <p>
+                                <!-- &nbsp; &nbsp; &nbsp; &nbsp;  রাজস্ব ভবন, আগারগাঁও, ঢাকা | -->
+                                &nbsp; &nbsp; &nbsp; &nbsp; দৃষ্টি আকর্ষণ: প্রথম সচিব (শুল্ক মূল্যায়ন)
+                            </p>
+                        </div>
+                    </div>
+                    
+
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <!-- <p>
+                                বিষয়: {{this.temp1?.officeName}} এর বি/ই নং
+                                -{{this.temp1?.billOfEntryNo}}
+                                তাং-{{this.temp1?.anomalyCaptureDate | date:'YYYY-MM-dd'}} এর
+                                মাধ্যমে অসত্য ঘোষণায় আমদানিকৃত পণ্যচালান সংক্ষিপ্ত ন্যায়-নির্ণয়নের মাধ্যমে
+                                নিষ্পত্তিপূর্বক অতিরিক্ত রাজস্ব ও জরিমানা
+                                বাবদ {{this.temp1?.extraReceivedAmount}} টাকা আদায় করায়
+                                সংশ্লিষ্ট কর্মকর্তাগণের
+                                অনুকূলে {{this.temp1?.rewardableAmount}}
+                                টাকা চূড়ান্ত পুরস্কার মঞ্জুরি প্রদান
+                            </p> -->
+                            <table>
+                                <tr>
+                                    <td style=" vertical-align: top;">বিষয়</td><td style=" vertical-align: top;">&nbsp;:&nbsp;</td>
+                                    <td>
+                                      {{this.temp1?.officeName}} এর বি/ই নং
+                                - সি {{this.temp1?.billOfEntryNo}}
+                                তাং-{{this.temp1?.billOfEntryDate | date:'dd.MM.YYYY'}} এর
+                                মাধ্যমে অসত্য ঘোষণায় আমদানিকৃত পণ্যচালান সংক্ষিপ্ত ন্যায়-নির্ণয়নের মাধ্যমে
+                                নিষ্পত্তিপূর্বক অতিরিক্ত রাজস্ব ও জরিমানা
+                                বাবদ {{this.temp1?.extraReceivedAmount | currency}} টাকা আদায় করায়
+                                সংশ্লিষ্ট কর্মকর্তাগণের
+                                অনুকূলে {{this.temp1?.rewardableAmount | currency}}
+                                টাকা চূড়ান্ত পুরস্কার মঞ্জুরি প্রদান।
+                                <br>
+                                <br>
+                                <br>
+                                উপর্যুক্ত বিষয়ের প্রতি আপনার সদয় দৃষ্টি আকর্ষণপূর্বক জানানো যাচ্ছে যে, এ দপ্তরে দাখিলকৃত বিল অব এন্ট্রি 
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3" style="">
+                        <div class="col-md-12 col-sm-12">
+                    <textarea (keypress)="autosize()" (blur)="autosize()" (mouseenter)="autosize()" (mouseleave)="autosize()" style="font-size: inherit; font-weight: inherit;" [readonly]="temp?.applicationStatus === 'Submitted' || temp?.applicationStatus === 'Rejected' || temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'" class="form-control customFont text-justify autosize" formControlName="applicationNarration" id="applicationNarration" placeholder="বিবরণ" rows="15"></textarea>
+                            <span *ngIf="(f.applicationNarration.touched || submitted) && (f.applicationNarration.errors?.required)"
+                                  class="text-danger" style="font-size: 12px">
+                                      বিবরণ আবশ্যক
+                            </span>
+                            <!-- <p>অবশিষ্ট অক্ষর: {{textAreaCharacterSet()}}</p> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <ng-template [ngIf]="temp?.applicationStatus === 'Submitted' ||
+            temp?.applicationStatus === 'Rejected' || temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'" [ngIfElse]="raw">
+            <div class="form-section no-printme p-5">
+                <div class="row pb-3">
+                    <div class="col-md-6 col-sm-6">
+                        <h5 style="text-decoration: underline;">সংযুক্তি:</h5>
+                    </div>
+                </div>
+                <div class="row pb-2">
+                    <div class="col-md-7 col-sm-8">
+                        ০১. পরিশিষ্ট - "ক" অনুযায়ী পুরস্কার মঞ্জুরীর তথ্য
+                    </div>
+                    <div class="col-md-5 col-sm-4 d-flex">
+                        <label class="custom-file-upload col-md-4" style="background-color: #ab6161; color: white">
+                            <input (change)="fileSelected($event.target, '01')" [disabled]="temp?.applicationStatus === 'Submitted' ||
+                            temp?.applicationStatus === 'Rejected' || temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'"
+                            accept="application/pdf, image/jpeg, image/jpg" id="appendix-01" type="file">
+                            <i class="pi pi-cloud-upload"></i> আপলোড করুন
+                        </label>                        
+                        <span class="pl-2 col-md-7"style="font-family: none; font-size: small; font-weight: bold">{{attachment_01[0].originalFileName}}</span>
+                        <div class="col-sm-1 col-md-1">
+                            <button (click)="viewPdf('01')" *ngIf="stepOneBOEFileProgress1 == 100 || attachment_01[0].originalFileName != ''"                                                           
+                            class="p-button-rounded p-button-text"
+                            icon="pi pi-eye"
+                            pButton
+                            pRipple pTooltip="প্রিভিউ করুন" style="color: white;"
+                            type="button">
+                    </button>  
+                        </div>
+                    </div>                  
+                </div>
+                <br>
+                <div class="row pb-2">
+                    <div class="col-md-7 col-sm-8">
+                        ০২. অনিয়ম বা শুল্ক ফাঁকি সংক্রান্ত মামলার বিবরণী
+                    </div>
+                    <div class="col-md-5 col-sm-4 d-flex">
+                        <label class="custom-file-upload col-sm-4" style="background-color: #ab6161; color: white">
+                            <input (change)="fileSelected($event.target, '02')" [disabled]="temp?.applicationStatus === 'Submitted' ||
+                            temp?.applicationStatus === 'Rejected' || temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'"
+                            accept="application/pdf, image/jpeg, image/jpg" id="appendix-02" type="file">
+                                <i class="pi pi-cloud-upload"></i> আপলোড করুন
+                        </label>
+                        <span class="pl-2 col-sm-7" style="font-family: none; font-size: small; font-weight: bold">{{attachment_02[0].originalFileName}}</span>
+                        <div class="col-sm-1 col-md-1">
+                            <button (click)="viewPdf('02')" *ngIf="stepOneBOEFileProgress2 == 100 || attachment_02[0].originalFileName != ''"                                                    
+                            class="p-button-rounded p-button-text"
+                            icon="pi pi-eye"
+                            pButton
+                            pRipple pTooltip="প্রিভিউ করুন" style="color: white;"
+                            type="button">
+                    </button>  
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row pb-2">
+                    <div class="col-md-7 col-sm-8">
+                        ০৩. শুল্ক ফাঁকি মামলার ন্যায় নির্ণয়ের আদেশের কপি
+                    </div>
+                    <div class="col-md-5 col-sm-4 d-flex">
+                        <label class="custom-file-upload col-sm-4" style="background-color: #ab6161; color: white">
+                            <input (change)="fileSelected($event.target, '03')" [disabled]="temp?.applicationStatus === 'Submitted' ||
+                            temp?.applicationStatus === 'Rejected' || temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'"
+                            accept="application/pdf, image/jpeg, image/jpg"  id="appendix-03"type="file">
+                            <i class="pi pi-cloud-upload"></i> আপলোড করুন
+                        </label>
+                        <span class="pl-2 col-sm-7" style="font-family: none; font-size: small; font-weight: bold">{{attachment_03[0].originalFileName}}</span>
+                        <div class="col-sm-1 col-md-1">
+                            <button (click)="viewPdf('03')" *ngIf="stepOneBOEFileProgress3 == 100 || attachment_03[0].originalFileName != ''"                                                   
+                            class="p-button-rounded p-button-text"
+                            icon="pi pi-eye"
+                            pButton
+                            pRipple pTooltip="প্রিভিউ করুন" style="color: white;"
+                            type="button">
+                    </button>  
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row pb-2">
+                    <div class="col-md-7 col-sm-8">
+                        ০৪. পুরস্কার প্রাপ্তির আবেদনের বিষয়টি আদালতে বিচারাধীন নয় মর্মে অফিস প্রধানের প্রত্যায়নপত্র
+                    </div>
+                    <div class="col-md-5 col-sm-4 d-flex">
+                        <label class="custom-file-upload col-sm-4" style="background-color: #ab6161; color: white">
+                            <input (change)="fileSelected($event.target, '04')" [disabled]="temp?.applicationStatus === 'Submitted' ||
+                            temp?.applicationStatus === 'Rejected' || temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'"
+                            accept="application/pdf, image/jpeg, image/jpg" id="appendix-04" type="file">
+                            <i class="pi pi-cloud-upload"></i> আপলোড করুন
+                        </label>
+                        <span class="pl-2 col-sm-7" style="font-family: none; font-size: small; font-weight: bold">{{attachment_04[0].originalFileName}}</span>
+                        <div class="col-sm-1 col-md-1">
+                            <button (click)="viewPdf('04')" *ngIf="stepOneBOEFileProgress4 == 100 || attachment_04[0].originalFileName != ''"                                                  
+                            class="p-button-rounded p-button-text"
+                            icon="pi pi-eye"
+                            pButton
+                            pRipple pTooltip="প্রিভিউ করুন" style="color: white;"
+                            type="button">
+                    </button>  
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row pb-2">
+                    <div class="col-md-7 col-sm-8">
+                        ০৫. পুরস্কার প্রাপ্তির আবেদনের বিষয়ে ইতোপূর্বে পুরস্কার গ্রহণ করা হয়নি মর্মে অফিস প্রধানের প্রত্যায়নপত্র
+                    </div>
+                    <div class="col-md-5 col-sm-4 d-flex">
+                        <label class="custom-file-upload col-sm-4" style="background-color: #ab6161; color: white">
+                            <input (change)="fileSelected($event.target, '05')" [disabled]="temp?.applicationStatus === 'Submitted' ||
+                            temp?.applicationStatus === 'Rejected' || temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'"
+                            accept="application/pdf, image/jpeg, image/jpg" id="appendix-05" type="file">
+                            <i class="pi pi-cloud-upload"></i> আপলোড করুন
+                        </label>
+                        <span class="pl-2 col-sm-7" style="font-family: none; font-size: small; font-weight: bold">{{attachment_05[0].originalFileName}}</span>
+                        <div class="col-sm-1 col-md-1">
+                            <button (click)="viewPdf('05')" *ngIf="stepOneBOEFileProgress5 == 100 || attachment_05[0].originalFileName != ''"                                                  
+                            class="p-button-rounded p-button-text"
+                            icon="pi pi-eye"
+                            pButton
+                            pRipple pTooltip="প্রিভিউ করুন" style="color: white;"
+                            type="button">
+                    </button>  
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row pb-2">
+                    <div class="col-md-7 col-sm-8">
+                        ০৬. ঘোষণা অনুযায়ী প্রদেয় রাজস্স সংক্রান্ত তথ্য
+                    </div>
+                    <div class="col-md-5 col-sm-4 d-flex">
+                        <label class="custom-file-upload col-sm-4" style="background-color: #ab6161; color: white">
+                            <input (change)="fileSelected($event.target, '06')" [disabled]="temp?.applicationStatus === 'Submitted' ||
+                            temp?.applicationStatus === 'Rejected' || temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'"
+                            accept="application/pdf, image/jpeg, image/jpg"  id="appendix-06" type="file">
+                            <i class="pi pi-cloud-upload"></i> আপলোড করুন
+                        </label>
+                        <span class="pl-2 col-sm-7" style="font-family: none; font-size: small; font-weight: bold">{{attachment_06[0].originalFileName}}</span>
+                        <div class="col-sm-1 col-md-1">
+                            <button (click)="viewPdf('06')" *ngIf="stepOneBOEFileProgress6 == 100 || attachment_06[0].originalFileName != ''"                                                    
+                            class="p-button-rounded p-button-text"
+                            icon="pi pi-eye"
+                            pButton
+                            pRipple pTooltip="প্রিভিউ করুন" style="color: white;"
+                            type="button">
+                    </button>  
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row pb-2">
+                    <div class="col-md-7 col-sm-8">
+                            ০৭. আদায়কৃত শুল্ক-কর ও জরিমানা সরকারি কোষাগারে জমার প্রমাণপত্র (জমার সঠিকতা যাচাইকৃত)
+                    </div>
+                    <div class="col-md-5 col-sm-4 d-flex">
+                        <label class="custom-file-upload col-sm-4" style="background-color: #ab6161; color: white">
+                            <input (change)="fileSelected($event.target, '07')" [disabled]="temp?.applicationStatus === 'Submitted' ||
+                            temp?.applicationStatus === 'Rejected' || temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'"
+                            accept="application/pdf, image/jpeg, image/jpg"  id="appendix-07" type="file">
+                            <i class="pi pi-cloud-upload"></i> আপলোড করুন
+                        </label>
+                        <span class="pl-2 col-sm-7" style="font-family: none; font-size: small; font-weight: bold">{{attachment_07[0].originalFileName}}</span>
+                        <div class="col-sm-1 col-md-1">
+                            <button (click)="viewPdf('07')" *ngIf="stepOneBOEFileProgress7 == 100 || attachment_07[0].originalFileName != ''"                                                   
+                            class="p-button-rounded p-button-text"
+                            icon="pi pi-eye"
+                            pButton
+                            pRipple pTooltip="প্রিভিউ করুন" style="color: white;"
+                            type="button">
+                    </button>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+
+            <ng-template #raw>
+
+                <div class="form-section no-printme p-5">
+                    <div class="row pb-3">
+                        <div class="col-md-6 col-sm-6">
+                            <h5 style="text-decoration: underline;">সংযুক্তি:</h5>
+                        </div>
+                    </div>
+                    <div class="row pb-2">
+                        <div class="col-md-7 col-sm-8">
+                            ০১. পরিশিষ্ট - "ক" অনুযায়ী পুরস্কার মঞ্জুরীর তথ্য
+                        </div>
+                        <div class="col-md-5 col-sm-4 d-flex">
+                            <label *ngIf="!attachment_01[0].originalFileName" class="custom-file-upload border border-danger" style="background-color: #800000; color: white">
+                                <input (change)="fileSelected($event.target, '01' )" [disabled]="temp?.applicationStatus === 'Submitted' ||
+                                temp?.applicationStatus === 'Rejected' || temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'"
+                                accept="application/pdf, image/jpeg, image/jpg"  id="appendix-01" type="file">
+                                <i class="pi pi-cloud-upload"></i> আপলোড করুন
+                            </label>
+                            <!-- <label *ngIf="attachment_01[0].originalFileName" class="custom-file-upload" style="background-color: #800000; color: white">
+                                <input (click)="cancelUploadedFiles('01')" [disabled]="temp?.applicationStatus === 'Submitted' ||
+                                temp?.applicationStatus === 'Rejected' || temp?.applicationStatus === 'Accepted'"
+                                accept="application/pdf, image/jpeg, image/jpg"  id="appendix-01" type="button">
+                                <i class="pi pi-cloud-upload"></i>&nbsp;বাতিল করুন &nbsp;
+                            </label> -->
+                            <button *ngIf="attachment_01[0].originalFileName" (click)="cancelUploadedFiles('01')" class="custom-file-upload align-self-start border border-danger" style="background-color: #800000; color: white"><i class="pi pi-times"></i> বাতিল করুন</button>
+                            <span *ngIf="attachment_01[0].originalFileName" class="pl-2 flex-grow-1" style="font-size: small; font-weight: bold">
+                                <p-progressBar class="customProgress" *ngIf="stepOneBOEFileProgress1" [value]="stepOneBOEFileProgress1">
+                                </p-progressBar>
+                                <p class="mt-1" style="font-family: none; font-size: small; font-weight: bold">{{attachment_01[0].originalFileName}}</p>
+                                </span>
+                            
+                                <div class="col-sm-1 col-md-1">
+                                    <button (click)="viewPdf('01')" *ngIf="stepOneBOEFileProgress1 == 100 || attachment_01[0].originalFileName != ''"                                                           
+                                    class="p-button-rounded p-button-text"
+                                    icon="pi pi-eye"
+                                    pButton
+                                    pRipple pTooltip="প্রিভিউ করুন" style="color: white;"
+                                    type="button">
+                            </button>  
+                                </div>
+
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row pb-2">
+                        <div class="col-md-7 col-sm-8 d-flex">
+                            ০২. অনিয়ম বা শুল্ক ফাঁকি সংক্রান্ত মামলার বিবরণী
+                        </div>
+                        <div class="col-md-5 col-sm-4 d-flex">
+                            <label *ngIf="!attachment_02[0].originalFileName" class="custom-file-upload" style="background-color: #800000; color: white">
+                                <input (change)="fileSelected($event.target, '02')" [disabled]="temp?.applicationStatus === 'Submitted' ||
+                                temp?.applicationStatus === 'Rejected' || temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'"
+                                accept="application/pdf, image/jpeg, image/jpg" id="appendix-02" type="file">
+                                    <i class="pi pi-cloud-upload"></i> আপলোড করুন
+                            </label>
+                            <!-- <label *ngIf="attachment_02[0].originalFileName" class="custom-file-upload" style="background-color: #800000; color: white">
+                                <input (click)="cancelUploadedFiles('02')" [disabled]="temp?.applicationStatus === 'Submitted' ||
+                                temp?.applicationStatus === 'Rejected' || temp?.applicationStatus === 'Accepted'"
+                                accept="application/pdf, image/jpeg, image/jpg"  id="appendix-02" type="button">
+                                <i class="pi pi-cloud-upload"></i>&nbsp;বাতিল করুন&nbsp;
+                            </label> -->
+                            <button *ngIf="attachment_02[0].originalFileName" (click)="cancelUploadedFiles('02')" class="custom-file-upload align-self-start" style="background-color: #800000; color: white"><i class="pi pi-times"></i> বাতিল করুন</button>
+                            <!-- <span class="pl-2" style="font-family: none; font-size: small; font-weight: bold">{{this.attachment_02[0].originalFileName}}</span> -->
+                            <span *ngIf="attachment_02[0].originalFileName" class="pl-2 flex-grow-1" style="font-size: small; font-weight: bold">
+                                <p-progressBar class="customProgress" *ngIf="stepOneBOEFileProgress2" [value]="stepOneBOEFileProgress2">
+                                </p-progressBar>
+                                <p class="mt-1" style="font-family: none; font-size: small; font-weight: bold">{{attachment_02[0].originalFileName}}</p>
+                                </span>
+
+                                <div class="col-sm-1 col-md-1">
+                                    <button (click)="viewPdf('02')" *ngIf="stepOneBOEFileProgress2 == 100 || ( temp?.applicationStatus === 'Draft' && attachment_02[0].originalFileName != '')"
+                                    [disabled]="temp?.applicationStatus === 'Submitted' ||
+                                        temp?.applicationStatus === 'Rejected' ||
+                                        temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'"                         
+                                    class="p-button-rounded p-button-text"
+                                    icon="pi pi-eye"
+                                    pButton
+                                    pRipple pTooltip="প্রিভিউ করুন" style="color: white;"
+                                    type="button">
+                            </button>  
+                                </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row pb-2">
+                        <div class="col-md-7 col-sm-8">
+                            ০৩. শুল্ক ফাঁকি মামলার ন্যায় নির্ণয়ের আদেশের কপি
+                        </div>
+                        <div class="col-md-5 col-sm-4 d-flex ">
+                            <label *ngIf="!attachment_03[0].originalFileName" class="custom-file-upload" style="background-color: #800000; color: white">
+                                <input (change)="fileSelected($event.target, '03')" [disabled]="temp?.applicationStatus === 'Submitted' ||
+                                temp?.applicationStatus === 'Rejected' || temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'"
+                                accept="application/pdf, image/jpeg, image/jpg" id="appendix-03"type="file">
+                                <i class="pi pi-cloud-upload"></i> আপলোড করুন
+                            </label>
+                            <button *ngIf="attachment_03[0].originalFileName" (click)="cancelUploadedFiles('03')" class="custom-file-upload align-self-start" style="background-color: #800000; color: white"><i class="pi pi-times"></i> বাতিল করুন</button>
+                            <span *ngIf="attachment_03[0].originalFileName" class="pl-2 flex-grow-1" style="font-size: small; font-weight: bold">
+                                <p-progressBar class="customProgress" *ngIf="stepOneBOEFileProgress3" [value]="stepOneBOEFileProgress3">
+                                </p-progressBar>
+                                <p class="mt-1" style="font-family: none; font-size: small; font-weight: bold">{{attachment_03[0].originalFileName}}</p>
+                                </span>
+                                <div class="col-sm-1 col-md-1">
+                                    <button (click)="viewPdf('03')" *ngIf="stepOneBOEFileProgress3 == 100 || ( temp?.applicationStatus === 'Draft' && attachment_03[0].originalFileName != '')"
+                                    [disabled]="temp?.applicationStatus === 'Submitted' ||
+                                        temp?.applicationStatus === 'Rejected' ||
+                                        temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'"                         
+                                    class="p-button-rounded p-button-text"
+                                    icon="pi pi-eye"
+                                    pButton
+                                    pRipple pTooltip="প্রিভিউ করুন" style="color: white;"
+                                    type="button">
+                            </button>  
+                                </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row pb-2">
+                        <div class="col-md-7 col-sm-8">
+                            ০৪. পুরস্কার প্রাপ্তির আবেদনের বিষয়টি আদালতে বিচারাধীন নয় মর্মে অফিস প্রধানের প্রত্যায়নপত্র
+                        </div>
+                        <div class="col-md-5 col-sm-4 d-flex">
+                            <label *ngIf="!attachment_04[0].originalFileName" class="custom-file-upload" style="background-color: #800000; color: white">
+                                <input (change)="fileSelected($event.target, '04')" [disabled]="temp?.applicationStatus === 'Submitted' ||
+                                temp?.applicationStatus === 'Rejected' || temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'"
+                                accept="application/pdf, image/jpeg, image/jpg" id="appendix-04" type="file">
+                                <i class="pi pi-cloud-upload"></i> আপলোড করুন
+                            </label>
+                            <button *ngIf="attachment_04[0].originalFileName" (click)="cancelUploadedFiles('04')" class="custom-file-upload align-self-start" style="background-color: #800000; color: white"><i class="pi pi-times"></i> বাতিল করুন</button>
+                            <span *ngIf="attachment_04[0].originalFileName" class="pl-2 flex-grow-1" style="font-size: small; font-weight: bold">
+                                <p-progressBar class="customProgress" *ngIf="stepOneBOEFileProgress4" [value]="stepOneBOEFileProgress4">
+                                </p-progressBar>
+                                <p  class="mt-1" style="font-family: none; font-size: small; font-weight: bold">{{attachment_04[0].originalFileName}}</p>
+                                </span>
+                                <div class="col-sm-1 col-md-1">
+                                    <button (click)="viewPdf('04')" *ngIf="stepOneBOEFileProgress4 == 100 || ( temp?.applicationStatus === 'Draft' && attachment_04[0].originalFileName != '')"
+                                    [disabled]="temp?.applicationStatus === 'Submitted' ||
+                                        temp?.applicationStatus === 'Rejected' ||
+                                        temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'"                         
+                                    class="p-button-rounded p-button-text"
+                                    icon="pi pi-eye"
+                                    pButton
+                                    pRipple pTooltip="প্রিভিউ করুন" style="color: white;"
+                                    type="button">
+                            </button>  
+                                </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row pb-2">
+                        <div class="col-md-7 col-sm-8">
+                            ০৫. পুরস্কার প্রাপ্তির আবেদনের বিষয়ে ইতোপূর্বে পুরস্কার গ্রহণ করা হয়নি মর্মে অফিস প্রধানের
+                            প্রত্যায়নপত্র
+                        </div>
+                        <div class="col-md-5 col-sm-4 d-flex">
+                            <label *ngIf="!attachment_05[0].originalFileName" class="custom-file-upload" style="background-color: #800000; color: white">
+                                <input (change)="fileSelected($event.target, '05')" [disabled]="temp?.applicationStatus === 'Submitted' ||
+                                temp?.applicationStatus === 'Rejected' || temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'"
+                                accept="application/pdf, image/jpeg, image/jpg" id="appendix-05" type="file">
+                                <i class="pi pi-cloud-upload"></i> আপলোড করুন
+                            </label>
+                            <button *ngIf="attachment_05[0].originalFileName" (click)="cancelUploadedFiles('05')" class="custom-file-upload align-self-start" style="background-color: #800000; color: white"><i class="pi pi-times"></i> বাতিল করুন</button>
+                            <span *ngIf="attachment_05[0].originalFileName" class="pl-2 flex-grow-1" style="font-size: small; font-weight: bold">
+                                <p-progressBar class="customProgress" *ngIf="stepOneBOEFileProgress5" [value]="stepOneBOEFileProgress5">
+                                </p-progressBar>
+                                <p class="mt-1" style="font-family: none; font-size: small; font-weight: bold">{{attachment_05[0].originalFileName}}</p>
+                                </span>
+                                <div class="col-sm-1 col-md-1">
+                                    <button (click)="viewPdf('05')" *ngIf="stepOneBOEFileProgress5 == 100 || ( temp?.applicationStatus === 'Draft' && attachment_05[0].originalFileName != '')"
+                                    [disabled]="temp?.applicationStatus === 'Submitted' ||
+                                        temp?.applicationStatus === 'Rejected' ||
+                                        temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'"                         
+                                    class="p-button-rounded p-button-text"
+                                    icon="pi pi-eye"
+                                    pButton
+                                    pRipple pTooltip="প্রিভিউ করুন" style="color: white;"
+                                    type="button">
+                            </button>  
+                                </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row pb-2">
+                        <div class="col-md-7 col-sm-8">
+                            ০৬. ঘোষণা অনুযায়ী প্রদেয় রাজস্স সংক্রান্ত তথ্য
+                        </div>
+                        <div class="col-md-5 col-sm-4 d-flex">
+                            <label *ngIf="!attachment_06[0].originalFileName" class="custom-file-upload" style="background-color: #800000; color: white">
+                                <input (change)="fileSelected($event.target, '06')" [disabled]="temp?.applicationStatus === 'Submitted' ||
+                                temp?.applicationStatus === 'Rejected' || temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'"
+                                accept="application/pdf, image/jpeg, image/jpg" id="appendix-06" type="file">
+                                <i class="pi pi-cloud-upload"></i> আপলোড করুন
+                            </label>
+                            <button *ngIf="attachment_06[0].originalFileName" (click)="cancelUploadedFiles('06')" class="custom-file-upload align-self-start" style="background-color: #800000; color: white"><i class="pi pi-times"></i> বাতিল করুন</button>
+                            <span *ngIf="attachment_06[0].originalFileName" class="pl-2 flex-grow-1" style="font-size: small; font-weight: bold">
+                                <p-progressBar class="customProgress" *ngIf="stepOneBOEFileProgress6" [value]="stepOneBOEFileProgress6">
+                                </p-progressBar>
+                                <p class="mt-1" style="font-family: none; font-size: small; font-weight: bold">{{attachment_06[0].originalFileName}}</p>
+                                </span>
+                                <div class="col-sm-1 col-md-1">
+                                    <button (click)="viewPdf('06')" *ngIf="stepOneBOEFileProgress6 == 100 || ( temp?.applicationStatus === 'Draft' && attachment_06[0].originalFileName != '')"
+                                    [disabled]="temp?.applicationStatus === 'Submitted' ||
+                                        temp?.applicationStatus === 'Rejected' ||
+                                        temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'"                         
+                                    class="p-button-rounded p-button-text"
+                                    icon="pi pi-eye"
+                                    pButton
+                                    pRipple pTooltip="প্রিভিউ করুন" style="color: white;"
+                                    type="button">
+                            </button>  
+                                </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row pb-2">
+                        <div class="col-md-7 col-sm-8">
+                                ০৭. আদায়কৃত শুল্ক-কর ও জরিমানা সরকারি কোষাগারে জমার প্রমাণপত্র (জমার সঠিকতা যাচাইকৃত)
+                        </div>
+                        <div class="col-md-5 col-sm-4 d-flex">
+                            <label *ngIf="!attachment_07[0].originalFileName" class="custom-file-upload" style="background-color: #800000; color: white">
+                                <input (change)="fileSelected($event.target, '07')" [disabled]="temp?.applicationStatus === 'Submitted' ||
+                                temp?.applicationStatus === 'Rejected' || temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'"
+                                accept="application/pdf, image/jpeg, image/jpg" id="appendix-07" type="file">
+                                <i class="pi pi-cloud-upload"></i> আপলোড করুন
+                            </label>
+                            <button *ngIf="attachment_07[0].originalFileName" (click)="cancelUploadedFiles('07')" class="custom-file-upload align-self-start" style="background-color: #800000; color: white"><i class="pi pi-times"></i> বাতিল করুন</button>
+                            <span *ngIf="attachment_07[0].originalFileName" class="pl-2 flex-grow-1" style="font-size: small; font-weight: bold">
+                                <p-progressBar class="customProgress" *ngIf="stepOneBOEFileProgress7" [value]="stepOneBOEFileProgress7">
+                                </p-progressBar>
+                                <p class="mt-1" style="font-family: none; font-size: small; font-weight: bold">{{attachment_07[0].originalFileName}}</p>
+                                </span>
+                                <div class="col-sm-1 col-md-1">
+                                    <button (click)="viewPdf('07')" *ngIf="stepOneBOEFileProgress7 == 100 || ( temp?.applicationStatus === 'Draft' && attachment_07[0].originalFileName != '')"
+                                    [disabled]="temp?.applicationStatus === 'Submitted' ||
+                                        temp?.applicationStatus === 'Rejected' ||
+                                        temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'"                         
+                                    class="p-button-rounded p-button-text"
+                                    icon="pi pi-eye"
+                                    pButton
+                                    pRipple pTooltip="প্রিভিউ করুন" style="color: white;"
+                                    type="button">
+                            </button>  
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+
+            <div class="button-fix d-flex justify-content-between align-items-center no-printme">
+                <div>
+                    <button (click)="notCompletedApplicationCustomsStepTwo()" class="btn btn-primary no-printme">পূর্ববর্তী</button>
+                </div>
+                <div>
+                    <button (click)="submitApplicationCustomsStepTwo($event)" [disabled]="temp?.applicationStatus === 'Submitted' ||
+                                            temp?.applicationStatus === 'Rejected' ||
+                temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'" class="btn btn-primary no-printme"
+                            id="draft">খসড়া সংরক্ষণ করুন
+                    </button>
+                </div>
+                <!-- <div>
+                    <button (click)="printPreviewApplicationCustomsStepTwo()" class="btn btn-primary no-printme">প্রিভিউ করুন</button>
+                </div> -->
+                <div *ngIf="temp?.applicationStatus !== 'Submitted' &&
+                temp?.applicationStatus !== 'Rejected' &&
+                temp?.applicationStatus !== 'Accepted' &&
+                temp?.applicationStatus !== 'Sattlement'">
+                    <button (click)="confirmationApplicationCustomsStepTwo($event)" class="btn btn-primary no-printme" id="submit">পরবর্তী</button>
+                </div>
+                <div *ngIf="temp?.applicationStatus === 'Submitted' ||
+                temp?.applicationStatus === 'Rejected' ||
+                temp?.applicationStatus === 'Accepted' ||
+                temp?.applicationStatus === 'Sattlement'">
+                    <button (click)="forwardToApplicationCustomsStepFour()" class="btn btn-primary no-printme">পরবর্তী পৃষ্ঠা</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <p-dialog [(visible)]="displayModal" [draggable]="false" [modal]="true" [resizable]="false"
+              [style]="{width: '50vw'}" header="সতর্কতা">
+        <h5 style="color: red;">প্রয়োজনীয় কিছু সংযুক্তি যুক্ত করা হয়নি। আপনি কি সংযুক্ত করতে চান?</h5>
+        <ng-template pTemplate="footer">
+            <p-button (click)="displayModal=false; confirmStay()" icon="pi pi-check" label="হ্যাঁ"
+                      styleClass="p-button-text p-button-danger"></p-button>
+            <p-button (click)="displayModal=false; submitApplicationCustomsStepTwo($event)" icon="pi pi-times" id="submit" label="না"
+                      styleClass="p-button-text p-button-danger"></p-button>
+        </ng-template>
+    </p-dialog>
+    <p-dialog [(visible)]="confirmModal" [draggable]="false" [modal]="true" [resizable]="false"
+              [style]="{width: '50vw'}" header="সতর্কতা">
+        <h5 style="color: red;">আপনি এই পৃষ্ঠা এর সকল তথ্য পূরণ করেননি । এমতাবস্থায় পৃষ্ঠাটির তথ্য হারিয়ে যেতে পারে । আপনি কি তথ্য গুলো পূরণ করতে চান ?</h5>
+        <ng-template pTemplate="footer">
+            <p-button (click)="confirmModal=false; confirmStay()" icon="pi pi-check" label="হ্যাঁ"
+                      styleClass="p-button-text p-button-danger"></p-button>
+            <p-button (click)="confirmModal=false; prevToApplicationCustomsStepOne()" icon="pi pi-times" id="submit" label="না"  
+                      styleClass="p-button-text p-button-danger"></p-button>
+        </ng-template>
+    </p-dialog>
+
+
+    <p-toast position="bottom-right" [baseZIndex]="50000"></p-toast>
+</div>

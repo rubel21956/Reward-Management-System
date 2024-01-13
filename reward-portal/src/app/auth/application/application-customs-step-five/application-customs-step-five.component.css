@@ -1,0 +1,123 @@
+.page-header{
+    width: calc(100% - 30px);
+    height: 67px;
+    margin: 108px 15px 0 15px;
+    padding: 5px;
+    background-color: #D9D9D9;
+    border-radius: 8px;
+}
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.form-container{
+    margin: 15px;
+}
+
+.form-section{
+    padding: 1px;
+    margin-bottom: 15px;
+    background-color: #F4F4F4;
+    border-radius: 8px;
+}
+.form-section-2{
+    padding: 25px 25px 25px 25px;
+    margin: 15px 15px 15px 15px;
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+
+.form-control{
+    padding: 17px !important;
+}
+
+.file{
+    padding: 3px !important
+}
+
+.btn-green{
+    border: none;
+    background-color: #509931 !important;
+}
+
+.btn-red{
+    border: none;
+    background-color: #FF0000 !important;
+}
+
+.btn-primary{
+    border: none;
+    background-color: #800000 !important;
+}
+
+.required:after {
+    content: " *";
+    color: red;
+}
+
+.bg {
+    /* background: url(../../../../assets/images/bg.png) no-repeat center center fixed; */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 60vh;
+}
+
+@media print {
+    /* .doNotPrint {
+        display: none;
+    } */
+    #header-widgets, nav, aside.mashsb-container, 
+    .sidebar, .mashshare-top, .mashshare-bottom, 
+    .content-ads, .make-comment, .author-bio, 
+    .heading, .related-posts, #decomments-form-add-comment, 
+    #breadcrumbs, #footer, .post-byline, .meta-single, 
+    .site-title img, .post-tags, .readability #sidebar
+    {
+    display: none;
+    }
+    /* Global typography reset */
+    body{
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 14pt;   
+    }
+
+    @page {
+        size: 210mm 297mm; 
+        margin-right: 5em !important;
+        margin-left: 5em !important;
+        /* position: 10px 20px; */
+    }
+}
+
+.form-container{
+    position: relative;
+}
+.fixed-footer{
+    padding: .33rem 0;
+    position: sticky;
+    bottom: 0px;
+    background: white;
+    z-index: 9999;
+}
+
+.steps-module{
+    padding: .33rem 0;
+    position: sticky;
+    bottom: 0px;
+    background: white;
+    z-index: 9999;
+}
+
+::ng-deep .uploadedProgress .p-progressbar-label {
+    background: #ef5439;
+    color: #fff;
+  }

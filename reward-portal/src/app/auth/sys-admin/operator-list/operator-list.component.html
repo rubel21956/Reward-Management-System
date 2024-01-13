@@ -1,0 +1,51 @@
+<div class="print-me">
+    <div class="page-header d-flex align-items-center">
+        <h4 class="ml-3">ডাটা এন্ট্রি অপারেটর এর তালিকা</h4>
+    </div>
+</div>
+
+<div class="bg">
+    <div autocomplete="off" class="row pt-5 mx-1 no-printme">
+        <div class="col-md-2 col-sm-2">
+            <button (click)="createOperator()" class="btn btn-primary">ডাটা এন্ট্রি অপারেটর সংযোজন
+            </button>
+        </div>
+    </div>
+
+    <div class="row pt-5 mx-3">
+        <p-table [value]="sessionList" responsiveLayout="scroll" styleClass="p-datatable-striped">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="background-color: #800000; color: white; text-align: center;">ক্রমিক নং</th>
+                    <th style="background-color: #800000; color: white; text-align: center;">ডাটা এন্ট্রি অপারেটর এর নাম</th>
+                    <th style="background-color: #800000; color: white; text-align: center;">অফিস কোড</th>
+                    <th style="background-color: #800000; color: white; text-align: center;">অবস্থা</th>
+                    <th class="no-printme" style="background-color: #800000; color: white; text-align: center;">প্রক্রিয়া</th>
+                </tr>
+            </ng-template>
+            <ng-template let-i="rowIndex" let-session pTemplate="body">
+                <tr>
+                    <td class="text-truncate text-center" data-toggle="tooltip" title="{{i+1}}">{{i + 1}}</td>
+                    <td class="customFont" style="text-align: center;">{{session.name}}</td>
+                    <td style="text-align: center;">{{session.officeCode}}</td>
+                    <td style="text-align: center;">{{session.status}}</td>
+                    <td class="no-printme" style="text-align: center;">
+                        <button (click)="editOperatorDetails(i)" class="p-button-rounded p-button-text"
+                                icon="pi pi-pencil"
+                                pButton
+                                pRipple pTooltip="view" style="color: white;"
+                                type="button">
+                        </button>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template let-columns pTemplate="emptymessage">
+                <tr>
+                    <td [attr.colspan]="5" style="text-align: center;">
+                        {{ 'কোনো তথ্য খুঁজে পাওয়া যায় নি' }}
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>

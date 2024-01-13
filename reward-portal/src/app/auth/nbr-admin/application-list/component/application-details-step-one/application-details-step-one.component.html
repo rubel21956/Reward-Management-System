@@ -1,0 +1,177 @@
+<loading-image [is-loading]="isLoading"></loading-image>
+<div class="print-me">
+    <div class="page-header d-flex align-items-center justify-content-between">
+        <h4 class="ml-3">আবেদন পত্র</h4>
+        <h4 class="mr-3">ধাপ-১/৪</h4>
+    </div>
+</div>
+
+<div class="bg">
+    <div class="form-container print-me">
+        <form [formGroup]="applicationDetailsStepOneGroup" autocomplete="off">
+            <div class="row pt-4 mx-1 d-flex justify-content-center">
+                <div class="col-md-10">
+                    <section id="specification">
+                        <table cellpadding="0" cellspacing="0" class="view-table">
+                            <colgroup>
+                                <col class="name">
+                                <col class="value">
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <td style="border: none;" class="heading-row" colspan="4">
+                                    <h5>বিস্তারিত আবেদনপত্র</h5>
+                                </td>
+                                
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="name" style="text-align: left;"> {{ 'কাস্টমস নথি ক্রম' }}</td>
+                                <td class="value">{{ applicationDetails?.customsRewardFileNumber}}</td>
+                            </tr>
+                            <tr>
+                                <td class="name required" style="text-align: left;"> {{ 'রাজস্ব বোর্ডের নথি নং' }}</td>
+                                <td><input [readonly]="applicationDetails2?.applicationStatus === 'Accepted' || applicationDetails2?.applicationStatus === 'Sattlement'"
+                                    class="form-control form-control-sm" formControlName="nbrRewardFileNumber"
+                                           id="referenceNo"
+                                           placeholder="নথি ক্রম প্রদান করুন" type="text"></td>
+                            </tr>
+                            <tr>
+                                <td class="name required" style="text-align: left;"> {{ 'শুল্ক পুরস্কার মঞ্জুরি কমিটির সভার তারিখ' }}</td>
+                                <td>
+                                    <input *ngIf="applicationDetails2?.applicationStatus === 'Accepted'" [readonly]="applicationDetails2?.applicationStatus === 'Accepted' || applicationDetails2?.applicationStatus === 'Sattlement'" 
+                                    class="form-control form-control-sm" 
+                                           id="customsAwardSanctioningCommittee" lang="en-IN" value="{{ applicationDetailsStepOneGroup.get('customsAwardSanctioningCommittee').value | date: 'dd.MM.yyyy'}}"
+                                           placeholder="শুল্ক পুরস্কার মঞ্জুরি কমিটির সভার তারিখ লিখুন" type="text">
+
+                                           <p-calendar *ngIf="applicationDetails2?.applicationStatus != 'Accepted'"
+                            [monthNavigator]="true" [showIcon]="true" [yearNavigator]="true" dateFormat="dd.mm.yy"
+                            formControlName="customsAwardSanctioningCommittee" id="customsAwardSanctioningCommittee" placeholder="{{'শুল্ক পুরস্কার মঞ্জুরি কমিটির সভার তারিখ লিখুন'}}"
+                            yearRange="1900:2023" lang="en-In" >
+                            </p-calendar>
+                                        </td>
+                                
+                            </tr>
+                            <tr>
+                                <td class="name" style="text-align: left;"> {{ 'প্রতিষ্ঠানের নাম ও ঠিকানা' }}</td>
+                                <td class="value">{{ applicationDetails?.officeName }}।</td>
+                            </tr>
+                            <tr>
+                                <td class="name" style="text-align: left;"> {{ 'পুরস্কারযোগ্য অর্থের পরিমাণ' }}</td>
+                                <td class="value">{{ (applicationDetails?.rewardableAmount).toLocaleString('en-IN')}} টাকা।</td>
+                            </tr>
+                            <tr>
+                                <td class="name" style="text-align: left;"> {{ 'সংক্ষিপ্ত বিবরণ / পুরস্কার দাবির কারণ' }}</td>
+                                <td class="value">{{ applicationDetails?.anomalyReason }}</td>
+                            </tr>
+                            <tr>
+                                <td class="name" style="text-align: left;"> {{ 'বি/ই নম্বর' }}</td>
+                                <td class="value">{{ applicationDetails?.billOfEntryNo}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
+            </div>
+            <div class="row pt-6 mx-1 d-flex justify-content-center">
+                <div class="col-md-10">
+                    <p-table [value]="applicationDetails?.rewardAmounts" responsiveLayout="scroll"
+                             styleClass="p-datatable-striped">
+                        <ng-template pTemplate="header">
+                            <h5 class="d-flex align-items-center"> &nbsp; আবেদনে দাবিকৃত টাকার বিভাজন</h5>
+                            <tr>
+                                <td style="background-color: #800000; color: white; text-align: left;"><h5> &nbsp; নাম ও পদবি</h5></td>
+                                <td style="background-color: #800000; color: white; text-align: left;"><h5 style="margin-right: 50px;">&nbsp; টাকার পরিমাণ</h5></td>
+                            </tr>
+                        </ng-template>
+                        <ng-template let-rewardAmount pTemplate="body" let-i = "rowIndex">
+                            <tr>
+                                <td *ngIf="rewardAmount.designation == '' || rewardAmount.designation == 'তথ্য সরবরাহকারী' || rewardAmount.designation == 'জারাবো এর কল্যাণ তহবিল' || rewardAmount.designation == 'কাস্টমস হাউস এর কল্যাণ তহবিল'" style="text-align: left; font-weight: bold; font-family: inherit; border: 1px solid #e1e1e1;">{{rewardAmount?.employeeName}}</td>
+                                <td *ngIf="rewardAmount.designation != '' && rewardAmount.designation != 'তথ্য সরবরাহকারী' && rewardAmount.designation != 'জারাবো এর কল্যাণ তহবিল' && rewardAmount.designation != 'কাস্টমস হাউস এর কল্যাণ তহবিল'" style="text-align: left; font-weight: bold; font-family: inherit; border: 1px solid #e1e1e1;">{{rewardAmount?.employeeName}}, {{rewardAmount?.designation}}</td>
+                                <td style="text-align: left; font-weight: bold; border: 1px solid #e1e1e1;">{{(rewardAmount.appliedRewardAmount).toLocaleString('en-IN')}}</td>
+                            </tr>
+                        </ng-template>
+                        <!-- Modified by Arif -->
+                        <!-- new -->
+                        <ng-template pTemplate="footer">
+                            <tr>
+                                <th class="pt-2" style="background-color: #800000; color: white; text-align: left;"><h5>&nbsp; সর্বমোট দাবিকৃত টাকার পরিমাণ</h5></th>
+                                <th style="background-color: #800000; color: white; text-align: left;"><h5>&nbsp;{{(applicationDetails?.totalAppliedAmount).toLocaleString('en-IN')}}</h5>
+                                </th>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                    <!-- old -->
+                    <!-- <div class="row pt-2" style="background-color: #d2d2d2">
+                        <div class="col-md-6 col-sm-6 d-flex justify-content-center">
+                            <h5>পুরস্কারযোগ্য অর্থের পরিমাণ</h5>
+                        </div>
+                        <div class="col-md-6 col-sm-6 d-flex justify-content-center">
+                            <h5>{{(applicationDetails?.rewardableAmount).toLocaleString('en-IN')}}</h5>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+
+            <div class="row pt-6 mx-1 d-flex justify-content-center">
+                <div class="col-md-10 mb-6">
+                    <p-table [value]="attachmentStepTwo" responsiveLayout="scroll"
+                             styleClass="p-datatable-striped">
+                        <ng-template pTemplate="header">
+                            <h5 class="d-flex align-items-center">&nbsp; আবেদনে সংযোজিত পত্রসমূহ</h5>
+                            <tr>
+                                <!-- <th style="background-color: #800000; color: white; text-align: center;">ক্রমিক নং</th> -->
+                                <td style="background-color: #800000; color: white; text-align: left;"><h5>&nbsp; সংযোজিত পত্রের নাম</h5></td>
+                                <td style="background-color: #800000; color: white; text-align: right;"><h5>&nbsp; প্রক্রিয়া &nbsp;</h5></td>
+                            </tr>
+                        </ng-template>
+                        <ng-template let-i="rowIndex" let-attachment pTemplate="body">
+                            <tr>
+                                <!-- <td class="text-truncate text-center" data-toggle="tooltip" title="{{i+1}}">{{i + 1}}</td> -->
+                                <td style="text-align: left; font-weight: bold;">{{attachment?.attachmentType}}</td>
+                                <td style="text-align: right; font-weight: bold;">
+                                    <button (click)="downloadStepTwo(i)" class="p-button-rounded p-button-text"
+                                    icon="pi pi-eye"
+                                    pButton
+                                    pRipple pTooltip="" style="color: white;"
+                                    type="button">
+                                    </button>
+                                </td>
+                            </tr>
+                        </ng-template>
+                         <!-- Modified by Arif -->
+                        <!-- new -->
+                        <ng-template pTemplate="footer">
+                            <tr>
+                                <th class="pt-2" style="background-color: #d2d2d2; text-align: left;"><h5>&nbsp; {{attachmentStepFive?.attachmentType}}</h5></th>
+                                <!-- <th style="background-color: #d2d2d2; text-align: left;"> &nbsp; <button (click)="getStepFiveFile($event)" class="p-button-rounded p-button-text" id="orderDocumentFile" icon="pi pi-download" pButton pRipple>
+                                </button> -->
+                                <th style="background-color: #d2d2d2; text-align: right;"> &nbsp; <button (click)="getStepFiveFile($event)" class="p-button-rounded p-button-text" id="orderDocumentFile" icon="pi pi-eye" pButton pRipple>
+                                </button> &nbsp;
+                                </th>
+                            </tr>
+                        </ng-template>
+                    </p-table>                
+                </div>
+            </div>          
+            <div class="fixed-bottom flex-row d-flex justify-content-center mb-1 ml-8">
+                <div class="d-flex col-md-9 bg-white p-0 justify-content-between p-1 ml-8">
+                    <div class="col-md-3 col-sm-3 no-printme pl-7">
+                        <button (click)="prevToApplicationList()" class="btn btn-primary">পূর্ববর্তী</button>
+                    </div>
+                    <div class="col-md-3 col-sm-3 no-printme pl-8 d-flex justify-content-center">                        
+                        <button (click)="downloadApplicationDetailsOne()" class="btn btn-primary">ডাউনলোড করুন</button>
+                    </div>
+                    <div class="col-md-3 col-sm-3 no-printme p-0 justify-content-end d-flex" *ngIf="applicationDetails2?.applicationStatus !== 'Accepted' && applicationDetails2?.applicationStatus !== 'Sattlement'">
+                        <button (click)="nextPageToApplicationDetailsStepTwo()" class="btn btn-primary">পরবর্তী</button>
+                    </div>
+                    <div class="col-md-3 col-sm-3 no-printme p-0 justify-content-end d-flex" *ngIf="applicationDetails2?.applicationStatus === 'Accepted' || applicationDetails2?.applicationStatus === 'Sattlement'">
+                        <button (click)="forwardToApplicationDetailsStepTwo()" class="btn btn-primary">পরবর্তী পৃষ্ঠা</button>
+                    </div>
+                </div>
+            </div>            
+        </form>        
+    </div>   
+</div>
+<p-toast position="bottom-right" baseZIndex="20000"></p-toast>

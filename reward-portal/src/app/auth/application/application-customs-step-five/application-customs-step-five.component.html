@@ -1,0 +1,221 @@
+<div class="step-container form-container" *ngIf="temp2?.applicationStatus === 'Submitted' ||
+    temp2?.applicationStatus === 'Rejected' || temp2?.applicationStatus === 'Accepted' || temp2?.applicationStatus === 'Settlement'"
+    style="margin: 115px 15px 0 15px;">
+    <div class="form-section" style="padding-top: 10px; padding-bottom: 10px;">
+        <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="false"></p-steps>
+    </div>
+</div>
+
+<div class="step-container form-container" *ngIf="temp2?.applicationStatus === 'Draft' || temp2?.applicationStatus === 'Sattlement'"
+    style="margin: 115px 15px 0 15px;">
+    <div class="form-section" style="padding-top: 10px; padding-bottom: 10px;">
+        <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="true"></p-steps>
+    </div>
+</div>
+
+<div class="step-container form-container" *ngIf="pageStatus === 1">
+    <div class="form-section">
+        <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="true"></p-steps>
+    </div>
+</div>
+
+<div class="bg">
+    <div class="form-container no-printme">
+        <form [formGroup]="applicationCustomsStepFiveGroup" style="height: 60vh;" autocomplete="off">
+            <div class="form-section">
+                <div class="form-section-2">
+                    <div class="row pb-1">
+                        <div class="col-md-12 col-sm-12 d-flex justify-content-center rounded bg-white">
+                            <button (click)="printPreviewApplicationCustomsStepFour()" class="btn btn-primary ml-5"
+                            style="border-radius: 50px;">
+                            আবেদনপত্র প্রিন্ট/ডাউনলোড করুন</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-section-2">
+                    <div class="row">
+                        <!-- <div class="col-md-2 col-sm-2">
+                            <img class="header-logo" src="assets/images/BDCustomsLogo.png">
+                        </div>
+                        <div class="col-md-10 col-sm-10">
+                            <h2 style="color: #800000;">বাংলাদেশ কাস্টমস রিওয়ার্ড ম্যানেজমেন্ট</h2>
+                        </div> -->
+                    </div>
+                    <div class="row pb-4">
+                        <div class="col-md-12 col-sm-12">
+                            <h6 class="d-flex justify-content-center">আবেদনটি সম্পন্ন করতে স্বাক্ষরিত আবেদনপত্র সংযুক্ত
+                                করুন</h6>                               
+                        </div>
+                    </div>
+                    <div class="row pb-6" *ngIf="temp2?.applicationStatus === 'Submitted' ||
+                    temp2?.applicationStatus === 'Rejected' || temp2?.applicationStatus === 'Accepted' || temp2?.applicationStatus === 'Sattlement'">
+                        <div class="col-md-12 col-sm-12 mb-2 px-4 d-flex justify-content-center">
+                            <span *ngIf="uploadedProgress" class="pl-2 flex-grow-1"
+                                style="font-size: small; font-weight: bold">
+                                <p-progressBar class="uploadedProgress" *ngIf="uploadedProgress"
+                                    [value]="uploadedProgress">
+                                </p-progressBar>
+                            </span>
+                        </div>
+                        <div *ngIf="uploadedFiles" class="col-md-12 col-sm-12 d-flex justify-content-center">
+                            <p class="mt-1" style="font-family: none; font-size: small; font-weight: bold">
+                                {{uploadedFiles}}</p>                                
+                        </div>
+                        <div class="col-md-12 d-flex justify-content-center">
+                            <button (click)="printPdf()"
+                            class="ml-4 custom-file-upload align-self-start"
+                            style="background-color: #800000; color: white"><i class="pi pi-eye"></i> প্রিভিউ করুন</button>
+                        </div>
+                        <div *ngIf="!uploadedFiles" class="col-md-12 col-sm-12 d-flex justify-content-center">
+                            <label *ngIf="!uploadedFiles" class="custom-file-upload"
+                                style="background-color: #ab6161; color: white">
+                                <input (change)="fileSelected($event.target, 'submitted-application')"
+                                    [disabled]="temp2?.applicationStatus === 'Submitted' ||
+                                                temp2?.applicationStatus === 'Rejected' || temp2?.applicationStatus === 'Sattlement' || temp2?.applicationStatus === 'Accepted'" accept="application/pdf" id="boe-01" type="file">
+                                <i class="pi pi-cloud-upload"></i> আপলোড করুন
+                            </label>
+                            <button *ngIf="uploadedFiles" class="custom-file-upload align-self-start"
+                            (click)="cancleUploadedFile()"
+                                style="background-color: #800000; color: white"><i class="pi pi-times"></i> বাতিল
+                                করুন</button>
+                                
+                        </div>
+                        <!-- <div>
+                            <span class="" style="font-size: small; font-weight: bold">{{this.temp?.applicationAttachmentEntity?.fileName}}</span>
+                        </div> -->
+                        <!-- <div class="col-md-12 d-flex justify-content-center">
+                            <span class="" style="font-size: small; font-weight: bold">{{uploadedFiles}}</span>
+                        </div> -->
+
+
+                    </div>
+
+
+
+
+                    <div class="row pb-6" *ngIf="temp2?.applicationStatus === 'Draft'">
+                        <div class="col-md-12 col-sm-12 mb-2 px-4 d-flex justify-content-center">
+                            <span *ngIf="uploadedProgress" class="pl-2 flex-grow-1"
+                                style="font-size: small; font-weight: bold">
+                                <p-progressBar class="uploadedProgress" *ngIf="uploadedProgress"
+                                    [value]="uploadedProgress">
+                                </p-progressBar>
+                            </span>
+                        </div>
+                        <div *ngIf="uploadedFiles" class="col-md-12 col-sm-12 d-flex justify-content-center">
+                            <p class="mt-1" style="font-family: none; font-size: small; font-weight: bold">
+                                {{uploadedFiles}}</p>
+                        </div>
+
+                        <div class="col-md-12 col-sm-12 d-flex justify-content-center">
+                            <label *ngIf="!uploadedFiles" class="custom-file-upload"
+                                style="background-color: #800000; color: white">
+                                <input (change)="fileSelected($event.target, 'submitted-application')"
+                                    [disabled]="temp2?.applicationStatus === 'Submitted' ||
+                                                    temp2?.applicationStatus === 'Rejected'  || temp2?.applicationStatus === 'Sattelement'|| temp2?.applicationStatus === 'Accepted'" accept="application/pdf, image/jpeg, image/jpg"
+                                    id="boe-01" type="file">
+                                <i class="pi pi-cloud-upload"></i> আপলোড করুন
+                            </label>
+
+                            <button *ngIf="uploadedFiles" (click)="cancleUploadedFile()"
+                                class="custom-file-upload align-self-start"
+                                style="background-color: #800000; color: white"><i class="pi pi-times"></i> বাতিল
+                                করুন</button>
+
+                                <button *ngIf="uploadedFiles" (click)="printPdf()"
+                                class="ml-4 custom-file-upload align-self-start"
+                                style="background-color: #800000; color: white"><i class="pi pi-eye"></i> প্রিভিউ করুন</button>
+                        </div>
+
+                        <!-- <div class="col-md-12 d-flex justify-content-center">                                                                              
+                                <span class="" style="font-family: none; font-size: small; font-weight: bold">{{this.uploadedFiles}}</span>                               
+                            </div> -->
+
+                        <!-- <div class="col-md-7">
+                            <span class="" style="font-family: none; font-size: small; font-weight: bold">{{this.temp?.applicationAttachmentEntity?.fileName}}</span>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+
+            <div>
+
+                <!-- <pdf-viewer
+                [src]="this.downloadedFiveFilePath"
+                [rotation]="0"
+                [original-size]="false"
+                [show-all]="true"
+                [fit-to-page]="false"
+                [zoom]="1"
+                [zoom-scale]="'page-width'"
+                [stick-to-page]="false"
+                [render-text]="true"
+                [external-link-target]="'blank'"
+                [autoresize]="true"
+                [show-borders]="false"
+                style="width: 100%; height: 600px;"
+                ></pdf-viewer> -->
+                <!-- <div id="viewer">
+                </div> -->
+
+
+
+                <!-- <ng2-pdfjs-viewer
+                [externalWindow]="true"
+                pdfSrc="this.downloadedFiveFilePath"
+                [openFile]="true"
+                [viewBookmark]="false"
+                [download]="true"
+                >
+
+                </ng2-pdfjs-viewer> -->
+                <!-- <embed type="application/pdf" src="//opt/rms/submitted-application/bde8fb33-0e72-4dfd-81e8-2ba99d5da453.pdf" width="300" height="200"> -->
+                <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/dpoBgIqs4rs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                <!-- <iframe src="file:///opt/rms/submitted-application/15a6ff06-095d-44da-bb59-adaf62e4c6de.pdf"></iframe> -->
+            </div>
+
+            <div class="fixed-footer">
+                <div class="col-md-12 col-sm-12 d-flex justify-content-center">
+                    <!-- <button (click)="submitApplicationCustomsStepFive()" [disabled]="temp2?.applicationStatus === 'Submitted' ||
+                                        temp2?.applicationStatus === 'Rejected' ||
+            temp2?.applicationStatus === 'Accepted'"
+                            class="btn btn-primary"
+                    >আবেদন করুন
+                    </button> -->
+                </div>
+            </div>
+
+        </form>
+        <!-- //////////////////// Modified By Arif \\\\\\\\\\\\\\\\\\\\\\\\-->
+        <!-- Reason: Added previous button & Download Button -->
+
+        <div class="steps-module form-container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <button (click)="prevToApplicationCustomsStepThree()" class="btn btn-primary">পূর্ববর্তী</button>
+                </div>
+                <div>
+                    <button (click)="submitApplicationCustomsStepFive()" [disabled]="temp2?.applicationStatus === 'Submitted' ||
+                            temp2?.applicationStatus === 'Rejected' ||
+                            temp2?.applicationStatus === 'Accepted' || !this.uploadedFiles || temp2?.applicationStatus === 'Sattlement'"
+                        class="btn btn-primary">আবেদন করুন</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<p-dialog [(visible)]="confirmModal" [draggable]="false" [modal]="true" [resizable]="false" [style]="{width: '50vw'}"
+    header="সতর্কতা">
+    <h5 style="color: red;">সাক্ষরিত আবেদনপত্রটি সংযুক্ত করা হয়েছে। এমতাবস্থায় পৃষ্ঠাটির সংযুক্তিটি হারিয়ে যেতে পারে,
+        আপনি কি সংযুক্তিটি রাখতে চান?</h5>
+    <ng-template pTemplate="footer">
+        <p-button (click)="confirmModal=false; confirmStay()" icon="pi pi-check" label="হ্যাঁ"
+            styleClass="p-button-text p-button-danger"></p-button>
+        <p-button (click)="confirmModal=false; backToStepThree();" icon="pi pi-times" id="submit" label="না"
+            styleClass="p-button-text p-button-danger"></p-button>
+    </ng-template>
+</p-dialog>
+
+<p-toast position="bottom-right" [baseZIndex]="50000"></p-toast>

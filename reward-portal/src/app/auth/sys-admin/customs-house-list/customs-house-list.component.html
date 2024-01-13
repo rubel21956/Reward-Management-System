@@ -1,0 +1,55 @@
+<div class="print-me">
+    <div class="page-header d-flex align-items-center">
+        <h4 class="ml-3">কাস্টম হাউসের তালিকা</h4>
+    </div>
+</div>
+
+<div class="bg">
+    <div autocomplete="off" class="row pt-5 mx-5 no-printme">
+        <div class="row">
+            <div>
+                <button (click)="createCustomsHouse()" class="btn btn-primary" style="width: 100%;">কাস্টম হাউস সংযোজন</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row pt-5 mx-3">
+        <p-table [value]="sessionList" responsiveLayout="scroll" styleClass="p-datatable-striped">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="background-color: #800000; color: white; text-align: center;">ক্রমিক নং</th>
+                    <th style="background-color: #800000; color: white; text-align: center;">কাস্টম হাউস কোড</th>
+                    <th style="background-color: #800000; color: white; text-align: center;">কাস্টম হাউসের নাম</th>
+                    <th style="background-color: #800000; color: white; text-align: center;">ঠিকানা</th>
+                    <th style="background-color: #800000; color: white; text-align: center;">অবস্থা</th>
+                    <th class="no-printme" style="background-color: #800000; color: white; text-align: center;">প্রক্রিয়া</th>
+                </tr>
+            </ng-template>
+            <ng-template let-i="rowIndex" let-session pTemplate="body">
+                <tr>
+                    <td class="text-truncate text-center" data-toggle="tooltip" title="{{i+1}}">{{i + 1}}</td>
+                    <td style="text-align: center;">{{session.code}}</td>
+                    <td style="text-align: center;">{{session.bnname}}</td>
+                    <td style="text-align: center;">{{session.bnaddress2}}</td>
+                    <td style="text-align: center;">{{session.status == 'Active' ? 'সক্রিয়' : 'নিস্ক্রিয়'}}</td>
+                    <td class="no-printme" style="text-align: center;">
+                        <button (click)="editCustomsHouse(i)" class="p-button-rounded p-button-text"
+                                icon="pi pi-pencil"
+                                pButton
+                                pRipple pTooltip="সম্পাদনা করুন" style="color: white;"
+                                type="button">
+                        </button>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template let-columns pTemplate="emptymessage">
+                <tr>
+                    <td [attr.colspan]="5" style="text-align: center;">
+                        {{ 'কোনো তথ্য খুঁজে পাওয়া যায় নি' }}
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+

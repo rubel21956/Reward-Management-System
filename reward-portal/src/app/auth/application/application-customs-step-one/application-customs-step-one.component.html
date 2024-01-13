@@ -1,0 +1,578 @@
+<loading-image [is-loading]="isLoading"></loading-image>
+<div class="page-header d-flex align-items-center">
+    <div class="col">
+        <h4 class="ml-3">পুরস্কার মঞ্জুরির জন্য সম্বলিত তথ্য</h4>
+    </div>
+    <div>
+        <button (click)="resetPageApplicationCustomsStepOne()" class="btn btn-primary">রিসেট</button>
+    </div>
+</div>
+
+    <div class="step-container form-container" *ngIf="temp?.applicationStatus === 'Submitted' ||
+    temp?.applicationStatus === 'Rejected' ||
+    temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'">
+        <div class="form-section">
+            <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="false"></p-steps>
+        </div>
+    </div>
+
+    <div class="step-container form-container" *ngIf="temp?.applicationStatus === 'Draft'">
+        <div class="form-section">
+            <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="true"></p-steps>
+        </div>
+    </div>
+
+    <div class="step-container form-container" *ngIf="pageStatus === 1">
+        <div class="form-section">
+            <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="true"></p-steps>
+        </div>
+    </div>
+
+<!-- <div class="col">
+    <div class="form-section" style="padding-left: 70px; padding-right: 70px;">
+        <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="false"></p-steps>
+    </div>
+</div> -->
+
+<div class="bg">
+    <div class="form-container print-me">
+        <form [formGroup]="applicationCustomsStepOneGroup" autocomplete="off" class="form-container">
+            <div class="form-section" style="padding-left: 70px; padding-right: 70px;">
+                <h6>আটক/অনিয়ম প্রতিবেদনের তথ্যাদি</h6>
+                <hr>
+                <div class="row mb-3">
+                    <label class="col-sm-6 col-form-label col-form-label-md required" for="applyingOfficeOid">আবেদনকারী
+                        দপ্তরের নাম</label>
+                    <div class="col-sm-6">
+                        <p-dropdown [disabled]="temp?.applicationStatus === 'Submitted' ||
+                                    temp?.applicationStatus === 'Rejected' ||
+                                    temp?.applicationStatus === 'Accepted' || currentOfficeId.length || temp?.applicationStatus === 'Sattlement'" [options]="applyingOffice"
+                            [showClear]="true" formControlName="applyingOfficeOid" id="applyingOfficeOid"
+                            optionLabel="bnname" optionValue="oid" placeholder="আবেদনকারী দপ্তরের নাম" #doptor>
+                        </p-dropdown>
+                        <span
+                            *ngIf="(f.applyingOfficeOid.touched || submitted) && (f.applyingOfficeOid.errors?.required)"
+                            class="text-danger" style="font-size: 16px">
+                            আবেদনকারী দপ্তরের নাম আবশ্যক
+                        </span>
+                    </div>
+                </div>
+                <div *ngIf="f.applyingOfficeOid.value === 'others'" class="row mb-3">
+                    <label class="col-sm-6 col-form-label col-form-label-md" for="Office"></label>
+                    <div class="col-sm-6">
+                        <div class="row g-2">
+                            <div class="col-sm-6">
+                                <input [readonly]="temp?.applicationStatus === 'Submitted' ||
+                                    temp?.applicationStatus === 'Rejected' ||
+                                    temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'" class="form-control form-control-sm"
+                                    formControlName="officeName" id="officeName" placeholder="আবেদনকারী দপ্তরের নাম"
+                                    type="text">
+                            </div>
+                            <div class="col-sm-6">
+                                <input [readonly]="temp?.applicationStatus === 'Submitted' ||
+                                    temp?.applicationStatus === 'Rejected' ||
+                                    temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'" class="form-control form-control-sm"
+                                    formControlName="officeAddress" id="officeAddress"
+                                    placeholder="আবেদনকারী দপ্তরের ঠিকানা" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-6 col-form-label col-form-label-md required" for="beno">বি/ই নম্বর</label>
+                    <div class="col-sm-6">
+                        <div class="row g-2">
+                            <div class="col-sm-6">
+                                <!-- <input (change)="checkBillOfEntryNo(); " [readonly]="temp?.applicationStatus === 'Submitted' ||
+                                    temp?.applicationStatus === 'Rejected' ||
+                                    temp?.applicationStatus === 'Accepted'" class="form-control form-control-sm"
+                                    formControlName="billOfEntryNo" id="billOfEntryNo" placeholder="বি/ই নম্বর"
+                                    type="text" #bn> -->
+                                    <input [readonly]="temp?.applicationStatus === 'Submitted' ||
+                                    temp?.applicationStatus === 'Rejected' ||
+                                    temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'" class="form-control form-control-sm customFont"
+                                    formControlName="billOfEntryNo" id="billOfEntryNo" placeholder="বি/ই নম্বর"
+                                    type="text" #bn (input)="CheckIfAlreadyExistBillOfEntry(bn.value, dn.value, datename.value)">
+                                <span
+                                    *ngIf="(f.billOfEntryNo.touched || submitted) && (this.billOfEntryStatusChech == true )"
+                                    class="text-danger" style="font-size: 16px">
+                                    বি/ই নম্বর ইতোমধ্যেই আছে
+                                </span>
+                                <span
+                                *ngIf="(f.billOfEntryNo.touched || submitted) && (f.billOfEntryNo.errors?.required)"
+                                class="text-danger" style="font-size: 16px">
+                                বি/ই নম্বর আবশ্যক
+                            </span>
+                            </div>
+                            <div class="col-sm-6">
+                                <p-dropdown [disabled]="temp?.applicationStatus === 'Submitted' ||
+                                    temp?.applicationStatus === 'Rejected' ||
+                                    temp?.applicationStatus === 'Accepted' || doptor.value != '302' || temp?.applicationStatus === 'Sattlement'" [options]="investigatorOffice2"
+                                    [showClear]="true" formControlName="officeOid" id="officeOid" optionLabel="bnname"
+                                    optionValue="oid" placeholder="দপ্তরের নাম" #dn (ngModelChange)="CheckIfAlreadyExistBillOfEntry(bn.value, dn.value, datename.value)" >
+                                </p-dropdown>
+                                <!-- <span *ngIf="(f.officeOid.touched || submitted) || (f.officeOid.errors?.required)"
+                                    class="text-danger" style="font-size: 16px">
+                                    দপ্তরের নাম আবশ্যক
+                                </span> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-6 col-form-label col-form-label-md required" for="billOfEntryDate">বি/ই
+                        তারিখ</label>
+                    <div class="col-sm-6">
+                        <p-calendar [disabled]="temp?.applicationStatus === 'Submitted' ||
+                                    temp?.applicationStatus === 'Rejected' ||
+                                    temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement' || dn.value == ''" [minDate]="minDate"
+                            [monthNavigator]="true" [showIcon]="true" [yearNavigator]="true" dateFormat="dd.mm.yy" 
+                            formControlName="billOfEntryDate" id="billOfEntryDate" placeholder="{{'বি/ই তারিখ'}}"
+                            yearRange="1900:2050" lang="en-IN" #datename (ngModelChange)="CheckIfAlreadyExistBillOfEntry(bn.value, dn.value, datename.value)">
+                        </p-calendar>
+                        <span *ngIf="(f.billOfEntryDate.touched || submitted) && (f.billOfEntryDate.errors?.required)"
+                            class="text-danger" style="font-size: 16px" >
+                            বি/ই তারিখ আবশ্যক
+                        </span>
+
+                        <span *ngIf="(f.billOfEntryDate.touched && billOfEntryStatusChech)"
+                        class="text-danger" style="font-size: 16px" >
+                        উক্ত বি/ই ও তারিখ ইতিপূর্বেই আছে।
+                    </span>
+
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-6 col-form-label col-form-label-md required" for="anomalyCaptureDate">আবেদনের
+                        তারিখ</label>
+                    <div class="col-sm-6">
+                        <p-calendar [disabled]="temp?.applicationStatus === 'Submitted' ||
+                                    temp?.applicationStatus === 'Rejected' ||
+                                    temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'" [minDate]="minDate"
+                            [monthNavigator]="true" [showIcon]="true" [yearNavigator]="true" dateFormat="dd.mm.yy"
+                            formControlName="anomalyCaptureDate" id="anomalyCaptureDate" #applicationDate
+                            placeholder="{{'আবেদনের তারিখ'}}" yearRange="1900:2050" lang="en-IN">
+                        </p-calendar>
+                        <span
+                            *ngIf="(f.anomalyCaptureDate.touched || submitted) && (f.anomalyCaptureDate.errors?.required)"
+                            class="text-danger" style="font-size: 16px">
+                            আবেদনের তারিখ আবশ্যক
+                        </span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-6 col-form-label col-form-label-md required" for="referenceNo">প্রেরিতব্য
+                        পত্রের স্মারক নম্বর</label>
+                    <div class="col-sm-6">
+                        <input [readonly]="temp?.applicationStatus === 'Submitted' ||
+                                    temp?.applicationStatus === 'Rejected' ||
+                                    temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'" class="form-control form-control-sm customFont"
+                            formControlName="referenceNo" id="referenceNo" #refference placeholder="স্মারক নম্বর" type="text">
+                        <span *ngIf="(f.referenceNo.touched || submitted) && (f.referenceNo.errors?.required)"
+                            class="text-danger" style="font-size: 16px">
+                            প্রেরিতব্য পত্রের স্মারক নম্বর আবশ্যক
+                        </span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-6 col-form-label col-form-label-md" for="reportno">আটক/অনিয়ম প্রতিবেদনের
+                        নম্বর</label>
+                    <div class="col-sm-6">
+                        <input [readonly]="temp?.applicationStatus === 'Submitted' ||
+                                    temp?.applicationStatus === 'Rejected' ||
+                                    temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'" class="form-control form-control-sm customFont"
+                            formControlName="anomalyReportNo" id="anomalyReportNo"
+                            placeholder="আটক/অনিয়ম প্রতিবেদনের নম্বর" type="text">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-6 col-form-label col-form-label-md" for="accusedCompanyName">অভিযুক্ত
+                        প্রতিষ্ঠানের নাম</label>
+                    <div class="col-sm-6">
+                        <input [readonly]="temp?.applicationStatus === 'Submitted' ||
+                                    temp?.applicationStatus === 'Rejected' ||
+                                    temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'" class="form-control form-control-sm customFont"
+                            formControlName="accusedCompanyName" id="accusedCompanyName"
+                            placeholder="অভিযুক্ত প্রতিষ্ঠানের নাম" type="text">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-6 col-form-label col-form-label-md" for="accusedCompanyAddress">অভিযুক্ত
+                        প্রতিষ্ঠানের ঠিকানা</label>
+                    <div class="col-sm-6">
+                        <input [readonly]="temp?.applicationStatus === 'Submitted' ||
+                                    temp?.applicationStatus === 'Rejected' ||
+                                    temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'" class="form-control form-control-sm customFont"
+                            formControlName="accusedCompanyAddress" id="accusedCompanyAddress"
+                            placeholder="অভিযুক্ত প্রতিষ্ঠানের ঠিকানা" type="text">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section" style="padding-left: 70px; padding-right: 70px;">
+                <label class="col-form-label col-form-label-md" for="reason">আটকের কারণ/অনিয়মের সংক্ষিপ্ত
+                    বিবরণ</label>
+                <textarea [readonly]="temp?.applicationStatus === 'Submitted' ||
+                                    temp?.applicationStatus === 'Rejected' ||
+                                    temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'" class="form-control customFont"
+                    formControlName="anomalyReason" id="anomalyReason" placeholder="বিবরণ" rows="3">
+                </textarea>
+            </div>
+
+            <div class="form-section" style="padding-left: 70px; padding-right: 70px;">
+
+                <div class="row mb-3">
+                    <label class="col-sm-6 col-form-label col-form-label-md required" for="appealOrderNo">ন্যায়
+                        নির্ণয়ন/আপীল/রিভিশন আদেশ নং</label>
+                    <div class="col-sm-6">
+                        <input [readonly]="temp?.applicationStatus === 'Submitted' ||
+                                    temp?.applicationStatus === 'Rejected' ||
+                                    temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'" class="form-control form-control-sm customFont"
+                            formControlName="appealOrderNo" id="appealOrderNo"
+                            placeholder="ন্যায় নির্ণয়ন/আপীল/রিভিশন আদেশ নং" type="text">
+                        <span *ngIf="(f.appealOrderNo.touched || submitted) && (f.appealOrderNo.errors?.required)"
+                            class="text-danger" style="font-size: 16px">
+                            ন্যায় নির্ণয়ন/আপীল/রিভিশন আদেশ নং আবশ্যক
+                        </span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-6 col-form-label col-form-label-md required" for="appealOrderDate">ন্যায়
+                        নির্ণয়ন/আপীল/রিভিশন তারিখ</label>
+                    <div class="col-sm-6">
+                        <p-calendar [disabled]="temp?.applicationStatus === 'Submitted' ||
+                                    temp?.applicationStatus === 'Rejected' ||
+                                    temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'" [minDate]="minDate"
+                            [monthNavigator]="true" [showIcon]="true" [yearNavigator]="true" dateFormat="dd.mm.yy"
+                            formControlName="appealOrderDate" id="appealOrderDate"
+                            placeholder="{{'ন্যায় নির্ণয়ন/আপীল/রিভিশন তারিখ' }}" yearRange="1900:2050" lang="en-IN">
+                        </p-calendar>
+                        <span *ngIf="(f.appealOrderDate.touched || submitted) && (f.appealOrderDate.errors?.required)"
+                            class="text-danger" style="font-size: 16px">
+                            ন্যায় নির্ণয়ন/আপীল/রিভিশন তারিখ আবশ্যক
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section" style="padding-left: 70px; padding-right: 70px;">
+                <div class="row mb-3">
+                    <label class="col-sm-6 col-form-label col-form-label-md required"
+                        for="exporterImporterDutyAmount">ঘোষণা মোতাবেক আমদানিকারক/রপ্তানিকারকের প্রদেয় শুল্ক-করের
+                        পরিমাণ</label>
+                        <div class="col-sm-3 col-md-3">
+                            <div class="p-inputgroup">
+                                <span class="p-inputgroup-addon">৳</span>
+                                <input (ngModelChange)="calculate()" [readonly]="temp?.applicationStatus === 'Submitted' ||
+                                temp?.applicationStatus === 'Rejected' ||
+                                temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'" class="form-control form-control-sm customFont"
+                                    formControlName="exporterImporterDutyAmount" id="exporterImporterDutyAmount" placeholder="আমদানিকারক/রপ্তানিকারকের ঘোষণা মোতাবেক প্রদেয় শুল্ক-করের পরিমাণ" type="text">                               
+                            </div>                           
+                        </div>
+                        <span *ngIf="(f.exporterImporterDutyAmount.touched || submitted) && (f.exporterImporterDutyAmount.errors?.required)"
+                        class="text-danger col-md-3" style="font-size: 16px">
+                        ঘোষণা মোতাবেক আমদানিকারক/রপ্তানিকারকের প্রদেয় শুল্ক-করের
+                        পরিমাণ আবশ্যক
+                    </span>
+                    <!-- <div class="col-sm-6">
+                        <div class="p-inputgroup">
+                            <span class="p-inputgroup-addon">৳</span>
+                            <p-inputNumber (ngModelChange)="calculate();" (input)="pInput($event, 'exporterImporterDutyAmount')" (onBlur)="customAmount('exporterImporterDutyAmount', $event)" [disabled]="temp?.applicationStatus === 'Submitted' ||
+                                    temp?.applicationStatus === 'Rejected' ||
+                                    temp?.applicationStatus === 'Accepted'" [minFractionDigits]="2"
+                                formControlName="exporterImporterDutyAmount" id="exporterImporterDutyAmount"
+                                locale="en-IN" mode="decimal"                        
+                                placeholder="আমদানিকারক/রপ্তানিকারকের ঘোষণা মোতাবেক প্রদেয় শুল্ক-করের পরিমাণ">
+                            </p-inputNumber >                            
+                           
+                        </div>
+                    </div> -->
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-6 col-md-6 col-form-label col-form-label-md pt-3 required" for="attachment">সংযুক্তি
+                        (এজেন্টদের ঘোষণা মোতাবেক বিল
+                        অফ এনট্রি)</label>
+                    <div class="col-sm-6 col-md-6 d-flex align-items-center">
+                       
+                        <div class="col-sm-4 col-md-4 p-0">
+                            <label *ngIf="!uploadedFilesName" class="custom-file-upload "
+                                style="background-color: #800000; color: white">
+                                <input (change)="fileSelected($event, 'boe')" [disabled]="temp?.applicationStatus === 'Submitted' ||
+                                    temp?.applicationStatus === 'Rejected' ||
+                                    temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'" accept="application/pdf, image/jpeg, image/jpg"
+                                    id="boe" type="file">                    
+                                <i class="pi pi-cloud-upload"></i> আপলোড করুন
+                            </label>                                  
+                                <button [disabled]="temp?.applicationStatus === 'Submitted' ||
+                                temp?.applicationStatus === 'Rejected' ||
+                                temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'" *ngIf="uploadedFilesName" (click)="deleteUploadedTempFile()" class="btn btn-primary"><i class="pi pi-times"></i> বাতিল করুন</button>                                                                                
+                        </div>
+                        <div class="col-sm-7 col-md-7 p-0">
+                            <p-progressBar class="customProgress" *ngIf="stepOneBOEFileProgress" [value]="stepOneBOEFileProgress">
+                            </p-progressBar>
+                            <div>
+                                <span style="font-size: small; font-weight: bold; font-family: Times;">{{uploadedFilesName}}</span>
+                            </div>
+                            <span *ngIf="!uploadedFilesName">(সর্বোচ্চ ১০ মেগাবাইট)</span>
+                        </div>
+                        <div class="col-sm-1 col-md-1">
+                            <button (click)="viewPdf()"
+                            *ngIf="stepOneBOEFileProgress == 100 || uploadedFilesName != ''"                         
+                            class="p-button-rounded p-button-text"
+                            icon="pi pi-eye"
+                            pButton
+                            pRipple pTooltip="প্রিভিউ করুন" style="color: white;"
+                            type="button">
+                    </button>  
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-6 col-form-label col-form-label-md required"
+                        for="collectedDutyAndPenaltyAmount">অনিয়ম/মিথ্যা ঘোষণা উদঘাটিত হওয়ায় আদায়কৃত শুল্ক-কর ও জরিমানার
+                        পরিমাণ</label>
+                        <div class="col-sm-3 col-md-3 pl-0">
+                            <div class="p-inputgroup col-md-12">
+                                <span class="p-inputgroup-addon">৳</span>
+                                <input (ngModelChange)="calculate()" [readonly]="temp?.applicationStatus === 'Submitted' ||
+                                temp?.applicationStatus === 'Rejected' ||
+                                temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'" class="form-control form-control-sm customFont"
+                                    formControlName="collectedDutyAndPenaltyAmount" id="collectedDutyAndPenaltyAmount" placeholder="অনিয়ম/মিথ্যা ঘোষণা উদঘাটিত হওয়ায় আদায়কৃত শুল্ক-কর ও জরিমানার পরিমাণ" type="text">                                                                 
+                            </div>                                                      
+                        </div>
+                        <span *ngIf="(f.collectedDutyAndPenaltyAmount.touched || submitted) && (f.collectedDutyAndPenaltyAmount.errors?.required)"
+                        class="text-danger col-md-3" style="font-size: 16px">
+                        অনিয়ম/মিথ্যা ঘোষণা উদঘাটিত হওয়ায় আদায়কৃত শুল্ক-কর ও জরিমানার
+                        পরিমাণ আবশ্যক
+                    </span>
+
+
+                    <!-- <div class="col-sm-6">
+                        <div class="p-inputgroup">
+                            <span class="p-inputgroup-addon">৳</span>
+                            <p-inputNumber (ngModelChange)="calculate()" [disabled]="temp?.applicationStatus === 'Submitted' ||
+                                    temp?.applicationStatus === 'Rejected' ||
+                                    temp?.applicationStatus === 'Accepted'" [minFractionDigits]="2"
+                                formControlName="collectedDutyAndPenaltyAmount" id="collectedDutyAndPenaltyAmount"
+                                locale="en-IN" mode="decimal" (input)="pInput($event, 'collectedDutyAndPenaltyAmount')" (onBlur)="customAmount('collectedDutyAndPenaltyAmount', $event); calculate()"
+                                placeholder="অনিয়ম/মিথ্যা ঘোষণা উদঘাটিত হওয়ায় আদায়কৃত শুল্ক-কর ও জরিমানার পরিমাণ">
+                            </p-inputNumber>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-6 col-form-label col-form-label-md" for="extraTax">বিধি ৬ মোতাবেক জরিমানাসহ
+                        আদায়কৃত অতিরিক্ত শুল্ক-করাদি</label>
+                    <div *ngIf="this.oid == null" class="col-sm-6">
+                        <label id="extraTax" placeholder="বিধি ৬ মোতাবেক জরিমানাসহ আদায়কৃত অতিরিক্ত শুল্ক-করাদি" [class]="extraTax > 0 || extraTax == 'NaN' ? '' : 'text-danger'"
+                            type="text">{{extraTax < 0 || extraTax == 'NaN' ? '' : extraTax?.toLocaleString('en-IN')}}</label>
+                    </div>
+                    <div *ngIf="this.oid != null" class="col-sm-6">
+                        <label id="extraTax" placeholder="বিধি ৬ মোতাবেক জরিমানাসহ আদায়কৃত অতিরিক্ত শুল্ক-করাদি" [class]="this.temp?.extraReceivedAmount > 0 || extraTax == 'NaN' ? '' : 'text-danger'"
+                            type="text">{{((this.temp?.extraReceivedAmount == null || this.temp?.extraReceivedAmount == 0 ) ? '' : this.temp?.extraReceivedAmount).toLocaleString('en-IN')}}</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section" style="padding-left: 70px; padding-right: 70px;">
+                <div class="row mb-3">
+                    <label class="col-sm-6 col-form-label col-form-label-md" for="category">পুরস্কারের ক্যাটাগরি (বিধি -
+                        ৪)</label>
+                    <div class="col-sm-6">
+                        <p-dropdown [disabled]="temp?.applicationStatus === 'Submitted' ||
+                                    temp?.applicationStatus === 'Rejected' ||
+                                    temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'" [options]="prize" [showClear]="true"
+                            formControlName="category" id="category" optionLabel="number" optionValue="number"
+                            placeholder="পুরস্কারের ক্যাটাগরি (বিধি - ৪)">
+                        </p-dropdown>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-6 col-form-label col-form-label-md" for="rewardableAmount">পুরস্কারযোগ্য অর্থের
+                        পরিমাণ</label>
+                    <div *ngIf="this.oid !== null" class="col-sm-6">
+                        <label id="rewardableAmount" placeholder="পুরস্কারযোগ্য অর্থের পরিমাণ"
+                            type="text">{{(temp?.rewardableAmount == 0 || temp?.rewardableAmount == 'NaN' || temp?.rewardableAmount == undefined) ? '' : temp?.rewardableAmount.toLocaleString('en-IN')}}
+                        </label>
+                    </div>
+                    <div *ngIf="this.oid === null" class="col-sm-6">
+                        <label id="rewardableAmount" placeholder="পুরস্কারযোগ্য অর্থের পরিমাণ"
+                            type="text">{{((rewardableAmount == 0 || rewardableAmount == 'NaN')? '': rewardableAmount.toLocaleString('en-IN'))}}
+                        </label>
+                    </div>
+                </div>
+                <!-- <div class="row mb-3">
+                    <label class="col-sm-6 col-form-label col-form-label-md" for="rewardableAmount">বণ্টনযোগ্য অর্থের
+                        পরিমাণ</label>
+                    <div *ngIf="this.oid !== null" class="col-sm-6">
+                        <label id="rewardableAmount" placeholder="বণ্টনযোগ্য অর্থের পরিমাণ"
+                            type="text">{{((temp?.rewardableAmount)-(temp?.rewardableAmount*.15)).toLocaleString('en-IN')}}
+                        </label>
+                    </div>
+                    <div *ngIf="this.oid === null" class="col-sm-6">
+                        <label id="rewardableAmount" placeholder="বণ্টনযোগ্য অর্থের পরিমাণ"
+                            type="text"><strong>{{rewardableAmount == 0 ? '': (rewardableAmount-(rewardableAmount*.15)).toLocaleString('en-IN')}}</strong>
+                        </label>
+                    </div>
+                </div> -->
+            </div>
+
+            <div class="form-section" style="padding-left: 70px; padding-right: 70px;">
+
+                <div class="row mb-3">
+                    <label class="col-sm-6 col-form-label col-form-label-md" for="isRewardedfor">তথ্য
+                        সরবরাহকারী</label>
+                    <div class="col-sm-6 col-md-6">
+                        <div class="row">
+                            <input (change)="handleCheckbox($event)" [disabled]="temp?.applicationStatus === 'Submitted' ||
+                                temp?.applicationStatus === 'Rejected' ||
+                                temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'" id="isRewarded"
+                                name="isRewarded" type="checkbox">
+
+                            <div class="col-md-6 col-sm-6">
+                                <form [formGroup]="informerGroup" >
+                                    <label class="">আবেদনকৃত অর্থের পরিমাণ</label>
+                                    <div class="col-sm-12">                                                                                    
+                                            <input (ngModelChange)="calculate(); distributedAmountContol()" [readonly]="temp?.applicationStatus === 'Submitted' ||
+                                            temp?.applicationStatus === 'Rejected' ||
+                                            temp?.applicationStatus === 'Accepted' || toggleStatus || temp?.applicationStatus === 'Sattlement'" class="form-control form-control-sm customFont"
+                                                formControlName="appliedRewardAmount" id="appliedRewardAmount" placeholder="0.00" type="text"
+                                                (input)="pInput($event, 'appliedRewardAmount')" (onBlur)="customAmount('appliedRewardAmount', $event)">                                       
+                                        </div>                                                                           
+                                    <!-- <p-inputNumber [disabled]="temp?.applicationStatus === 'Submitted' ||
+                                            temp?.applicationStatus === 'Rejected' ||
+                                            temp?.applicationStatus === 'Accepted' || toggleStatus" [minFractionDigits]="2"
+                                        formControlName="appliedRewardAmount" id="appliedRewardAmount" locale="en-IN" mode="decimal"
+                                        placeholder="0.00" (input)="pInput($event, 'appliedRewardAmount')" (onBlur)="customAmount('appliedRewardAmount', $event); distributedAmountContol()">
+                                    </p-inputNumber> -->
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-section" style="padding-left: 70px; padding-right: 70px;">
+              <div class="row mb-2">
+                <div class="col-md-6">
+                    <p class="required">আটককারী কর্মকর্তা/কর্মচারী পরিচিতি ও বণ্টনযোগ্য পুরস্কারের পরিমাণ</p>
+                </div>
+                <!-- <div class="col-md-6">
+                    <button (click)="addRowtoDataSet()" class="btn btn-sm btn-info p-0 w-50 h-75"></button>
+                </div> -->
+              </div>
+                <div class="d-flex p-0 m-0 flex-column justify-content-center" style="text-align: center;">                 
+                    <div class="d-flex justify-content-center p-o">
+                           <hot-table id="datatable" class="p-o" [settings]="tableSettings" [data]="dataset" [readOnly]="temp?.applicationStatus === 'Submitted' ||
+                    temp?.applicationStatus === 'Rejected' ||
+                    temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'" 
+                    [disableVisualSelection]="temp?.applicationStatus === 'Submitted' ||
+                    temp?.applicationStatus === 'Rejected' ||
+                    temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'">                                           
+                    </hot-table>                    
+                    </div>
+                    <div class="d-flex justify-content-center p-o">
+                        <hot-table  class="p-o" [settings]="tableSettings2" [data]="dataset2" [disableVisualSelection]="true" [readOnly]="true">                                           
+                 </hot-table>                   
+                 </div>
+                    <div *ngIf="distributedAmount != 0" class="d-flex justify-content-center">
+                        <table  width="924px" id="summary">
+                            <tr *ngIf="distributedAmount > 0 && temp?.rewardableAmount == undefined" style="border: 0.5px solid lightgrey; background-color: #f0f0f0;">
+                                <td *ngIf="(distributedAmount+tempAmount+rewardableAmount*.15) <= (rewardableAmount)" class="p-1 px-2" style="text-align: end;"><strong>মোট বণ্টনকৃত</strong></td>
+                                <td *ngIf="(distributedAmount+tempAmount+rewardableAmount*.15) > (rewardableAmount)" class="p-1 px-2" style="text-align: end; color: #800000;"><strong>মোট বণ্টনকৃত টাকা পুরস্কারযোগ্য অর্থের পরিমাণ থেকে বেশি হয়েছে</strong></td>
+                                <td [class]="(distributedAmount+tempAmount+rewardableAmount*.15) > (rewardableAmount) ? 'bg-danger p-1': 'bg-success p-1'" style="color:white" width="308px"><strong>{{(distributedAmount+tempAmount+this.rewardableAmount*.15).toLocaleString('en-IN')}} টাকা</strong></td>
+                            </tr>
+                            <tr *ngIf="(temp?.rewardableAmount != undefined || temp?.rewardableAmount != null) &&  distributedAmount > 0 " style="border: 0.5px solid lightgrey; background-color: #f0f0f0;">
+                                <td *ngIf="(distributedAmount+tempAmount+this.rewardableAmount*.15) <= (temp?.rewardableAmount)" class="p-1 px-2" style="text-align: end;"><strong>মোট বণ্টনকৃত</strong></td>
+                                <td *ngIf="(distributedAmount+tempAmount+this.rewardableAmount*.15) > (temp?.rewardableAmount)" class="p-1 px-2" style="text-align: end; color: #800000;"><strong>মোট বণ্টনকৃত টাকা পুরস্কারযোগ্য অর্থের পরিমাণ থেকে বেশি হয়েছে</strong></td>
+                                <td [class]="(distributedAmount+tempAmount+this.rewardableAmount*.15) > (temp?.rewardableAmount) ? 'bg-danger p-1': 'bg-success p-1'" style="color:white" width="308px"><strong>{{(distributedAmount+tempAmount+this.rewardableAmount*.15).toLocaleString('en-IN')}} টাকা</strong></td>
+                            </tr>
+                        </table>
+                    </div>       
+                </div>
+                <hr>
+                <!-- 
+                <div class="row mb-3">
+                    <label class="col-sm-6 col-form-label col-form-label-md" for="rewardableAmount">তথ্য সরবরাহকারী এবং কর্মকর্তা/কর্মচারীগণের মোট পুরস্কারের পরিমাণ</label>
+                    <div *ngIf="this.oid !== null" class="col-sm-6 d-flex align-items-center">
+                        <label class="m-0 p-0" id="rewardableAmount" placeholder="বণ্টনযোগ্য অর্থের পরিমাণ"
+                            type="text">{{(distributedAmount+tempAmount) <= 0 ? '' : (distributedAmount+tempAmount).toLocaleString('en-IN')}}
+                        </label>
+                    </div>
+                    <div *ngIf="this.oid === null" class="col-sm-6 d-flex align-items-center">
+                        <label class="m-0 p-0" id="rewardableAmount" placeholder="বণ্টনযোগ্য অর্থের পরিমাণ"
+                            type="text"><strong>{{(distributedAmount+tempAmount) <= 0 ? '' : (distributedAmount+tempAmount).toLocaleString('en-IN')}}</strong>
+                        </label>
+                    </div>
+                </div> -->
+            </div>
+
+            <div class="form-section" style="padding-left: 70px; padding-right: 70px;">
+                <div class="row mb-3">
+                    <label class="col-sm-6 col-form-label col-form-label-md required customFont" for="officeHeadsName">দপ্তর
+                        প্রধানের
+                        নাম</label>
+                    <div class="col-sm-6">
+                        <input [readonly]="temp?.applicationStatus === 'Submitted' ||
+                                    temp?.applicationStatus === 'Rejected' ||
+                                    temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'" class="form-control form-control-sm customFont"
+                            formControlName="officeHeadsName" id="officeHeadsName" placeholder="দপ্তর প্রধানের নাম"
+                            type="text">
+                            <span
+                        *ngIf="(f.officeHeadsName.touched || submitted) && (f.officeHeadsName.errors?.required)"
+                                class="text-danger" style="font-size: 16px">
+                                দপ্তর প্রধানের নাম আবশ্যক
+                            </span>
+                    </div>                    
+                </div>
+            </div>
+            <div class="form-section" style="padding-left: 70px; padding-right: 70px;">
+                <label class="col-form-label col-form-label-md" for="remarksFromCustomsOffice">মন্তব্য (যদি
+                    থাকে)</label>
+                <textarea [readonly]="temp?.applicationStatus === 'Submitted' ||
+                                    temp?.applicationStatus === 'Rejected' ||
+                                    temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'" class="form-control customFont"
+                    formControlName="remarksFromCustomsOffice" id="remarksFromCustomsOffice"
+                    placeholder="মন্তব্য (যদি থাকে)" rows="3">
+                </textarea>
+            </div>
+
+            <div class="no-printme mb-4" >
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <button (click)="submitApplicationCustomsStepOne($event)" [disabled]="temp?.applicationStatus === 'Submitted' ||
+                                                    temp?.applicationStatus === 'Rejected' ||
+                                                    temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement' || bn.value == '' || 
+                                                    datename.value == '' || datename.value == null || 
+                                                    applicationDate.value == '' || applicationDate.value == null ||
+                                                    refference.value == ''" 
+                                                    class="btn btn-primary" id="draft">খসড়া সংরক্ষণ করুন
+                        </button>
+                    </div>
+                    <!-- <div>
+                        <button (click)="printPreviewApplicationCustomsStepOne()" class="btn btn-primary">প্রিভিউ করুন
+                        </button>
+                    </div> -->
+                    <div *ngIf="temp?.applicationStatus !== 'Submitted' &&
+                        temp?.applicationStatus !== 'Rejected' &&
+                        temp?.applicationStatus !== 'Accepted' 
+                        && temp?.applicationStatus !== 'Sattlement'">
+                        <button *ngIf="temp?.rewardableAmount == undefined" [disabled]="rewardableAmount == 0 || (distributedAmount)>rewardableAmount || distributedAmount == 0" (click)="submitApplicationCustomsStepOne($event)" class="btn btn-primary"
+                            id="submit">পরবর্তী</button>
+                        <button *ngIf="temp?.rewardableAmount != undefined" [disabled]="temp?.rewardableAmount == 0 || (distributedAmount) > temp?.rewardableAmount || distributedAmount == 0" (click)="submitApplicationCustomsStepOne($event)" class="btn btn-primary"
+                                id="submit">পরবর্তী</button>
+                    </div>
+                    <div *ngIf="temp?.applicationStatus === 'Submitted' ||
+                       temp?.applicationStatus === 'Rejected' ||
+                        temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'">
+                        <button (click)="forwardToApplicationCustomStepTwo()" class="btn btn-primary">পরবর্তী
+                            পৃষ্ঠা</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <p-toast position="bottom-right" [baseZIndex]="50000"></p-toast>
+</div>
