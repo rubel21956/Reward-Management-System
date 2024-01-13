@@ -1,0 +1,150 @@
+.page-header{
+    width: calc(100% - 30px);
+    height: 67px;
+    margin: 108px 15px 0 15px;
+    padding: 5px;
+    background-color: #D9D9D9;
+    border-radius: 8px;
+    color: #800000;
+}
+
+
+input[type="file"] {
+    display: none;
+}
+
+#isRewarded:hover{
+    cursor: pointer;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.form-container{
+    margin: 15px;
+}
+
+.form-section{
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #F4F4F4;
+    border-radius: 8px;
+}
+
+
+.form-control{
+    /* padding: 17px !important; */
+}
+
+.file{
+    padding: 3px !important
+}
+
+.btn-primary{
+    border: none;
+    background-color: #800000 !important;
+}
+
+.required:after {
+    content: " *";
+    color: red;
+}
+.form-container{
+    position: relative;
+}
+.no-printme{
+    padding: .33rem 0;
+    position: sticky;
+    bottom: 0px;
+    background: white;
+    z-index: 9999;
+}
+
+.bg {
+    /* background: url(../../../../assets/images/bg.png) no-repeat center center fixed; */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+}
+
+
+@media print {
+        /* .doNotPrint {
+            display: none;
+        } */
+        #header-widgets, nav, aside.mashsb-container, 
+        .sidebar, .mashshare-top, .mashshare-bottom, 
+        .content-ads, .make-comment, .author-bio, 
+        .heading, .related-posts, #decomments-form-add-comment, 
+        #breadcrumbs, #footer, .post-byline, .meta-single, 
+        .site-title img, .post-tags, .readability #sidebar
+        {
+        display: none;
+        }
+        /* Global typography reset */
+        body{
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 14pt;   
+        }
+
+        @page {
+            size: 420mm 594mm; 
+            margin-right: 10em !important;
+            margin-left: 10em !important;
+            position: 10px 20px;
+        }
+    }
+
+
+.no-font {
+    font-family: none !important;
+    
+    /* font-weight: 550 !important; */
+
+}
+
+::ng-deep .customProgress .p-progressbar-label {
+    background: #ef5439;
+    color: #fff;
+  }
+
+
+  @font-face {
+    font-family: 'Roboto';
+    src: url('assets/fonts/roboto/Roboto-Regular.ttf');
+  }
+  
+  @font-face {
+    font-family: 'Kalpurush';
+    src: url('assets/fonts/kalpurush/kalpurush.ttf');
+  }
+  
+  
+  .customFont{
+    font-family: 'Roboto', 'Kalpurush';
+  }
+  
+  .customFontSingle{
+    font-family: 'Kalpurush';
+  }
+
+  /* .ng-invalid.ng-touched {
+    border: 6px solid red;
+  } */
+  .ngx-toastr {
+    width: 20px !important; 
+
+  }
+
+  
+  
+  
+
+
+  
+    

@@ -1,0 +1,176 @@
+<loading-image [is-loading]="isLoading"></loading-image>
+<div class="no-printme">
+    <div class="page-header d-flex align-items-center">
+        <h4 class="ml-3" style="color: #800000;">পুরস্কার মঞ্জুরির জন্য আবেদন পত্র</h4>
+    </div>
+</div>
+
+<div class="step-container form-container no-printme" *ngIf="temp?.applicationStatus === 'Submitted' ||
+    temp?.applicationStatus === 'Rejected' ||
+    temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'">
+        <div class="form-section">
+            <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="false"></p-steps>
+        </div>
+    </div>
+
+    <div class="step-container form-container no-printme" *ngIf="temp?.applicationStatus === 'Draft'">
+        <div class="form-section">
+            <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="true"></p-steps>
+        </div>
+    </div>
+
+    <div class="step-container form-container no-printme" *ngIf="pageStatus === 1">
+        <div class="form-section">
+            <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="true"></p-steps>
+        </div>
+    </div>
+
+<div class="bg">
+    <div class="form-container">
+        <form autocomplete="off">
+            <div class="form-section page2">
+                <div class="form-section-2 content2">
+                    <h6 style="text-align:center; line-height: 0.5;">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</h6>
+                    <h6 style="text-align:center; line-height: 0.5;">{{this.temp1?.officeName}}</h6>
+                    <h6 style="text-align:center; line-height: 0.5;" >{{this.temp1?.officeAddress}}|</h6>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-9 col-sm-9">
+                            <p>
+                                নথি নং- {{this.temp1?.referenceNo}}
+                            </p>
+                        </div>
+                        <div class="col-md-3 col-sm-3 ">
+                            <p style="text-align: right;">
+                                কাস্টমস পুরস্কার নথি ক্রম: {{this.temp1?.customsRewardFileNumber}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row mb-1">
+                        <div class="col-md-9 col-sm-9">
+                            <p>
+                                প্রেরক : কমিশনার অব কাস্টমস
+                            </p>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <p style="text-align: right;">
+                                তারিখ: {{this.temp?.applicationDate | date: 'dd.MM.YYYY'}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6 col-sm-6">
+                            <p >
+                                প্রাপক : সদস্য (শুল্ক ও ভ্যাট প্রশাসন)
+                            </p>
+                            <p >
+                                <!-- &nbsp; &nbsp; &nbsp; &nbsp;  জাতীয় রাজস্ব বোর্ড -->
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   ও
+                            </p>
+                            <p >
+                                <!-- &nbsp; &nbsp; &nbsp; &nbsp;  রাজস্ব ভবন, আগারগাঁও, ঢাকা | -->
+                                &nbsp; &nbsp; &nbsp; &nbsp; সভাপতি, পুরস্কার মঞ্জুরী কমিটি।
+                            </p>
+                            <p>
+                                <!-- &nbsp; &nbsp; &nbsp; &nbsp;  রাজস্ব ভবন, আগারগাঁও, ঢাকা | -->
+                                &nbsp; &nbsp; &nbsp; &nbsp; দৃষ্টি আকর্ষণ: প্রথম সচিব (শুল্ক মূল্যায়ন)
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-8">
+                        <div class="col-md-12 col-sm-12">
+                            <!-- <p>
+                                বিষয়: {{this.temp1?.officeName}} এর বি/ই নং
+                                -{{this.temp1?.billOfEntryNo}}
+                                তাং-{{this.temp1?.anomalyCaptureDate | date:'YYYY-MM-dd'}} এর
+                                মাধ্যমে অসত্য ঘোষণায় আমদানিকৃত পণ্যচালান সংক্ষিপ্ত ন্যায়-নির্ণয়নের মাধ্যমে
+                                নিষ্পত্তিপূর্বক অতিরিক্ত রাজস্ব ও জরিমানা
+                                বাবদ {{this.temp1?.extraReceivedAmount}} টাকা আদায় করায়
+                                সংশ্লিষ্ট
+                                কর্মকর্তাগণের অনুকূলে {{this.temp1?.rewardableAmount}} টাকা
+                                চূড়ান্ত পুরস্কার মঞ্জুরি প্রদান প্রসঙ্গে
+                            </p> -->
+                            <table>
+                                <tr>
+                                    <td style=" vertical-align: top;">বিষয়</td><td style=" vertical-align: top;">&nbsp;:&nbsp;</td>
+                                    <td>
+                                      {{this.temp1?.officeName}} এর বি/ই নং
+                                - সি {{this.temp1?.billOfEntryNo}}
+                                তাং-{{this.temp1?.billOfEntryDate | date:'dd.MM.YYYY'}} এর
+                                মাধ্যমে অসত্য ঘোষণায় আমদানিকৃত পণ্যচালান সংক্ষিপ্ত ন্যায়-নির্ণয়নের মাধ্যমে
+                                নিষ্পত্তিপূর্বক অতিরিক্ত রাজস্ব ও জরিমানা
+                                বাবদ {{this.temp1?.extraReceivedAmount | currency}} টাকা আদায় করায়
+                                সংশ্লিষ্ট কর্মকর্তাগণের
+                                অনুকূলে {{this.temp1?.rewardableAmount | currency}}
+                                টাকা চূড়ান্ত পুরস্কার মঞ্জুরী প্রদান |
+                                <br>
+                                <br>
+                                <br>
+                                উপর্যুক্ত বিষয়ের প্রতি আপনার সদয় দৃষ্টি আকর্ষণপূর্বক জানানো যাচ্ছে যে, এ দপ্তরে দাখিলকৃত বিল অব এন্ট্রি 
+                                
+                                    </td>
+                                </tr>
+                            </table>
+                            <br>
+                            
+                            <!-- Customized by Arif -->
+                            <!-- Old -->
+                            <!-- <textarea disabled pInputTextarea rows="20" style="border-color:white; font-family: inherit !important; font-size: inherit;" class="form-control" >{{this.applicationCustomsStepTwoGroup?.applicationNarration}}</textarea> -->
+                            <!-- New -->
+
+                            <textarea *ngIf="temp?.applicationStatus !== 'Submitted' &&
+                            temp?.applicationStatus !== 'Rejected' &&
+                            temp?.applicationStatus !== 'Accepted' && temp?.applicationStatus !== 'Sattlement'" disabled id="textar" style="border-color:white; font-family: inherit !important; font-size: inherit; " class="form-control text-justify autosize" >{{this.applicationCustomsStepTwoGroup?.applicationNarration}}</textarea>
+                            <textarea *ngIf="temp?.applicationStatus === 'Submitted' ||
+                            temp?.applicationStatus === 'Rejected' ||
+                            temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'" disabled rows="20" id="textar" style="border-color:white; font-family: inherit !important; font-size: inherit; " class="form-control text-justify" >{{this.applicationCustomsStepTwoGroup?.applicationNarration}}</textarea>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-10 col-sm-10">
+                            <p><u>সংযুক্তি</u>:</p>
+                            <div *ngFor="let attachment of applicationAttachments; let i = index">
+                                &nbsp; &nbsp; &nbsp; &nbsp;{{i + 1}}. {{attachment.attachmentType}}
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 text-center">
+                            <hr>
+                            <p>
+                                {{this.temp1?.officeHeadsName}}
+                            </p>
+                            <p>
+                                কমিশনার
+                            </p>
+                            <p>
+                                {{this.temp1?.officeName}} {{this.temp1?.officeAddress}}|
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="steps-module form-container no-printme">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <button (click)="prevToApplicationCustomsStepTwo()" class="btn btn-primary">পূর্ববর্তী</button>
+                        </div>
+                        <div>
+                            <button (click)="printPreviewApplicationCustomsStepFour()" class="btn btn-primary">প্রিন্ট/ডাউনলোড করুন</button>
+                        </div>
+                        <div *ngIf="temp?.applicationStatus !== 'Submitted' &&
+                    temp?.applicationStatus !== 'Rejected' &&
+                    temp?.applicationStatus !== 'Accepted' &&
+                    temp?.applicationStatus !== 'Sattlement'">
+                            <button (click)="submitApplicationCustomsStepFour()" class="btn btn-primary">পরবর্তী</button>
+                        </div>
+                        <div *ngIf="temp?.applicationStatus === 'Submitted' ||
+                    temp?.applicationStatus === 'Rejected' ||
+                    temp?.applicationStatus === 'Accepted' || temp?.applicationStatus === 'Sattlement'">
+                            <button (click)="forwardToApplicationCustomsStepFive()" class="btn btn-primary">পরবর্তী পৃষ্ঠা</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <p-toast position="bottom-right" [baseZIndex]="50000"></p-toast>
+</div>

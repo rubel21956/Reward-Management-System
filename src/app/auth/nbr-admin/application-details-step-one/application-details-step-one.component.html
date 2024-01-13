@@ -1,0 +1,74 @@
+<div class="page-header d-flex align-items-center">
+    <h4 class="ml-3">আবেদন পত্র</h4>
+</div>
+
+<div class="bg">
+    <div class="row pt-4 mx-1 d-flex justify-content-center">
+        <div class="col-md-10">
+            <section id="specification">
+                <table cellpadding="0" cellspacing="0" class="view-table">
+                    <colgroup>
+                        <col class="name">
+                        <col class="value">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <td class="heading-row" colspan="4">বিস্তারিত আবেদনপত্র</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="name"> {{ 'কাস্টমস নথি ক্রয়' }}</td>
+                        <!--                        <td class="value">{{ application?.applicantName }}</td>-->
+                    </tr>
+                    <tr>
+                        <td class="name"> {{ 'রাজস্ব বোর্ডের নথি ক্রম' }}</td>
+                        <input class="form-control form-control-sm" formControlName="referenceNo" id="referenceNo"
+                               placeholder="নথিক্রম প্রদান করুন" type="text">
+                    </tr>
+                    <tr>
+                        <td class="name"> {{ 'প্রতিষ্ঠানের নাম ও ঠিকানা' }}</td>
+                        <!--                        <td class="value">{{ application?.mobileNo }}</td>-->
+                    </tr>
+                    <tr>
+                        <td class="name"> {{ 'সংক্ষিপ্ত বিবরণ / পুরস্কার দাবির কারণ' }}</td>
+                        <!--                        <td class="value">{{ application?.nidNumber }}</td>-->
+                    </tr>
+                    <tr>
+                        <td class="name"> {{ 'বি/ই নম্বর' }}</td>
+                        <!--                        <td class="value">{{ application?.dob | date: 'yyyy-MMM-dd' }}</td>-->
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+    <div class="row pt-6 mx-1 d-flex justify-content-center">
+        <div class="col-md-10">
+            <p-table [value]="products" responsiveLayout="scroll" styleClass="p-datatable-striped">
+                <ng-template pTemplate="header">
+                    <h5 class="d-flex align-items-center">আবেদনে দাবিকৃত টাকার বিভাজন</h5>
+                    <tr>
+                        <th style="background-color: #800000; color: white; text-align: center;">(নাম ও পদবি)</th>
+                        <th style="background-color: #800000; color: white; text-align: center;">টাকার পরিমাণ</th>
+                    </tr>
+                </ng-template>
+                <ng-template let-product pTemplate="body">
+                    <tr>
+                        <td>{{product.code}}</td>
+                        <td>{{product.name}}</td>
+                        <td>{{product.category}}</td>
+                        <td>{{product.quantity}}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+    <div class="row mx-1 my-3">
+        <div class="col-md-10 col-sm-10">
+        </div>
+        <div class="col-md-2 col-sm-2">
+            <button (click)="nextPage()" class="btn btn-primary">পরবর্তী</button>
+        </div>
+    </div>
+</div>

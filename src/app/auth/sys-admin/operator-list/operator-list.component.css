@@ -1,0 +1,33 @@
+.page-header{
+    width: calc(100% - 30px);
+    height: 67px;
+    margin: 108px 15px 0 15px;
+    padding: 5px;
+    background-color: #D9D9D9;
+    border-radius: 8px;
+}
+
+.btn-primary{
+    border: none;
+    background-color: #800000 !important;
+}
+
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('assets/fonts/roboto/Roboto-Regular.ttf');
+  }
+  
+  @font-face {
+    font-family: 'Kalpurush';
+    src: url('assets/fonts/kalpurush/kalpurush.ttf');
+  }
+  
+  
+  .customFont{
+    font-family: 'Roboto', 'Kalpurush';
+  }
+  
+  .customFontSingle{
+    font-family: 'Kalpurush';
+  }

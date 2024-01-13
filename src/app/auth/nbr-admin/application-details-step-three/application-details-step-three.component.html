@@ -1,0 +1,28 @@
+<div class="page-header d-flex align-items-center">
+    <h4 class="ml-3" style="color: #800000;">পুরস্কার মঞ্জুরীর জন্য আদেশ পত্র</h4>
+</div>
+
+<div class="bg">
+    <div class="form-container no-printme">
+        <form [formGroup]="applicationDetailsStepThreeGroup" autocomplete="off">
+            <div class="form-section">
+                <div class="form-section-2">
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <textarea
+                                    class="form-control" formControlName="applicationNarration"
+                                    id="applicationNarration" placeholder="বিবরণ" rows="30">
+                            </textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="py-3 px-3 d-flex justify-content-between align-items-center">
+                    <div>
+                        <button class="btn btn-primary">প্রিন্ট করুন</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <p-toast position="bottom-right"></p-toast>
+</div>

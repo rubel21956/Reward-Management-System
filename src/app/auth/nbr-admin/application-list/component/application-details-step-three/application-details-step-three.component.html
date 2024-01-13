@@ -1,0 +1,276 @@
+<loading-image [is-loading]="isLoading"></loading-image>
+<div class="no-printme">
+    <div class="page-header d-flex align-items-center justify-content-between">
+        <h4 class="ml-3" style="color: #800000;">পুরস্কার মঞ্জুরীর জন্য আদেশ পত্র</h4>
+        <h4 class="mr-3">ধাপ-৪/৪</h4>
+    </div>
+</div>
+
+<div class="bg customFont">
+    <div class="form-container">
+        <!-- <form [formGroup]="applicationDetailsStepThreeGroup" autocomplete="off">-->
+        <div class="form-section">
+            <div class="form-section-2 mb-6">
+                <h5 style="text-align:center; margin-bottom: 0.5px; line-height: 0.8; font-weight: normal;">
+                    গণপ্রজাতন্ত্রী বাংলাদেশ সরকার
+                </h5>
+                <!-- <h5 style="text-align:center; margin-bottom: 0.5px; line-height: 0.8; font-weight: normal;">
+                    {{applicationDetails?.officeName}}
+                </h5> -->
+                <h5 style="text-align:center; margin-bottom: 0.5px; line-height: 0.8; font-weight: normal;">
+                        জাতীয় রাজস্ব বোর্ড
+                </h5>
+                <!-- <h5 class="mb-4" style="text-align:center; line-height: 0.8; font-weight: normal;">
+                    {{applicationDetails?.officeAddress}}|
+                </h5> -->
+                <h5 class="mb-4" style="text-align:center; line-height: 0.8; font-weight: normal;">                 
+                        আগারগাও, ঢাকা।
+                </h5>
+                <div class="row mb-1">
+                    <div class="col-md-6 col-sm-8">
+                        <p style="font-size: 17pt;;;;">
+                            নথি নং- {{applicationDetails?.nbrRewardFileNumber}}
+                        </p>
+                    </div>
+                    <div class="col-md-6 col-sm-4 d-flex justify-content-end">
+                        <p style="font-size: 17pt;;;;">
+                            তারিখ: {{currentDate | date:'dd.MM.yyyy'}} খ্রি:
+                        </p>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <table style="font-size: 17pt;;;;" id="t">
+                            <td style="line-height: 1.5;"><b>বিষয়: &nbsp;</b></td>
+                            <td style="line-height: 1.5;"><b> {{getCurrentFiscalYear()}} অর্থবছরের বাজেটে ৩২১১- প্রশাসনিক ব্যয় খাতের
+                                    অধীনে ৩২১১১০১- পুরস্কার উপখাতের বরাদ্দ থেকে
+                                    শুল্ক (পুরস্কার মঞ্জুরী) বিধিমালা, ২০০৯ এর আওতায় পুরস্কার মঞ্জুরী আদেশ।</b></td>
+                        </table>
+                        <!-- <p><b>
+    বিষয়: ২০২১-২০২২ অর্থবছরের বাজেটে ৩২১১- প্রশাসনিক ব্যয় খাতের অধীনে ৩২১১১০১- পুরস্কার উপখাতের বরাদ্দ থেকে
+    শুল্ক (পুরস্কার মঞ্জুরী) বিধিমালা, ২০০৯ এর আওতায় পুরস্কার মঞ্জুরী আদেশ।
+    </b></p> -->
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <p style="font-size: 17pt;">
+                            সূত্র: (১) {{applicationDetails?.officeName}} এর পত্র নথি
+                            নং-{{applicationDetails?.referenceNo}},
+                            তারিখ: {{applicationDetailsForApplicationDate?.applicationDate | date:'dd.MM.yyyy'}} খ্রি;
+                        </p>
+                        <p class="pl-5" style="font-size: 17pt;">
+                            (২) বিল অফ এন্ট্রি নম্বর-{{applicationDetails?.billOfEntryNo}},
+                            তারিখ: {{applicationDetails?.anomalyCaptureDate | date:'dd.MM.yyyy'}} খ্রি;
+                        </p>
+                        <p class="pl-5" style="font-size: 17pt;;;;">
+                            (৩) শুল্ক পুরস্কার মঞ্জুরী কমিটির {{applicationDetails1?.customsAwardSanctioningCommittee | date:'dd.MM.yyyy'}} খ্রি:
+                            তারিখে অনুষ্ঠিত সভার সুপারিশ।
+                        </p>
+                    </div>
+                </div>
+                <div class="row mb-3 pl-5">
+                    <div class="col-md-12">
+                        <p style="line-height: 1.5; font-size: 17pt;;;;">
+                            উপর্যুক্ত বিষয় ও সূত্রের প্রেক্ষিতে শুল্ক-কর ফাঁকি রোধে ও কৃতিত্বপূর্ণ অবসানের জন্য
+                            শুল্ক (পুরস্কার মঞ্জুরী) বিধিমালা, ২০০৯
+                            অনুযায়ী নিম্নবর্ণিত কর্মকর্তা-কর্মচারীগণের নাম প্রদর্শিত পরিমাণ পুরস্কারের অর্থ মঞ্জুরী
+                            আদেশ জ্ঞাপন করা হল:
+                        </p>
+                    </div>
+                </div>
+                <!-- Table space -->
+
+                <table class="mb-3" style="font-size: 17pt;" id="tt">
+                    <thead>
+                        <tr class="" style="text-align: center; font-size: 17pt;">
+                            <th scope="col">ক্রমিক নং</th>
+                            <th scope="col">কর্মকর্তা-কর্মচারীগণের নাম ও পদবী</th>
+                            <th scope="col">বিভাজনকৃত টাকার পরিমাণ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="font-size: 17pt; text-align: left;"
+                            *ngFor="let rewardAmount of tableData; let i = index">
+                            <th class="text-center col-md-2" scope="row" data-toggle="tooltip">{{i+1}}</th>
+                            <td
+                                *ngIf="rewardAmount.designation == '' || rewardAmount.designation == 'তথ্য সরবরাহকারী' || rewardAmount.designation == 'জারাবো এর কল্যাণ তহবিল' || rewardAmount.designation == 'কাস্টমস হাউস এর কল্যাণ তহবিল'">
+                                {{rewardAmount?.employeeName}}</td>
+                            <td 
+                                *ngIf="rewardAmount.designation != '' && rewardAmount.designation != 'তথ্য সরবরাহকারী' && rewardAmount.designation != 'জারাবো এর কল্যাণ তহবিল' && rewardAmount.designation != 'কাস্টমস হাউস এর কল্যাণ তহবিল'">
+                                {{rewardAmount?.employeeName}}, {{rewardAmount?.designation}}</td>
+                            <td style="text-align: center; width: 25%;">{{(rewardAmount?.rewardedAmount).toLocaleString('en-IN')}} &nbsp; &nbsp;</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr style="font-weight: bold;">
+                            <td></td>
+                            <td class="text-left">সর্বমোট=  &nbsp; </td>
+                            <td class="text-center">{{(applicationDetails?.totalRewardedAmount).toLocaleString('en-IN')}} &nbsp; &nbsp;</td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+
+
+                <div class="row mb-1 pl-1">
+                    <div class="col-md-12">
+                        <p style="line-height: 1.5; font-size: 17pt;;;;" class="text-justify">
+                            ০২। এ ব্যয় {{applicationDetails?.officeName}}-এর {{getCurrentFiscalYear()}} অর্থবছরের বাজেটে
+                            ৩২১১-প্রশাসনিক ব্যয় খাতের অধীনে ৩২১১১০১-পুরস্কার এর বরাদ্দ হতে মেটানো হবে।
+                            যদি বর্তমান অর্থবছরে বরাদ্দকৃত অর্থের সংকুলান না হয়, তবে পরবর্তীতে অর্থ বরাদ্দ পাওয়া
+                            সাপেক্ষে পূর্বের ব্যয় মেটানো যাবে।
+                            মঞ্জুরীপত্রে উল্লিখিত পুরস্কারের অর্থ ইতোপূর্বে প্রদান করা হয়নি- এ মর্মে নিশ্চিত হয়ে অর্থ
+                            পরিশোধের ব্যবস্থা গ্রহণ করতে হবে।
+                        </p>
+                    </div>
+                </div>
+                <div class="row mb-4 pl-1 mb-8">
+                    <div class="col-md-12">
+                        <p style="line-height: 1.5; font-size: 17pt;;;;" class="text-justify">
+                            ০৩। এ মঞ্জুরীপত্র অর্থ ও পরিকল্পনা মন্ত্রণালয়ের আদেশ নং- এম, এফ,
+                            পি এফপিইসি-১/ডিপি-০৩/৮৪-৯২, তারিখ: ২০.০৩.১৯৮৪ খ্রি:
+                            মোতাবেক জাতীয় রাজস্ব বোর্ডকে প্রদত্ত ক্ষমতাবলে এবং শুল্ক (পুরস্কার) মঞ্জুরী কমিটির
+                            প্রস্তাব অনুযায়ী যথাযথ কর্তৃপক্ষের অনুমোদন সাপেক্ষে জারি করা হলো।
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6 d-flex justify-content-end pr-7">
+                        <p style="font-size: 17pt;;;; line-height: 0.5;">
+                            &nbsp; &nbsp;[রাকিবুল হাসান]
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-sm-3">
+                        <p style="font-size: 17pt;;; line-height: 0.5;">
+                            <b>প্রাপক: কমিশনার</b>
+                        </p>
+                    </div>
+                    <div class="col-md-19 col-sm-9 d-flex justify-content-end pr-8">
+                        <p style="font-size: 17pt;;;; line-height: 0.5">
+                            প্রথম সচিব
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-4">
+                        <p class="pl-4" style="font-size: 17pt;;;; line-height: 0.5">
+                            &nbsp; &nbsp; {{applicationDetails?.officeName}}।
+                        </p>
+                    </div>
+                    <div class="col-md-8 col-sm-8 d-flex justify-content-end pr-6">
+                        <p style="font-size: 17pt;;;; line-height: 0.5">
+                            &nbsp; জাতীয় রাজস্ব বোর্ড, ঢাকা।
+                        </p>
+                    </div>
+                </div>
+                <!-- <div class="row pb-1">
+                    <div class="col-md-2 col-sm-2"></div>
+                    <div class="col-md-10 col-sm-10 d-flex justify-content-end pr-5">
+                        <p style="font-size: 17pt;;;; line-height: 0.5 ">
+                            ফোন- ০২-৪৮৩১৮১২০-৬/ এক্স- ০৬৪০
+                        </p>
+                    </div>
+                </div> -->
+                <div class="row pb-1">
+                    <div class="col-md-8 col-sm-8 pl-1 mt-4">
+                        <p style="font-size: 17pt;;;; line-height: 0.1; padding-left: 10px;">
+                            নথি নং- {{applicationDetails?.nbrRewardFileNumber}}
+                        </p>
+                    </div>
+                    <!-- <div class="col-md-4 col-sm-4 d-flex justify-content-end pr-6">
+                        <p style="font-size: 17pt;;;; line-height: 0.5">
+                            তারিখ: {{currentDate | date:'dd.MM.yyyy'}} খ্রি:
+                        </p>
+                    </div> -->
+                </div>
+                <div class="row pb-1">
+                    <div class="col-md-9 col-sm-9">
+                        <p style="font-size: 17pt;;;;"><u>
+                            অনুলিপি সদয় অবগতি ও প্রয়োজনীয় ব্যবস্থা গ্রহণার্থে  প্রেরণ করা হলো:</u>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <p style="font-size: 17pt;;;;">০১।&nbsp;&nbsp;&nbsp;&nbsp;প্রধান হিসাবরক্ষণ কর্মকর্তা,
+                            অভ্যন্তরীণ সম্পদ বিভাগ, সিজিএ
+                            ভবন, সেগুনবাগিচা, ঢাকা;</p>
+                        <p style="font-size: 17pt;;;;">
+                            ০২।&nbsp;&nbsp;&nbsp;&nbsp;জনাব/বেগম....................................................................................................;
+                        </p>
+                        <p style="font-size: 17pt;;;;">০৩।&nbsp;&nbsp;&nbsp;&nbsp;বিভাগীয় হিসাব রক্ষণ কর্মকর্তা, বিভাগীয়
+                            হিসাব রক্ষণ কর্মকর্তার
+                            কার্যালয়, .................;</p>
+                        <p style="font-size: 17pt;;;;">০৪।&nbsp;&nbsp;&nbsp;&nbsp;দ্বিতীয় সচিব (বোর্ড প্রশাসন-৫), জাতীয়
+                            রাজস্ব বোর্ড,
+                            আগারগাঁও, ঢাকা;</p>
+                        <p style="font-size: 17pt;;;;">০৫।&nbsp;&nbsp;&nbsp;&nbsp;হিসাবরক্ষণ কর্মকর্তা, জাতীয় রাজস্ব
+                            বোর্ড, আগারগাঁও,
+                            ঢাকা;</p>
+                        <p style="font-size: 17pt;;;">০৬।&nbsp;&nbsp;&nbsp;&nbsp;সভাপতি, কর্মকর্তা/কর্মচারী কল্যাণ
+                            তহবিল, জাতীয় রাজস্ব বোর্ড,
+                            ঢাকা;</p>
+                        <p style="font-size: 17pt;;;;">০৭।&nbsp;&nbsp;&nbsp;&nbsp;অফিস কপি/ গার্ড নথি।</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-sm-6"></div>
+                    <div class="col-md-6 col-sm-6 d-flex justify-content-end pr-6">
+                        <p style="font-size: 17pt;;;; line-height: 0.5;">
+                            [রাকিবুল হাসান]
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-sm-2"></div>
+                    <div class="col-md-10 col-sm-10 d-flex justify-content-end pr-7">
+                        <p style="font-size: 17pt;;;; line-height: 0.5;">
+                            প্রথম সচিব।
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="py-3 px-3 d-flex justify-content-between align-items-center no-printme">
+                <div>
+                    <button (click)="prevToApplicationDetailsStepTwoAccepted()"
+                        class="btn btn-primary no-printme">পূর্ববর্তী</button>
+                </div>
+                <div>
+                    <button (click)="printPreviewApplicationDetailsStepThree()"
+                        class="btn btn-primary no-printme">প্রিন্ট করুন</button>
+                </div>
+                <div>
+                    <button [disabled]="applicationDetails2?.applicationStatus === 'Accepted'"
+                        (click)="submitApplicationDetailsStepThree()" class="btn btn-primary no-printme">জমা
+                        দিন</button>
+                </div>
+            </div> -->
+            
+
+            <div class="fixed-bottom flex-row d-flex justify-content-center mb-1 ml-8 pl-7">
+                <div class="d-flex bg-white justify-content-between p-1 ml-8" style="width: 88%; border-radius: 10px;">
+                    <div class="col-md-3 col-sm-3 no-printme p-0">
+                        <button (click)="prevToApplicationDetailsStepTwoAccepted()" class="btn btn-primary no-printme">পূর্ববর্তী</button>
+                    </div>
+                    <div class="col-md-3 col-sm-3 no-printme d-flex justify-content-center">                        
+                        <button (click)="printPreviewApplicationDetailsStepThree()" class="btn btn-primary no-printme">প্রিন্ট করুন</button>
+                    </div>
+                    <div class="col-md-3 col-sm-3 no-printme d-flex justify-content-center" *ngIf="applicationDetails2?.applicationStatus !== 'Sattlement'">                        
+                        <button [disabled]="applicationDetails2?.applicationStatus !== 'Accepted' || applicationDetails2?.applicationStatus == 'Sattlement'" (click)="submitApplicationDetailsStepThreeforSattalement()" class="btn btn-primary no-printme">মীমাংসিত</button>
+                    </div>
+                    <div class="col-md-3 col-sm-3 no-printme p-0 justify-content-end d-flex">
+                        <button [disabled]="applicationDetails2?.applicationStatus === 'Accepted' || applicationDetails2?.applicationStatus == 'Sattlement'" (click)="submitApplicationDetailsStepThree()" class="btn btn-primary no-printme">জমা দিন</button>
+                    </div>                   
+                </div>
+            </div> 
+            
+        </div>
+        <!-- </form>-->
+    </div>
+    <p-toast position="bottom-right" baseZIndex="20000"></p-toast>
+</div>

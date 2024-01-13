@@ -1,0 +1,62 @@
+<loading-image [is-loading]="isLoading"></loading-image>
+<div class="print-me">
+    <div class="page-header d-flex align-items-center">
+        <h4 class="ml-3">ডাটা এন্ট্রি অপারেটর পাসওয়ার্ড রিসেট এর তালিকা</h4>
+    </div>
+</div>
+    <div class="row container-fluid p-4 ">
+       
+        <p-table [value]="userData" responsiveLayout="scroll" styleClass="p-datatable-striped">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="background-color: #800000; color: white; text-align: center;">ক্রমিক নং</th>
+                    <th style="background-color: #800000; color: white; text-align: center;">ডাটা এন্ট্রি অপারেটর এর নাম</th>
+                    <th style="background-color: #800000; color: white; text-align: center;">ইউজার আইডি</th>
+                    <th style="background-color: #800000; color: white; text-align: center;">ই-মেইল</th>
+                    <th style="background-color: #800000; color: white; text-align: center;">অবস্থা</th>
+                    <th class="no-printme" style="background-color: #800000; color: white; text-align: center;">প্রক্রিয়া</th>
+                </tr>
+            </ng-template>
+            <ng-template let-i="rowIndex" let-list pTemplate="body">
+                <tr *ngIf="list.reset">
+                    <td class="text-truncate text-center" data-toggle="tooltip" title="{{i+1}}">{{i + 1}}</td>
+                    <td class="customFont" style="text-align: center;">{{list.name}}</td>
+                    <td class="customFont" style="text-align: center;">{{list.userId}}</td>
+                    <td style="text-align: center;" class="customFont">{{list.officeName}}</td>
+                    <td style="text-align: center;">{{list.status}}</td>
+                    <td class="no-printme" style="text-align: center;">
+                        <button (click)="sendEmailToUser(list.userId)" pButton
+                                class="custom-file-upload  align-self-start"
+                                style="background-color: #800000;"><i class="pi pi-angle-double-up"></i>রিসেট করুন</button>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template let-columns pTemplate="emptymessage">
+                <tr>
+                    <td [attr.colspan]="5" style="text-align: center;">
+                        {{ 'কোনো তথ্য খুঁজে পাওয়া যায় নি' }}
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+
+    <p-dialog [(visible)]="confirmModal" [draggable]="false" [modal]="true" [resizable]="false"
+    [style]="{width: '50vw'}" header="ই-মেইল তথ্য">
+<h5 style="color: red;">রিসেট পাসওয়ার্ডটি ইউজারের ই-মেইলে পাঠানো হয়েছে।</h5>
+<ng-template pTemplate="footer">
+  <p-button (click)="confirmModal=false; pageReload()" icon="pi pi-check" label="ওকে"
+            styleClass="p-button-text p-button-danger"></p-button>
+</ng-template>
+</p-dialog>
+
+<!-- <p-dialog [(visible)]="confirmModal2" [draggable]="false" [modal]="true" [resizable]="false"
+[style]="{width: '50vw'}" header="ই-মেইল তথ্য">
+<h5 style="color: red;">আপনি কি ইউজার কে opt পাঠাতে চান?</h5>
+<ng-template pTemplate="footer">
+<p-button (click)="confirmModal=false;" icon="pi pi-check" label="হাঁ"
+        styleClass="p-button-text p-button-danger"></p-button>
+        <p-button (click)="confirmModal2=false;" icon="pi pi-check" label="না"
+        styleClass="p-button-text p-button-danger"></p-button>
+</ng-template>
+</p-dialog> -->

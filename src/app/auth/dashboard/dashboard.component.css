@@ -1,0 +1,78 @@
+/* #chart {
+    padding: 0;
+    max-width: 650px;
+    margin: 35px auto;
+} */
+
+/* #chart {
+    max-width: 380px;
+    margin: 35px auto;
+    padding: 0;
+  } */
+
+#chart1 {
+    max-width: 650px;
+    margin: 35px auto;
+}
+
+#chart2 {
+    max-width: 950px;
+    margin: 35px auto;
+}
+
+.page-header{
+    width: calc(100% - 30px);
+    height: 67px;
+    margin: 108px 15px 0 15px;
+    padding: 5px;
+    background-color: #D9D9D9;
+    border-radius: 8px;
+}
+
+.btn-primary{
+    border: none;
+    background-color: #800000 !important;
+}
+
+.card-background{
+    background-color: #800000;
+    color: white;
+}
+
+.dashboardHeader{
+    background-color: #D9D9D9;
+}
+
+.transitionEffect{
+    z-index: 1;
+    transform: scale(100%);
+    transition-property: transform;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in; 
+}
+
+.transitionEffect:hover{
+    z-index: 1000;
+    transform: scale(120%);
+   transition: transform 400ms ease-out;
+   
+    
+}
+
+/* #apexcharts-legend-text{
+    font-size: 16px !important;
+} */
+
+.apexcharts-legend-series{
+    color: blue !important;
+}
+
+.apexcharts-legend-text{
+    color:#800000 !important;
+}
+
+#apex2 {
+    
+   font-size: large !important;
+}
+
