@@ -374,14 +374,14 @@ $V{REPORT_COUNT}.toString()]]></textFieldExpression>
 						<textElement textAlignment="Center">
 							<font fontName="SolaimanLipi" size="12"/>
 						</textElement>
-						<text><![CDATA[[রাকিবুল হাসান]]]></text>
+						<text><![CDATA[[মোঃ আব্দুল কাইয়ুম]]]></text>
 					</staticText>
 					<staticText>
 						<reportElement positionType="Float" x="361" y="89" width="120" height="20" uuid="14aba4ee-7dc5-4c53-abf3-70465ca8311f"/>
 						<textElement textAlignment="Center">
 							<font fontName="SolaimanLipi" size="12"/>
 						</textElement>
-						<text><![CDATA[প্রথম সচিব]]></text>
+						<text><![CDATA[দ্বিতীয় সচিব]]></text>
 					</staticText>
 					<staticText>
 						<reportElement positionType="Float" x="361" y="109" width="120" height="20" uuid="673c43de-3599-416c-8671-782f5224a88c"/>

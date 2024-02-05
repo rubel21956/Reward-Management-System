@@ -4,8 +4,8 @@
 
 export const environment = {
   production: true,
-  // authUrl: 'http://localhost:8090',
-  // resourceUrl: 'http://localhost:8081'
+  authUrl: 'http://localhost:8090',
+  resourceUrl: 'http://localhost:8081'
 };
 
 /*
